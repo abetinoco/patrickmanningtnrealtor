@@ -2,6 +2,7 @@ import { Seo } from '../components/seo/Seo'
 import { defaultMeta } from '../seo/metaDefaults'
 import { PageHeader } from '../components/shared/PageHeader'
 import { agentProfile } from '../data/agent'
+import { Link } from 'react-router-dom'
 import styles from './About.module.css'
 
 const About = () => (
@@ -271,9 +272,9 @@ const About = () => (
             home today.
           </p>
         </div>
-        <a className={styles.ctaButton} href="/contact">
+        <Link to="/contact" className={styles.ctaButton}>
           Ready to find your dream home?
-        </a>
+        </Link>
       </div>
     </section>
   </div>

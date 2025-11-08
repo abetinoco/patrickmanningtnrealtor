@@ -9,6 +9,7 @@ import { SoldListings } from '../components/listings/SoldListings'
 import { AdvisoryProcess } from '../components/process/AdvisoryProcess'
 import { LeadCaptureForm } from '../components/forms/LeadCaptureForm'
 import { agentProfile } from '../data/agent'
+import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
 
 const agentSchema = buildAgentSchema()
@@ -74,9 +75,9 @@ const Home = () => (
             your relocation or investment timeline.
           </p>
         </div>
-        <a className={styles.homeCtaButton} href="/buy">
+        <Link to="/buy" className={styles.homeCtaButton}>
           Ready to shop your dream home?
-        </a>
+        </Link>
       </div>
     </section>
   </div>
