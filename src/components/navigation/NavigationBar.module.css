@@ -1,0 +1,188 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  background: rgba(12, 12, 14, 0.85);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100% - 2 * var(--space-xl), var(--max-width-wide));
+  margin: 0 auto;
+  padding: var(--space-md) 0;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  text-decoration: none;
+}
+
+.brandName {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-primary);
+}
+
+.brandTagline {
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.brandTagline::before {
+  content: 'REAL BROKER';
+  color: var(--color-brand);
+  text-shadow: 
+    0 0 10px rgba(109, 195, 219, 0.6),
+    0 0 20px rgba(109, 195, 219, 0.4),
+    0 0 30px rgba(109, 195, 219, 0.2);
+}
+
+.divider {
+  color: var(--color-text-secondary);
+}
+
+.luxuryText {
+  color: #D4AF37;
+  text-shadow: 
+    0 0 10px rgba(212, 175, 55, 0.6),
+    0 0 20px rgba(212, 175, 55, 0.4),
+    0 0 30px rgba(212, 175, 55, 0.2);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.navLink {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: var(--space-2xs) 0;
+  transition: color var(--transition-base);
+  text-decoration: none;
+}
+
+.navLink:hover,
+.navLink:focus {
+  color: var(--color-brand);
+}
+
+.navLinkActive {
+  color: var(--color-brand);
+  text-shadow: 
+    0 0 10px rgba(109, 195, 219, 0.6),
+    0 0 20px rgba(109, 195, 219, 0.4),
+    0 0 30px rgba(109, 195, 219, 0.2);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-sm);
+  align-items: center;
+}
+
+.contactChip {
+  background: var(--color-brand-soft);
+  border-radius: 999px;
+  padding: var(--space-2xs) var(--space-sm);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  color: var(--color-brand);
+}
+
+.menuButton {
+  display: none;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: var(--color-text-primary);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2xs) var(--space-sm);
+}
+
+.mobileMenu {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .navLinks,
+  .actions {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+    gap: var(--space-xs);
+    align-items: center;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .mobileMenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md) var(--space-xl);
+    background: rgba(15, 15, 16, 0.95);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .mobileLink {
+    color: var(--color-text-primary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: var(--space-xs) 0;
+    display: block;
+  }
+
+  .mobileLink:hover,
+  .mobileLink:focus {
+    color: var(--color-brand);
+  }
+
+  .mobileSubMenu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xs);
+    padding-left: var(--space-md);
+    margin-top: var(--space-2xs);
+    margin-bottom: var(--space-xs);
+  }
+
+  .mobileSubLink {
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    padding: var(--space-2xs) 0;
+    display: block;
+  }
+
+  .mobileSubLink:hover,
+  .mobileSubLink:focus {
+    color: var(--color-brand);
+  }
+
+  .mobileGroupLabel {
+    margin-top: var(--space-sm);
+    font-size: 0.75rem;
+    letter-spacing: 0.24em;
+    color: var(--color-text-secondary);
+  }
+}

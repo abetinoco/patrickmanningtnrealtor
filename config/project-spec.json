@@ -1,0 +1,137 @@
+{
+  "agent": {
+    "name": "Patrick Manning",
+    "designation": "Luxury Real Estate Advisor",
+    "brokerage": "Real Broker, LLC",
+    "licenses": ["341965", "291536"],
+    "phone": "+1 615-302-8000",
+    "email": "pmanningtnrealtor@gmail.com",
+    "serviceAreas": [
+      "Middle Tennessee",
+      "Greater Nashville",
+      "Williamson County",
+      "Maury County",
+      "Southern Kentucky Border Communities"
+    ],
+    "valueMetrics": {
+      "grossSalesSince2018": "$60M+",
+      "familiesRelocated": "125+",
+      "yearsExperience": "10+"
+    }
+  },
+  "routes": [
+    {
+      "path": "/",
+      "label": "Home",
+      "components": [
+        "NavigationBar",
+        "HeroBanner",
+        "QuickLinksGrid",
+        "CredibilitySection",
+        "ServiceTierSection",
+        "ListingShowcase",
+        "LeadCaptureForm",
+        "AdvisoryProcess",
+        "TestimonialCarousel",
+        "MarketSnapshotSection",
+        "BlogHighlights",
+        "FooterSocialDisclosure"
+      ]
+    },
+    {
+      "path": "/buy",
+      "label": "Buy",
+      "children": [
+        { "path": "/buy", "label": "All Listings" },
+        { "path": "/buy/featured", "label": "Featured Listings" },
+        { "path": "/buy/sold", "label": "Sold Listings" }
+      ]
+    },
+    {
+      "path": "/sell",
+      "label": "Sell",
+      "children": [
+        { "path": "/sell", "label": "Sell My Home" },
+        { "path": "/sell/valuation", "label": "Home Valuation" }
+      ]
+    },
+    {
+      "path": "/about",
+      "label": "About"
+    },
+    {
+      "path": "/contact",
+      "label": "Contact"
+    },
+    {
+      "path": "/reviews",
+      "label": "Reviews"
+    },
+    {
+      "path": "/blog",
+      "label": "Resources"
+    },
+    {
+      "path": "/market-snapshot",
+      "label": "Market Snapshot"
+    }
+  ],
+  "components": {
+    "layout": ["MainLayout", "NavigationBar", "FooterSocialDisclosure", "PageHeader"],
+    "hero": ["HeroBanner"],
+    "cards": ["QuickLinksGrid", "ListingCard", "BlogHighlights"],
+    "listings": ["ListingShowcase"],
+    "content": ["ServiceTierSection", "CredibilitySection", "AdvisoryProcess", "TestimonialCarousel", "MarketSnapshotSection"],
+    "forms": ["LeadCaptureForm"],
+    "seo": ["Seo"],
+    "utilities": ["format", "schema"]
+  },
+  "styleTokens": {
+    "colors": {
+      "background": "#0F0F10",
+      "surface": "#151517",
+      "surfaceMuted": "#1F1F23",
+      "accent": "#D9D9D6",
+      "accentSecondary": "#8C939C",
+      "textPrimary": "#F5F5F2",
+      "textSecondary": "#C0C2C7"
+    },
+    "fonts": {
+      "heading": "Playfair Display",
+      "body": "Inter"
+    },
+    "spacingScale": ["0.25rem", "0.5rem", "0.75rem", "1rem", "1.5rem", "2rem", "3rem", "4rem"],
+    "shadow": {
+      "soft": "0 10px 30px rgba(0,0,0,0.25)",
+      "strong": "0 30px 60px rgba(0,0,0,0.45)"
+    }
+  },
+  "conversion": {
+    "formFields": ["name", "email", "phone", "interest", "state", "notes"],
+    "interestOptions": ["buying", "selling", "relocating", "investing"],
+    "crmEndpointEnv": "VITE_CRM_ENDPOINT",
+    "fallback": "Logs payload when endpoint missing; surfaces success/error message inline"
+  },
+  "performance": {
+    "targets": {
+      "initialLoadSeconds": 2,
+      "lcp": "< 2.5s",
+      "fid": "< 100ms",
+      "cls": "< 0.1"
+    },
+    "techniques": [
+      "Code-split routes with React.lazy",
+      "Lazy-load listing and blog imagery",
+      "Preload critical fonts via @fontsource",
+      "Use CSS variables for theme control"
+    ]
+  },
+  "cms": {
+    "dataSources": {
+      "listings": "src/data/listings.ts",
+      "testimonials": "src/data/testimonials.ts",
+      "blog": "src/data/blog.ts"
+    },
+    "futureIntegration": "Replace static JSON with headless CMS or IDX feed while preserving component contracts"
+  }
+}

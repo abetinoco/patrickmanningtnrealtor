@@ -1,0 +1,105 @@
+.section {
+  position: relative;
+  padding: var(--space-4xl) 0;
+  background: linear-gradient(135deg, rgba(109, 195, 219, 0.03), rgba(15, 15, 16, 0.95));
+  overflow: hidden;
+}
+
+.timeline {
+  position: relative;
+  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
+  margin: var(--space-xl) auto 0;
+  display: grid;
+  gap: var(--space-lg);
+  padding-left: var(--space-3xl);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--space-xl) - 2px);
+  top: calc(-1 * var(--space-lg));
+  bottom: calc(-1 * var(--space-lg));
+  width: 2px;
+  background: linear-gradient(180deg, rgba(109, 195, 219, 0.3), rgba(109, 195, 219, 0.8));
+}
+
+.step {
+  position: relative;
+  background: linear-gradient(135deg, rgba(109, 195, 219, 0.08), rgba(21, 21, 23, 0.6));
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(109, 195, 219, 0.2);
+  padding: var(--space-xl) var(--space-xl) var(--space-xl) calc(var(--space-xl) + var(--space-lg));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  overflow: hidden;
+}
+
+.step::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(109, 195, 219, 0.24) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(109, 195, 219, 0.25);
+}
+
+.step::before {
+  content: attr(data-step);
+  position: absolute;
+  left: calc(-1 * var(--space-xl));
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 3rem;
+  height: 3rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-brand), var(--color-brand-strong));
+  color: var(--color-text-primary);
+  letter-spacing: 0.18em;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  box-shadow: 0 8px 16px rgba(109, 195, 219, 0.25);
+}
+
+.stepTitle {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.stepDescription {
+  position: relative;
+  z-index: 1;
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 640px) {
+  .timeline {
+    padding-left: var(--space-2xl);
+  }
+
+  .timeline::before {
+    left: calc(var(--space-lg) - 2px);
+  }
+
+  .step {
+    padding: var(--space-lg) var(--space-lg) var(--space-lg) calc(var(--space-lg) + var(--space-md));
+  }
+
+  .step::before {
+    width: 2.4rem;
+    height: 2.4rem;
+    font-size: 0.75rem;
+  }
+}

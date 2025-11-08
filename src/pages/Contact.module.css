@@ -1,0 +1,180 @@
+.wrapper {
+  padding: var(--space-4xl) 0;
+  background: linear-gradient(135deg, rgba(109, 195, 219, 0.03), rgba(15, 15, 16, 0.95));
+}
+
+.grid {
+  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-2xl);
+  align-items: start;
+}
+
+.panel {
+  background: linear-gradient(135deg, rgba(109, 195, 219, 0.08), rgba(21, 21, 23, 0.6));
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(109, 195, 219, 0.2);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  align-self: start;
+  height: fit-content;
+}
+
+.panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(109, 195, 219, 0.24) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(109, 195, 219, 0.2);
+}
+
+.panel h2,
+.panel h3 {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.panel h2 {
+  margin-bottom: var(--space-xs);
+}
+
+.panel > div {
+  position: relative;
+  z-index: 1;
+}
+
+.detailList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  color: var(--color-text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.officeGrid {
+  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
+  margin: var(--space-4xl) auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-2xl);
+}
+
+.officeCard {
+  position: relative;
+  background: linear-gradient(135deg, rgba(109, 195, 219, 0.08), rgba(21, 21, 23, 0.6));
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(109, 195, 219, 0.2);
+  padding: var(--space-2xl);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  overflow: hidden;
+  text-align: center;
+}
+
+.officeCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(109, 195, 219, 0.24) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.officeCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(109, 195, 219, 0.25);
+}
+
+.officeTitle {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 var(--space-md) 0;
+  position: relative;
+  z-index: 1;
+}
+
+.officeAddress {
+  font-style: normal;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.mapContainer {
+  margin-top: var(--space-lg);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.mapContainer iframe {
+  display: block;
+  filter: grayscale(20%) contrast(1.1);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    padding: var(--space-3xl) 0;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .officeGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  
+  .panel {
+    padding: var(--space-lg);
+  }
+  
+  .officeCard {
+    padding: var(--space-xl);
+  }
+  
+  .officeTitle {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    padding: var(--space-2xl) 0;
+  }
+  
+  .grid {
+    width: min(100% - 2 * var(--space-md), var(--max-width-container));
+  }
+  
+  .officeGrid {
+    width: min(100% - 2 * var(--space-md), var(--max-width-container));
+  }
+}

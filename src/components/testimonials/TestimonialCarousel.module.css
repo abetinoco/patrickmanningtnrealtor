@@ -1,0 +1,63 @@
+.section {
+  padding: var(--space-4xl) 0;
+  background: var(--color-background);
+}
+
+.carousel {
+  width: min(100% - 2 * var(--space-xl), var(--max-width-wide));
+  margin: 0 auto;
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 360px);
+  gap: var(--space-lg);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--space-sm);
+}
+
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  display: grid;
+  gap: var(--space-sm);
+  scroll-snap-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: var(--shadow-soft);
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.quote {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--color-text-primary);
+  line-height: 1.6;
+}
+
+.client {
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.result {
+  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .track {
+    grid-auto-columns: minmax(240px, 80%);
+  }
+}

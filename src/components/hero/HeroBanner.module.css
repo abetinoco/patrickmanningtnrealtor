@@ -1,0 +1,123 @@
+.hero {
+  position: relative;
+  min-height: clamp(70vh, 80vh, 90vh);
+  display: grid;
+  place-items: center;
+  color: var(--color-text-primary);
+  overflow: hidden;
+}
+
+.backgroundMedia {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.8);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, rgba(15, 15, 16, 0.8), rgba(15, 15, 16, 0.4));
+}
+
+.content {
+  position: relative;
+  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
+  margin: 0 auto;
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.kicker {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-brand);
+  text-shadow: 
+    0 0 10px rgba(109, 195, 219, 0.6),
+    0 0 20px rgba(109, 195, 219, 0.4),
+    0 0 30px rgba(109, 195, 219, 0.2);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.2rem);
+  max-width: 18ch;
+  line-height: 1.1;
+}
+
+.subtitle {
+  max-width: 60ch;
+  color: var(--color-text-secondary);
+  font-size: clamp(1rem, 2vw, 1.15rem);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.actions a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-lg);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  transition: background var(--transition-base), color var(--transition-base);
+}
+
+.secondaryButton:hover,
+.secondaryButton:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.statsBar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.statValue {
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  font-family: var(--font-serif);
+}
+
+.statLabel {
+  color: var(--color-text-secondary);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+@media (max-width: 640px) {
+  .content {
+    padding: var(--space-3xl) 0 var(--space-2xl);
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .statsBar {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+}

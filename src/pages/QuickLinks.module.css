@@ -1,0 +1,161 @@
+.page {
+  min-height: 100vh;
+  background: var(--color-background);
+  padding: var(--space-2xl) var(--space-md);
+}
+
+.container {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-brand), var(--color-brand-strong));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 auto var(--space-md);
+  box-shadow: 0 10px 30px rgba(109, 195, 219, 0.3);
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-primary);
+}
+
+.tagline {
+  color: var(--color-brand);
+  font-size: 1rem;
+  margin-bottom: var(--space-xs);
+  font-weight: 500;
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  font-size: 0.95rem;
+}
+
+.linksGrid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.linkCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  background: linear-gradient(135deg, rgba(109, 195, 219, 0.08), rgba(21, 21, 23, 0.6));
+  border: 1px solid rgba(109, 195, 219, 0.2);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-decoration: none;
+  color: var(--color-text-primary);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  overflow: hidden;
+}
+
+.linkCard::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(109, 195, 219, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.linkCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(109, 195, 219, 0.25);
+  border-color: rgba(109, 195, 219, 0.4);
+}
+
+.linkCard:hover::after {
+  opacity: 1;
+}
+
+.linkIcon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(109, 195, 219, 0.1);
+  border-radius: var(--radius-sm);
+  position: relative;
+  z-index: 1;
+}
+
+.linkContent {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.linkTitle {
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-bottom: var(--space-2xs);
+  color: var(--color-text-primary);
+}
+
+.linkDescription {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+}
+
+.footer {
+  text-align: center;
+  margin-top: var(--space-3xl);
+  padding-top: var(--space-xl);
+  border-top: 1px solid rgba(109, 195, 219, 0.2);
+  color: var(--color-text-secondary);
+  font-size: 0.875rem;
+}
+
+.footer p {
+  margin: var(--space-xs) 0;
+}
+
+.license {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .name {
+    font-size: 1.75rem;
+  }
+
+  .linkCard {
+    padding: var(--space-md);
+  }
+
+  .linkIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}
