@@ -22,11 +22,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-text-primary);
   margin: 0 auto var(--space-md);
   box-shadow: 0 10px 30px rgba(109, 195, 219, 0.3);
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .name {
@@ -69,25 +73,10 @@
   overflow: hidden;
 }
 
-.linkCard::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(109, 195, 219, 0.15) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity var(--transition-base);
-}
-
 .linkCard:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 30px rgba(109, 195, 219, 0.25);
   border-color: rgba(109, 195, 219, 0.4);
-}
-
-.linkCard:hover::after {
-  opacity: 1;
 }
 
 .linkIcon {

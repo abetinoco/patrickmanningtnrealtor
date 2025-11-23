@@ -2,21 +2,22 @@ import { Seo } from '../components/seo/Seo'
 import { defaultMeta } from '../seo/metaDefaults'
 import { PageHeader } from '../components/shared/PageHeader'
 import { blogPosts } from '../data/blog'
+import { agentProfile } from '../data/agent'
 import { formatDate } from '../utils/format'
 import styles from './Blog.module.css'
 
 const Blog = () => (
   <div>
     <Seo
-      title="Middle Tennessee Luxury Real Estate Insights | Patrick Manning"
-      description="Stay informed with Patrick Manning’s market analyses, relocation guides, and property spotlights."
+      title="Middle Tennessee Lifestyle Real Estate Insights | Patrick Manning"
+      description="Content-driven updates that blend lifestyle-first guidance with market intel across Williamson, Maury, and Western Kentucky."
       openGraph={defaultMeta.openGraph}
       canonical="https://patrickmanningrealtor.com/blog"
     />
     <PageHeader
       kicker="Resources"
       title="Insights, Market Intelligence, and Relocation Guides"
-      subtitle="Explore curated resources designed to give you the inside track on Middle Tennessee real estate."
+      subtitle={agentProfile.lifestyleMessaging.lifestyle}
     />
 
     <section className={styles.wrapper}>

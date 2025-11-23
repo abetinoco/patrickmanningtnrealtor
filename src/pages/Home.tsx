@@ -17,7 +17,7 @@ const agentSchema = buildAgentSchema()
 const Home = () => (
   <div>
     <Seo
-      title={`${defaultMeta.title} | Middle Tennessee Luxury Real Estate`}
+      title={`${defaultMeta.title} | Middle Tennessee Real Estate`}
       description={defaultMeta.description}
       openGraph={defaultMeta.openGraph}
       schema={agentSchema}
@@ -31,11 +31,11 @@ const Home = () => (
         <div className={styles.widgetCopy}>
           <div className="section-subtitle">Live Market Window</div>
           <h2 id="home-listings-heading" className="section-title">
-            Explore Patrick’s Curated Listings in Real Time
+            Explore Available Listings in Real Time
           </h2>
           <p>
-            Browse the active portfolio directly from Patrick’s MLS dashboard. Filter by price, neighborhood, or lifestyle and
-            request a private preview without leaving the site.
+            Browse active listings directly from the MLS. Filter by price, neighborhood, or property type and
+            request a showing without leaving the site.
           </p>
         </div>
         <ChimeWidget widgetUrl="https://www.patrickmanningrealtor.com/api-site/widget/74056" title="Featured Listings" />
@@ -43,41 +43,59 @@ const Home = () => (
     </section>
     <SoldListings limit={6} showViewAll={true} />
     <section className={styles.leadSection} aria-labelledby="consultation-heading">
-      <div className={styles.leadContainer}>
-        <div className={styles.copy}>
-          <div className="section-subtitle">High-Touch Advisory</div>
-          <h2 id="consultation-heading" className="section-title">
-            Align with a Trusted Advisor Dedicated to Your Next Move
-          </h2>
-          <p>
-            {agentProfile.elevatorPitch}
-          </p>
-          <p>
-            Call us directly at <a href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`}>{agentProfile.phone}</a> or
-            complete the form to secure a confidential consultation.
-          </p>
-        </div>
-        <div className={styles.formContainer}>
-          <LeadCaptureForm />
+      <div className={styles.leadGrid}>
+        <div className={styles.leadPanel}>
+          <div className={styles.copy}>
+            <div className="section-subtitle">Here to Help</div>
+            <h2 id="consultation-heading" className="section-title">
+              Need a hand buying, selling, or relocating?
+            </h2>
+            <p>{agentProfile.elevatorPitch}</p>
+            <p>
+              Call or text <a href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`}>{agentProfile.phone}</a> or share a few
+              details and we will set up a quick call that fits your schedule.
+            </p>
+          </div>
+          <div className={styles.formContainer}>
+            <LeadCaptureForm />
+          </div>
         </div>
       </div>
     </section>
     <AdvisoryProcess />
     <section className={styles.homeCtaSection} aria-labelledby="home-cta-heading">
       <div className={styles.homeCtaInner}>
-        <div>
-          <div className="section-subtitle">Next Step</div>
-          <h2 id="home-cta-heading" className="section-title">
-            Ready for concierge-level property tours tailored to your goals?
-          </h2>
-          <p className={styles.homeCtaCopy}>
-            Outline your wish list and let Patrick unlock private previews, off-market opportunities, and strategic advice for
-            your relocation or investment timeline.
-          </p>
+        <div className={styles.homeCtaPanel}>
+          <div className={styles.homeCtaContent}>
+            <div>
+              <div className="section-subtitle">Next Step</div>
+              <h2 id="home-cta-heading" className="section-title">
+                Ready to plan your next move?
+              </h2>
+              <p className={styles.homeCtaCopy}>
+                Share how you live day to day—routines, commute, schools, and amenities—and Patrick will curate neighborhoods in
+                Williamson, Maury, and Western Kentucky that match your season of life and next move.
+              </p>
+            </div>
+            <Link to="/buy" className={styles.homeCtaButton}>
+              Plan Your Move
+            </Link>
+          </div>
+          <div className={styles.homeCtaProfile}>
+            <div className={styles.homeCtaPortrait}>
+              <img src="/media/patrick.png" alt="Patrick Manning" loading="lazy" />
+              <span className={styles.homeCtaPortraitGlow} aria-hidden="true" />
+            </div>
+            <div className={styles.homeCtaProfileMeta}>
+              <span className={styles.homeCtaProfileTag}>Real Broker, LLC</span>
+              <span className={styles.homeCtaProfileName}>Patrick Manning</span>
+              <span className={styles.homeCtaProfileRole}>Real Estate Advisor</span>
+              <a className={styles.homeCtaProfileLink} href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`}>
+                Call or Text {agentProfile.phone}
+              </a>
+            </div>
+          </div>
         </div>
-        <Link to="/buy" className={styles.homeCtaButton}>
-          Ready to shop your dream home?
-        </Link>
       </div>
     </section>
   </div>

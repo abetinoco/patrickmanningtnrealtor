@@ -1,73 +1,116 @@
 .leadSection {
   position: relative;
-  padding: var(--space-2xl) 0;
-  background: var(--color-background);
+  padding: 5rem 0;
+  background: var(--surface-primary);
   overflow: hidden;
+  border-top: 1px solid var(--border-light);
 }
 
-.leadContainer {
-  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
+.leadSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(79, 224, 208, 0.14), transparent 55%);
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+.leadGrid {
+  width: 100%;
+  max-width: var(--container-width);
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
-  align-items: start;
+  padding: 0 var(--container-padding);
   position: relative;
   z-index: 1;
 }
 
-.leadGrid {
-  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
-  margin: 0 auto;
+.leadPanel {
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-3xl);
-  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: var(--space-2xl);
+  background: rgba(10, 15, 22, 0.92);
+  border-radius: 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(18px);
+}
+
+.leadPanel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(79, 224, 208, 0.6), rgba(20, 32, 44, 0.6));
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.leadPanel > * {
   position: relative;
   z-index: 1;
 }
 
 .copy {
   display: grid;
-  gap: var(--space-sm);
+  gap: 1rem;
   max-width: 48rem;
 }
 
 .formContainer {
   display: flex;
   justify-content: flex-end;
+  padding: var(--space-lg);
+  background: rgba(15, 20, 28, 0.85);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  width: 100%;
+}
+
+.formContainer form {
+  width: 100%;
 }
 
 .copy p {
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
 }
 
 .widgetSection {
   position: relative;
-  padding: var(--space-4xl) 0;
-  background: var(--color-background);
+  padding: 5rem 0;
+  background: var(--surface-primary);
   overflow: hidden;
+  border-top: 1px solid var(--border-light);
 }
 
 .widgetSection::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(109, 195, 219, 0.06) 1px, transparent 1px);
-  background-size: 40px 40px;
-  opacity: 0.3;
+  background-image:
+    radial-gradient(circle, rgba(79, 224, 208, 0.08) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.35;
   pointer-events: none;
 }
 
 .widgetSectionAlt {
-  background: var(--color-background);
+  background: var(--surface-primary);
+  border-top: 1px solid var(--border-light);
 }
 
 .widgetInner {
-  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
+  width: 100%;
+  max-width: var(--container-width);
   margin: 0 auto;
+  padding: 0 var(--container-padding);
   display: grid;
-  gap: var(--space-2xl);
+  gap: 3rem;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   align-items: start;
   position: relative;
@@ -76,33 +119,85 @@
 
 .widgetCopy {
   display: grid;
-  gap: var(--space-md);
+  gap: 1.5rem;
 }
 
 .widgetCopy p {
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   font-size: 1.1rem;
   line-height: 1.7;
 }
 
 .homeCtaSection {
-  padding: var(--space-4xl) 0;
-  background: var(--color-background);
+  position: relative;
+  padding: 4rem 0;
+  background: var(--surface-primary);
+  border-top: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.homeCtaSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 35% 20%, rgba(79, 224, 208, 0.18), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(31, 163, 149, 0.18), transparent 50%);
+  opacity: 0.8;
+  pointer-events: none;
 }
 
 .homeCtaInner {
-  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
+  width: 100%;
+  max-width: var(--container-width);
   margin: 0 auto;
+  padding: 0 var(--container-padding);
   display: grid;
-  gap: var(--space-2xl);
+  gap: 1.5rem;
   align-items: center;
   text-align: center;
 }
 
+.homeCtaPanel {
+  position: relative;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 300px);
+  padding: var(--space-2xl);
+  background: rgba(11, 18, 26, 0.92);
+  border-radius: 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 45px 80px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(22px);
+}
+
+.homeCtaPanel::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(79, 224, 208, 0.8), rgba(18, 33, 44, 0.8));
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.65;
+}
+
+.homeCtaPanel > * {
+  position: relative;
+  z-index: 1;
+}
+
 .homeCtaCopy {
-  color: var(--color-text-secondary);
+  color: var(--text-secondary);
   max-width: 60ch;
-  margin: var(--space-md) auto 0;
+  margin: 1rem auto 0;
+}
+
+.homeCtaContent {
+  display: grid;
+  gap: 1.25rem;
 }
 
 .homeCtaButton {
@@ -110,49 +205,129 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: var(--color-cta);
-  color: var(--color-text-primary);
-  font-weight: 600;
+  gap: var(--space-sm);
+  padding: 1.1rem 2.75rem;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--gradient-primary);
+  color: #041014;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   text-decoration: none;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  box-shadow: 0 18px 35px rgba(79, 224, 208, 0.25);
 }
 
 .homeCtaButton:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 36px rgba(71, 179, 209, 0.35);
-  color: var(--color-text-primary);
+  transform: translateY(-4px);
+  box-shadow: 0 25px 45px rgba(79, 224, 208, 0.35);
+}
+
+.homeCtaProfile {
+  position: relative;
+  display: grid;
+  gap: 1rem;
+  justify-items: center;
+  text-align: center;
+}
+
+.homeCtaPortrait {
+  position: relative;
+  width: 100%;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  aspect-ratio: 3 / 4;
+}
+
+.homeCtaPortrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.homeCtaPortraitGlow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(79, 224, 208, 0) 0%, rgba(79, 224, 208, 0.4) 100%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
+.homeCtaProfileMeta {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.homeCtaProfileTag {
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.homeCtaProfileName {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+
+.homeCtaProfileRole {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+.homeCtaProfileLink {
+  margin-top: 0.5rem;
+  color: var(--accent-primary);
+  font-weight: 600;
+}
+
+.homeCtaProfileLink:hover {
+  color: var(--accent-tertiary);
 }
 
 @media (min-width: 768px) {
-  .homeCtaInner {
-    grid-template-columns: 2.25fr 1fr;
+  .homeCtaPanel {
+    grid-template-columns: minmax(0, 1.8fr) minmax(220px, 300px);
+    align-items: center;
     text-align: left;
   }
 
   .homeCtaCopy {
-    margin: var(--space-md) 0 0;
+    margin: 1rem 0 0;
   }
 
   .homeCtaButton {
-    justify-self: flex-end;
+    justify-self: flex-start;
   }
 }
 
 @media (max-width: 640px) {
   .leadSection {
-    padding: var(--space-2xl) 0;
+    padding: 3.5rem 0;
   }
 
-  .leadContainer,
-  .leadGrid {
+  .leadPanel {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
   }
 
   .formContainer {
     justify-content: center;
+  }
+
+  .homeCtaPanel {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .homeCtaContent {
+    text-align: center;
+  }
+
+  .homeCtaButton {
+    justify-self: center;
   }
 }

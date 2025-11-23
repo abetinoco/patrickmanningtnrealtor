@@ -1,81 +1,153 @@
 .section {
+  position: relative;
   padding: var(--space-4xl) 0;
-  background: linear-gradient(135deg, rgba(109, 195, 219, 0.03), rgba(15, 15, 16, 0.95));
+  background: var(--surface-primary);
+  border-top: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5, 7, 8, 0) 0%, rgba(5, 7, 8, 0.85) 100%);
+  pointer-events: none;
 }
 
 .grid {
+  position: relative;
   display: grid;
-  gap: var(--space-xl);
-  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-2xl);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   width: min(100% - 2 * var(--space-xl), var(--max-width-container));
   margin: 0 auto;
 }
 
-.card:last-child {
-  grid-column: 1 / -1;
-}
-
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .card:last-child {
-    grid-column: 1;
-  }
-}
-
 .card {
   position: relative;
-  background: linear-gradient(135deg, rgba(109, 195, 219, 0.08), rgba(21, 21, 23, 0.6));
-  padding: var(--space-2xl) var(--space-xl);
-  border-radius: var(--radius-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  background: rgba(9, 14, 20, 0.92);
+  padding: var(--space-2xl);
+  border-radius: 1.5rem;
   overflow: hidden;
-  min-height: 320px;
-  border: 1px solid rgba(109, 195, 219, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.55);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(109, 195, 219, 0.25);
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(160deg, rgba(79, 224, 208, 0.7), rgba(34, 46, 63, 0.4));
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.65;
 }
 
 .card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(109, 195, 219, 0.24) 1px, transparent 1px);
-  background-size: 26px 26px;
-  opacity: 0.3;
+  background: radial-gradient(circle at top right, rgba(79, 224, 208, 0.12), transparent 55%);
+  opacity: 0.4;
   pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.6);
+}
+
+.cardHeader {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.cardIndex {
+  font-size: 0.85rem;
+  letter-spacing: 0.35em;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+}
+
+.cardLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-full);
+  background: rgba(79, 224, 208, 0.12);
+  border: 1px solid rgba(79, 224, 208, 0.35);
 }
 
 .cardContent {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: var(--space-md);
-  height: 100%;
 }
 
 .tierName {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-size: clamp(1.5rem, 3vw, 1.9rem);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.tierName::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 2px;
+  margin-top: 0.75rem;
+  background: linear-gradient(90deg, var(--accent-primary), transparent);
 }
 
 .description {
   color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin: 0;
 }
 
 .bulletList {
   margin: 0;
-  padding-left: 1.2rem;
+  padding: 0;
+  list-style: none;
   display: grid;
-  gap: var(--space-xs);
-  color: var(--color-text-secondary);
+  gap: var(--space-sm);
+}
+
+.bulletList li {
+  position: relative;
+  padding-left: 1.5rem;
+  color: rgba(245, 247, 250, 0.9);
+}
+
+.bulletList li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.65rem;
+  height: 0.12rem;
+  background: var(--accent-primary);
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-xl);
+  }
+
+  .cardIndex {
+    letter-spacing: 0.2em;
+  }
 }

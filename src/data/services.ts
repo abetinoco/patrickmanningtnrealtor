@@ -7,36 +7,36 @@ export interface ServiceTier {
 
 export const serviceTiers: ServiceTier[] = [
   {
-    id: 'concierge-buyers',
-    name: 'Concierge Buyer Advisory',
+    id: 'buyer-services',
+    name: 'Buyer Representation',
     description:
-      'Discreet representation and access to on-market, pre-market, and private network inventory tailored to your exact lifestyle criteria.',
+      'Dedicated representation and access to listings that match your needs, budget, and timeline. From first-time buyers to seasoned investors.',
     bullets: [
-      'Private preview itineraries and chauffeur coordination',
-      'Financial analysis, contract strategy, and negotiation leadership',
-      'Post-closing concierge, including relocation vendor orchestration',
+      'Property tours and showings tailored to your schedule',
+      'Market analysis, contract guidance, and skilled negotiation',
+      'Closing support and connections to trusted local resources',
     ],
   },
   {
-    id: 'signature-sellers',
-    name: 'Signature Listing Experience',
+    id: 'seller-services',
+    name: 'Seller Representation',
     description:
-      'White-glove listing campaign engineered to command premium offers through elevated storytelling and targeted exposure.',
+      'Strategic marketing and pricing to attract qualified buyers and get your home sold for the best possible price.',
     bullets: [
-      'Architectural photography, film-grade videography, and editorial copy',
-      'Global syndication and luxury network amplification',
-      'Offer management, buyer vetting, and bespoke showing protocols',
+      'Professional photography, video tours, and compelling property descriptions',
+      'Multi-platform marketing to reach the widest audience of buyers',
+      'Offer review, negotiation support, and organized showing coordination',
     ],
   },
   {
-    id: 'portfolio-investors',
-    name: 'Portfolio & Investment Strategy',
+    id: 'investment-services',
+    name: 'Investment Properties',
     description:
-      'Data-led acquisition and disposition strategy for portfolio growth across Middle Tennessee and Southern Kentucky corridors.',
+      'Guidance for investors looking to build rental portfolios or find properties with strong appreciation potential.',
     bullets: [
-      'Hold-sell analyses informed by rental absorption and cap rates',
-      'Collaboration with tax, legal, and wealth advisors',
-      'Asset repositioning roadmaps and construction oversight',
+      'Market analysis and rental income projections',
+      'Connections to financing, legal, and property management resources',
+      'Long-term strategy and portfolio planning support',
     ],
   },
 ]
@@ -50,26 +50,26 @@ export interface ProcessStep {
 export const advisoryProcess: ProcessStep[] = [
   {
     id: 'discover',
-    title: 'Discovery & Alignment',
+    title: 'Discovery & Planning',
     description:
-      'A strategy session to define objectives, decision-makers, timelines, and financial parameters that shape your bespoke advisory roadmap.',
+      'An initial consultation to understand your goals, timeline, and budget to create a personalized plan for your real estate journey.',
   },
   {
     id: 'curate',
-    title: 'Curate & Preview',
+    title: 'Search & Tour',
     description:
-      'Leveraging private networks, data modeling, and on-the-ground scouting to deliver tightly vetted opportunities before they hit the broader market.',
+      'Using local market knowledge and MLS access to find properties that fit your needs and arrange convenient showings.',
   },
   {
     id: 'negotiate',
-    title: 'Negotiate & Execute',
+    title: 'Offer & Negotiate',
     description:
-      'Expert negotiation, contract management, and due diligence coordination that secure wins while de-risking each stage of the transaction.',
+      'Skilled negotiation, contract guidance, and coordination of inspections to protect your interests throughout the transaction.',
   },
   {
     id: 'concierge',
-    title: 'Concierge Transition',
+    title: 'Close & Support',
     description:
-      'Closing logistics, relocation orchestration, and ongoing market intelligence designed to protect your investment long after the ink dries.',
+      'Closing coordination, moving resources, and continued guidance to ensure a smooth transition to your new home.',
   },
 ]

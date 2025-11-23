@@ -1,32 +1,85 @@
 :root {
-  /* Color palette */
-  --color-background: #0f0f10;
-  --color-surface: #151517;
-  --color-surface-muted: #1f1f23;
-  --color-accent: #d9d9d6;
-  --color-accent-secondary: #8c939c;
-  --color-brand: #6DC3DB;
-  --color-brand-strong: #4AAFCA;
-  --color-brand-soft: rgba(109, 195, 219, 0.18);
-  --color-cta: #47B3D1;
-  --color-text-primary: #f5f5f2;
-  --color-text-secondary: #c0c2c7;
-  --color-text-inverse: #101012;
-  --color-border: #2c2c30;
-  --color-link: var(--color-brand);
-  --color-link-hover: #8FD4E6;
-  --color-success: #7dd3b5;
-  --color-warning: #f5c06f;
+  /*
+   * Luxe Teal Theme
+   * Palette: Charcoal (Base), Smoke (Surface), Teal (Accent)
+   */
 
   /* Typography */
-  --font-serif: 'Playfair Display', 'Times New Roman', serif;
-  --font-sans: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-sans: 'Inter', 'SF Pro Display', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Cormorant Garamond', 'Times New Roman', serif;
 
-  /* Sizing */
-  --max-width-container: 1200px;
-  --max-width-wide: 1440px;
+  /* Backgrounds */
+  --bg-primary: #050708;
+  --bg-secondary: #0b1117;
+  --bg-tertiary: #131a24;
+  --bg-overlay: rgba(5, 7, 8, 0.92);
 
-  /* Spacing scale (4px baseline) */
+  /* Text Colors */
+  --text-primary: #f5f7fa;
+  --text-secondary: #c1c9d6;
+  --text-tertiary: #8b97ab;
+  --text-inverse: #050708;
+
+  /* Brand Colors - Luxe Teal */
+  --accent-primary: #4fe0d0;
+  --accent-secondary: #1fa395;
+  --accent-tertiary: #7deee0;
+  --accent-light: rgba(79, 224, 208, 0.18);
+
+  /* Functional Colors */
+  --success: #2fd39f;
+  --warning: #f4c060;
+  --error: #ff717a;
+
+  /* Surfaces */
+  --surface-primary: #0f141c;
+  --surface-secondary: #151d29;
+  --surface-tertiary: #1d2634;
+  --surface-elevated: #222e3f;
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #4fe0d0 0%, #1fa395 100%);
+  --gradient-subtle: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  --gradient-overlay: linear-gradient(120deg, rgba(5, 7, 8, 0.95) 0%, rgba(5, 7, 8, 0.35) 100%);
+  --gradient-text: linear-gradient(135deg, #f5f7fa 0%, #7deee0 100%);
+
+  /* Glassmorphism */
+  --glass-bg: rgba(15, 20, 28, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+
+  /* Borders */
+  --border-light: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.25);
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-sm: 0 6px 12px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 45px rgba(0, 0, 0, 0.55);
+  --shadow-xl: 0 30px 60px rgba(0, 0, 0, 0.65);
+
+  /* Layout */
+  --container-width: 1280px;
+  --container-padding: 2rem;
+  --header-height: 80px;
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /*
+   * LEGACY COMPATIBILITY LAYER
+   * Mapping old variable names to new values to prevent breakage
+   */
+
+  /* Spacing Scale */
   --space-2xs: 0.25rem;
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
@@ -35,33 +88,33 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 4rem;
-  --space-4xl: 5rem;
+  --space-4xl: 6rem;
 
-  /* Shadows */
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
-  --shadow-strong: 0 30px 60px rgba(0, 0, 0, 0.45);
+  /* Legacy Colors */
+  --color-background: var(--bg-primary);
+  --color-section-background: var(--surface-primary);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-brand: var(--accent-primary);
+  --color-brand-strong: var(--accent-secondary);
+  --color-highlight: var(--accent-secondary);
+  --color-link: var(--accent-primary);
+  --color-link-hover: var(--accent-tertiary);
+  --color-cta: var(--accent-primary);
+  --color-surface: var(--surface-secondary);
+  --color-surface-muted: var(--surface-tertiary);
 
-  /* Radii */
-  --radius-sm: 0.5rem;
-  --radius-md: 1rem;
-  --radius-lg: 1.5rem;
+  /* Legacy Layout */
+  --max-width-container: var(--container-width);
+  --max-width-wide: 1440px;
 
-  /* Gradients - Unified System */
-  --gradient-primary: linear-gradient(135deg, var(--color-background) 0%, rgba(15, 15, 16, 0.95) 50%, var(--color-surface) 100%);
-  --gradient-surface: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(15, 15, 16, 0.8) 100%);
-  --gradient-accent: linear-gradient(135deg, rgba(109, 195, 219, 0.04) 0%, transparent 50%, rgba(109, 195, 219, 0.02) 100%);
-  --gradient-overlay: linear-gradient(135deg, rgba(109, 195, 219, 0.08) 0%, rgba(15, 15, 16, 0.92) 100%);
-  --gradient-hero: linear-gradient(135deg, rgba(15, 15, 16, 0.4) 0%, rgba(12, 12, 14, 0.75) 100%);
+  /* Legacy Transitions */
+  --transition-base: var(--transition-normal);
 
-  /* Transitions */
-  --transition-base: 200ms ease;
-  --transition-slow: 400ms ease;
-}
-
-@media (max-width: 768px) {
-  :root {
-    --space-2xl: 2.5rem;
-    --space-3xl: 3.5rem;
-    --space-4xl: 4rem;
-  }
+  /* Legacy Cards */
+  --card-surface: var(--surface-secondary);
+  --card-border: var(--border-light);
+  --card-shadow: var(--shadow-sm);
+  --card-shadow-hover: var(--shadow-lg);
+  --card-blur: 4px;
 }

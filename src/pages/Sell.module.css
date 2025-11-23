@@ -1,48 +1,44 @@
 .serviceCard {
   position: relative;
-  background: linear-gradient(135deg, rgba(109, 195, 219, 0.08), rgba(21, 21, 23, 0.6));
+  background: var(--surface-secondary);
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(109, 195, 219, 0.2);
-  padding: var(--space-2xl);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  border: 1px solid var(--border-light);
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
   overflow: hidden;
-}
-
-.serviceCard::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(99, 173, 255, 0.24) 1px, transparent 1px);
-  background-size: 26px 26px;
-  opacity: 0.3;
-  pointer-events: none;
 }
 
 .serviceCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(109, 195, 219, 0.25);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
 }
 
 .serviceCard h3 {
   font-family: var(--font-serif);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   position: relative;
   z-index: 1;
+  color: var(--text-primary);
+  font-weight: 700;
+  margin-bottom: 1rem;
 }
 
 .serviceCard p {
   position: relative;
   z-index: 1;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
 }
 
 .serviceCard ul {
   margin: 0;
   padding-left: 1.5rem;
   display: grid;
-  gap: var(--space-xs);
-  color: var(--color-text-secondary);
+  gap: 0.5rem;
+  color: var(--text-secondary);
   position: relative;
   z-index: 1;
 }

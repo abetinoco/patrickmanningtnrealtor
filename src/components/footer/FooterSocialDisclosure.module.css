@@ -1,33 +1,37 @@
 .footer {
-  background: var(--color-background);
-  padding: var(--space-3xl) 0 var(--space-xl);
-  border-top: 1px solid rgba(109, 195, 219, 0.2);
+  background: var(--bg-secondary);
+  padding: 4rem 0 2rem;
+  border-top: 1px solid var(--border-light);
 }
 
 .grid {
   display: grid;
-  gap: var(--space-2xl);
-  width: min(100% - 2 * var(--space-xl), var(--max-width-wide));
+  gap: 3rem;
+  width: 100%;
+  max-width: var(--container-width);
   margin: 0 auto;
+  padding: 0 var(--container-padding);
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .brandBlock {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: 1rem;
 }
 
 .brandName {
   font-family: var(--font-serif);
-  letter-spacing: 0.16em;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .socialLinks {
   display: flex;
-  gap: var(--space-sm);
+  gap: 0.75rem;
 }
 
 .socialLink {
@@ -36,46 +40,56 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--color-text-primary);
+  background: var(--surface-secondary);
+  color: var(--text-secondary);
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  border: 1px solid var(--border-light);
+  transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+  background: var(--accent-primary);
+  color: white;
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
 }
 
 .linkColumn {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xs);
+  gap: 0.5rem;
 }
 
 .linkHeading {
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.24em;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-xs);
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 .linkWithIcon {
   display: flex;
   align-items: center;
-  gap: var(--space-xs);
-  color: var(--color-text-primary);
+  gap: 0.5rem;
+  color: var(--text-secondary);
   text-decoration: none;
-  transition: color var(--transition-base), transform var(--transition-base);
-  padding: var(--space-2xs) 0;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  padding: 0.25rem 0;
 }
 
 .linkWithIcon:hover {
-  color: var(--color-brand);
+  color: var(--accent-primary);
   transform: translateX(4px);
 }
 
 .linkWithIcon svg {
   flex-shrink: 0;
   opacity: 0.7;
-  transition: opacity var(--transition-base);
+  transition: opacity var(--transition-fast);
 }
 
 .linkWithIcon:hover svg {
@@ -85,14 +99,15 @@
 .officeItem {
   display: flex;
   align-items: flex-start;
-  gap: var(--space-xs);
-  padding: var(--space-xs) 0;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  color: var(--text-secondary);
 }
 
 .officeItem svg {
   flex-shrink: 0;
-  margin-top: 2px;
-  color: var(--color-brand);
+  margin-top: 4px;
+  color: var(--accent-primary);
   opacity: 0.8;
 }
 
@@ -101,28 +116,217 @@
   line-height: 1.6;
 }
 
-.disclaimer {
+
+.compliancePanel {
   grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.complianceCard {
+  border: 1px solid var(--border-light);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  background: linear-gradient(145deg, rgba(19, 26, 36, 0.9), rgba(11, 17, 23, 0.9));
+  box-shadow: var(--shadow-md);
+}
+
+.complianceHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.complianceTag {
   font-size: 0.75rem;
-  color: var(--color-text-secondary);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-primary);
+}
+
+.providerChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.providerChip {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  padding: 0.25rem 0.85rem;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.providerChip:hover {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary);
+}
+
+.providerChipStatic {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.complianceCard p {
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 0.85rem;
+}
+
+.complianceCard p + p {
+  margin-top: 0.75rem;
+}
+
+.metaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+.metaItem {
+  padding: 1.5rem;
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  background: var(--surface-secondary);
+}
+
+.metaLabel {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.metaValue {
+  margin: 0.75rem 0 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.brokerContacts {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.brokerContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.brokerContactName {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.brokerContactTitle {
+  font-weight: 500;
+  color: var(--text-tertiary);
+  font-size: 0.8rem;
+}
+
+.brokerContactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.brokerContactLinks a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+}
+
+.brokerContactLinks a:hover {
+  color: var(--accent-primary);
+}
+
+.metaContacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.metaContactsStack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.metaContacts a {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.metaContacts a:hover {
+  color: var(--accent-primary);
+}
+
+.metaSubtle {
+  margin-top: 0.75rem;
+  color: var(--text-tertiary);
+  font-size: 0.75rem;
+}
+
+.disclosureStack {
+  border-top: 1px solid var(--border-light);
+  padding-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.disclosureText {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--text-tertiary);
   line-height: 1.8;
 }
 
 .legalLinks {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-sm);
-  margin-top: var(--space-sm);
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .legalLink {
-  color: var(--color-text-secondary);
+  color: var(--text-tertiary);
   font-size: 0.75rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 0.1rem;
+}
+
+.legalLink:hover {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.legalLinkStatic {
+  cursor: default;
+  opacity: 0.75;
 }
 
 .copy {
-  margin-top: var(--space-xl);
-  color: var(--color-text-secondary);
+  margin-top: 2rem;
+  color: var(--text-tertiary);
   font-size: 0.75rem;
   text-align: center;
 }
@@ -136,7 +340,7 @@
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    gap: 2rem;
   }
 
   .socialLinks {

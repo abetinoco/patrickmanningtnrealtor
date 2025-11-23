@@ -2,20 +2,21 @@ import { Seo } from '../components/seo/Seo'
 import { defaultMeta } from '../seo/metaDefaults'
 import { PageHeader } from '../components/shared/PageHeader'
 import { testimonials } from '../data/testimonials'
+import { agentProfile } from '../data/agent'
 import styles from './Contact.module.css'
 
 const Reviews = () => (
   <div>
     <Seo
       title="Client Reviews | Patrick Manning"
-      description="Read testimonials from luxury buyers, sellers, and relocating families who partnered with Patrick Manning."
+      description="Hear from buyers, sellers, and relocating families who experienced Patrick's lifestyle-first, content-driven approach."
       openGraph={defaultMeta.openGraph}
       canonical="https://patrickmanningrealtor.com/reviews"
     />
     <PageHeader
       kicker="Reviews"
       title="Client Testimonials"
-      subtitle="A sampling of stories from the 125+ families and executives we have guided through acquisitions, sales, and relocations."
+      subtitle={`${agentProfile.lifestyleMessaging.intro} Hear how families and executives felt supported through relocations, new builds, and lifestyle-focused moves.`}
     />
 
     <section className={styles.wrapper}>

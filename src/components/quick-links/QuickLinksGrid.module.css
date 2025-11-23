@@ -1,72 +1,157 @@
 .section {
+  position: relative;
   padding: var(--space-4xl) 0;
-  background: linear-gradient(135deg, rgba(109, 195, 219, 0.03), rgba(15, 15, 16, 0.95));
+  background: var(--surface-primary);
+  border-top: 1px solid var(--border-light);
+  overflow: hidden;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(79, 224, 208, 0.18), transparent 55%),
+    radial-gradient(circle at bottom left, rgba(31, 163, 149, 0.12), transparent 45%);
+  opacity: 0.5;
+  pointer-events: none;
 }
 
 .grid {
+  position: relative;
   display: grid;
-  gap: var(--space-lg);
-  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-xl);
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   width: min(100% - 2 * var(--space-xl), var(--max-width-container));
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-
 .card {
   position: relative;
-  background: linear-gradient(135deg, rgba(109, 195, 219, 0.08), rgba(21, 21, 23, 0.6));
-  padding: var(--space-xl);
-  border-radius: var(--radius-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+  background: rgba(10, 16, 23, 0.85);
+  padding: var(--space-2xl) var(--space-xl);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.45);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   overflow: hidden;
-  border: 1px solid rgba(109, 195, 219, 0.2);
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(79, 224, 208, 0.7), rgba(18, 32, 43, 0.5));
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .card::after {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(rgba(109, 195, 219, 0.24) 1px, transparent 1px);
-  background-size: 26px 26px;
-  opacity: 0.3;
+  background: radial-gradient(circle at 20% 20%, rgba(79, 224, 208, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 60%, rgba(31, 163, 149, 0.12), transparent 50%);
+  opacity: 0.35;
   pointer-events: none;
 }
 
-.card > * {
-  position: relative;
-  z-index: 1;
+.icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  background: rgba(79, 224, 208, 0.12);
+  border: 1px solid rgba(79, 224, 208, 0.35);
+  color: var(--accent-primary);
+  box-shadow: inset 0 0 20px rgba(79, 224, 208, 0.15);
 }
 
 .card:hover,
-.card:focus-within {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(109, 195, 219, 0.25);
+.card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 35px 65px rgba(0, 0, 0, 0.55);
+}
+
+.cardHeader {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+}
+
+.badge {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.cardBody {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: var(--space-sm);
 }
 
 .title {
   font-family: var(--font-serif);
-  font-size: 1.3rem;
+  font-size: 1.35rem;
   color: var(--color-text-primary);
   margin-bottom: var(--space-xs);
 }
 
 .description {
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-md);
+  color: rgba(255, 255, 255, 0.78);
+  margin: 0;
 }
 
-.arrow {
+.cardFooter {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.arrowLabel {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent-primary);
+}
+
+.arrowIcon {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
   display: inline-flex;
   align-items: center;
-  gap: var(--space-xs);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 0.8rem;
-  color: var(--color-brand);
+  justify-content: center;
+  background: var(--gradient-primary);
+  color: #041014;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: var(--space-xl);
+  }
+
+  .badge {
+    letter-spacing: 0.15em;
+  }
 }

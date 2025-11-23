@@ -50,10 +50,8 @@ export const LeadCaptureForm = ({ layout = 'inline' }: LeadCaptureFormProps) => 
   return (
     <form className={styles.formWrapper} onSubmit={handleSubmit} aria-live="polite">
       <div>
-        <h3 className={styles.heading}>Reserve Your Private Consultation</h3>
-        <p className="section-subtitle">
-          Tell us how we can tailor your Tennessee real estate strategy.
-        </p>
+        <h3 className={styles.heading}>Tell Us About Your Move</h3>
+        <p className="section-subtitle">We reply within one business day with next steps.</p>
       </div>
 
       <div className={styles.fields}>
@@ -154,13 +152,13 @@ export const LeadCaptureForm = ({ layout = 'inline' }: LeadCaptureFormProps) => 
             placeholder="Share timing, property goals, or lifestyle priorities"
           />
           <span className={styles.helper}>
-            We respond within one business day and operate with strict confidentiality.
+            Share as much or as little detail as you would like—no pressure.
           </span>
         </div>
       </div>
 
       <button className={`cta-button ${styles.submit}`} type="submit" disabled={status === 'submitting'}>
-        {status === 'submitting' ? 'Submitting…' : 'Submit Request'}
+        {status === 'submitting' ? 'Sending…' : 'Send My Info'}
       </button>
 
       {status === 'success' && <div role="status">Thank you. We will reach out shortly.</div>}

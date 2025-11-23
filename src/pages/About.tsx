@@ -9,14 +9,14 @@ const About = () => (
   <div>
     <Seo
       title="About Patrick Manning | Real Broker, LLC"
-      description="Discover Patrick Manning’s executive advisory background, service philosophy, and Tennessee-Kentucky market expertise."
+      description="Patrick Manning is a Realtor and Home Lifestyle Expert pairing $60M+ in results with a lifestyle-first lens across Middle Tennessee and Western Kentucky."
       openGraph={defaultMeta.openGraph}
       canonical="https://patrickmanningrealtor.com/about"
     />
     <PageHeader
       kicker="About"
       title="Meet Patrick Manning"
-      subtitle="With over $60M in career sales and a bi-regional perspective spanning New York to Tennessee, Patrick delivers strategic advisory services for discerning buyers and sellers."
+      subtitle={agentProfile.lifestyleMessaging.intro}
       profileImage="/media/patrick.png"
     />
 
@@ -67,15 +67,51 @@ const About = () => (
       </div>
     </section>
 
+    <section className={styles.advocacySection} aria-labelledby="advocacy-heading">
+      <div className={styles.advocacyInner}>
+        <div className={styles.advocacyImage}>
+          <img
+            src="/media/change.jpg"
+            alt="Patrick Manning supporting his Change.org petition"
+            loading="lazy"
+          />
+        </div>
+        <div className={styles.advocacyContent}>
+          <p className={styles.advocacyTag}>Community Advocacy</p>
+          <h2 id="advocacy-heading">Give users control over social media algorithms</h2>
+          <p>
+            Patrick extends his client-first mindset into the digital world by championing a Change.org petition
+            that calls for transparency and user choice inside the feeds we all rely on to make decisions. He believes
+            homeowners, entrepreneurs, and families should be able to tune algorithms the same way they tailor their
+            real estate plans.
+          </p>
+          <ul className={styles.advocacyList}>
+            <li>Pushes for clear controls so communities decide what content reaches them.</li>
+            <li>Supports accountability from major platforms and policymakers on ranking systems.</li>
+            <li>Aligns with Patrick's mission to help clients make informed, confident moves.</li>
+          </ul>
+          <a
+            href="https://www.change.org/p/give-users-control-over-social-media-algorithms?recruiter=1391582840&recruited_by_id=a9a973f0-a402-11f0-a3c4-c5a3dc6ae203&utm_source=share_petition&utm_campaign=share_petition&utm_medium=copylink&utm_content=cl_sharecopy_490822308_en-US%3A7"
+            target="_blank"
+            rel="noreferrer"
+            className={styles.advocacyButton}
+          >
+            Sign the Change.org Petition
+            <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     {/* Career Milestones Section */}
     <section className={styles.milestonesSection}>
       <div className={styles.container}>
         <div className="section-subtitle">Track Record</div>
         <h2 className="section-title">A Decade of Excellence in Real Estate</h2>
         <p className={styles.intro}>
-          Since 2018, Patrick has built a reputation for delivering exceptional results across Middle Tennessee's 
-          most competitive luxury markets. His client-first approach and strategic market insights have generated 
-          transformative outcomes for buyers, sellers, and relocating families.
+          Since 2018, Patrick has built a reputation for delivering exceptional results across Middle Tennessee and 
+          Southern Kentucky. His client-first approach and market knowledge have helped buyers, sellers, and 
+          relocating families achieve their real estate goals.
         </p>
         <div className={styles.metricsGrid}>
           {agentProfile.valueMetrics.map((metric) => (
@@ -96,7 +132,7 @@ const About = () => (
         <p className={styles.intro}>
           Patrick's real estate philosophy is informed by 26 years in New York and 22 years in Chicagoland 
           before establishing roots in Middle Tennessee. This multi-market perspective allows him to serve 
-          clients relocating from diverse backgrounds with cultural fluency and strategic foresight.
+          clients from all backgrounds with professionalism and local expertise.
         </p>
         <div className={styles.expertiseGrid}>
           <article className={styles.expertiseCard}>
@@ -116,19 +152,19 @@ const About = () => (
             </p>
           </article>
           <article className={styles.expertiseCard}>
-            <h3 className={styles.expertiseTitle}>Luxury Market Intelligence</h3>
+            <h3 className={styles.expertiseTitle}>Market Knowledge</h3>
             <p className={styles.expertiseDescription}>
-              Patrick's portfolio includes prestigious estates and executive homes across Greater Nashville, 
-              Franklin, Brentwood, and Southern Kentucky. He combines deep market analytics with discreet 
-              representation to secure off-market opportunities and optimal transaction terms.
+              Patrick's portfolio includes homes across Greater Nashville, 
+              Franklin, Brentwood, and Southern Kentucky. He combines deep market analytics with professional 
+              representation to secure off-market opportunities and favorable transaction terms.
             </p>
           </article>
           <article className={styles.expertiseCard}>
             <h3 className={styles.expertiseTitle}>Strategic Negotiation</h3>
             <p className={styles.expertiseDescription}>
-              With a foundation in analytical rigor and client advocacy, Patrick architects winning offers 
+              With a foundation in analytical rigor and client advocacy, Patrick creates winning offers 
               that protect investments while maintaining competitive advantage. His proven negotiation record 
-              spans both Tennessee and Kentucky luxury markets.
+              spans both Tennessee and Kentucky markets.
             </p>
           </article>
         </div>
@@ -264,16 +300,15 @@ const About = () => (
       <div className={styles.ctaInner}>
         <div>
           <h2 id="about-cta-heading" className={styles.ctaTitle}>
-            Partner with a strategic advisor for every milestone
+            Work with a dedicated agent for your real estate goals
           </h2>
           <p className={styles.ctaText}>
-            From discreet off-market searches to negotiation and closing, Patrick delivers concierge support tailored to
-            executives, families, and investors relocating across Tennessee. Let&apos;s outline the criteria for your next
-            home today.
+            From searching for your perfect home to negotiation and closing, Patrick provides professional support for
+            buyers, sellers, and families across Tennessee and Kentucky. Let&apos;s discuss your real estate needs today.
           </p>
         </div>
         <Link to="/contact" className={styles.ctaButton}>
-          Ready to find your dream home?
+          Get Started Today
         </Link>
       </div>
     </section>

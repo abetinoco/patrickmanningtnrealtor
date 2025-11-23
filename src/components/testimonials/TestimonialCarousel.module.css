@@ -1,6 +1,6 @@
 .section {
   padding: var(--space-4xl) 0;
-  background: var(--color-background);
+  background: var(--color-section-background);
 }
 
 .carousel {

@@ -1,17 +1,18 @@
 .wrapper {
   width: 100%;
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--surface-secondary);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--border-light);
   position: relative;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .wrapper:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-strong);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
 }
 
 .frame {

@@ -8,27 +8,27 @@ export interface Testimonial {
 
 export const testimonials: Testimonial[] = [
   {
-    id: 'relocation-executive',
-    clientName: 'R. Anderson',
-    location: 'Franklin, TN',
+    id: 'first-time-buyers',
+    clientName: 'Maya & Chris',
+    location: 'Spring Hill, TN',
     quote:
-      'Patrick navigated every step of our multi-state relocation with precision. From private previews to negotiations, his concierge approach saved us time and ensured we landed the right estate without compromise.',
-    result: 'Secured off-market property under appraisal with expedited closing.',
+      'As first-time buyers using an FHA loan, we had a million questions. Patrick slowed everything down, explained the paperwork in plain English, and found a home in our price range close to work and daycare.',
+    result: 'Closed with seller credits toward repairs and a flexible move-in date.',
   },
   {
-    id: 'new-construction',
-    clientName: 'The Mitchell Family',
-    location: 'Thompsons Station, TN',
+    id: 'va-loan',
+    clientName: 'Sgt. & Mrs. Walters',
+    location: 'Clarksville, TN',
     quote:
-      'We were overwhelmed building from the ground up until Patrick stepped in. His construction knowledge, vendor access, and weekly progress briefings made the process enjoyable and transparent.',
-    result: 'Delivered custom new-build with curated design selections and builder credits.',
+      'Patrick knew the VA process inside and out. He coordinated inspections while we were still stationed in Kentucky and negotiated repairs so we could move in right after closing.',
+    result: 'Secured a VA purchase with zero down and full seller-paid closing costs.',
   },
   {
-    id: 'luxury-sale',
-    clientName: 'S. Ramirez',
-    location: 'Brentwood, TN',
+    id: 'move-up-sellers',
+    clientName: 'The Rivera Family',
+    location: 'Bowling Green, KY',
     quote:
-      'Patrick’s marketing playbook sold our luxury home in six days with multiple offers. The videography, staging, and international syndication elevated our property above competing listings.',
-    result: 'Closed 7% over asking with preferred terms and leaseback flexibility.',
+      'We needed to sell our starter home and buy something bigger for our teens. Patrick mapped out the timing, connected us with local contractors to touch up the house, and kept both closings on track.',
+    result: 'Sold over list price and moved into a larger home the same week.',
   },
 ]

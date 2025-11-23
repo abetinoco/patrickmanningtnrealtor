@@ -1,188 +1,473 @@
 .navbar {
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 100;
+  left: 0;
   width: 100%;
-  background: rgba(12, 12, 14, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  z-index: 1000;
+  background: rgba(8, 12, 18, 0.72);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  transition: background var(--transition-normal), border-color var(--transition-fast),
+    box-shadow var(--transition-normal);
+}
+
+.navbarScrolled {
+  background: rgba(5, 7, 8, 0.92);
+  border-bottom-color: var(--border-medium);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 .inner {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0.85rem var(--container-padding);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  width: min(100% - 2 * var(--space-xl), var(--max-width-wide));
-  margin: 0 auto;
-  padding: var(--space-md) 0;
+  gap: 2rem;
+  min-height: var(--header-height);
 }
 
 .brand {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2xs);
+  gap: 0.2rem;
   text-decoration: none;
+  color: var(--text-primary);
+  min-width: 170px;
 }
 
 .brandName {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-text-primary);
 }
 
 .brandTagline {
-  font-size: 0.75rem;
-  letter-spacing: 0.24em;
+  font-size: 0.62rem;
   text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--text-tertiary);
 }
 
-.brandTagline::before {
-  content: 'REAL BROKER';
-  color: var(--color-brand);
-  text-shadow: 
-    0 0 10px rgba(109, 195, 219, 0.6),
-    0 0 20px rgba(109, 195, 219, 0.4),
-    0 0 30px rgba(109, 195, 219, 0.2);
-}
-
-.divider {
-  color: var(--color-text-secondary);
-}
-
-.luxuryText {
-  color: #D4AF37;
-  text-shadow: 
-    0 0 10px rgba(212, 175, 55, 0.6),
-    0 0 20px rgba(212, 175, 55, 0.4),
-    0 0 30px rgba(212, 175, 55, 0.2);
-}
-
-.navLinks {
+.primaryNav {
+  flex: 1;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: var(--space-lg);
+  gap: 1.75rem;
 }
 
 .navLink {
-  color: var(--color-text-secondary);
-  font-size: 0.95rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  padding: var(--space-2xs) 0;
-  transition: color var(--transition-base);
+  position: relative;
   text-decoration: none;
+  color: rgba(245, 247, 250, 0.75);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  padding: 0.25rem 0;
+  transition: color var(--transition-fast);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -0.15rem;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transition: width var(--transition-fast);
 }
 
 .navLink:hover,
-.navLink:focus {
-  color: var(--color-brand);
+.navLink:focus-visible {
+  color: var(--text-primary);
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  width: 100%;
 }
 
 .navLinkActive {
-  color: var(--color-brand);
-  text-shadow: 
-    0 0 10px rgba(109, 195, 219, 0.6),
-    0 0 20px rgba(109, 195, 219, 0.4),
-    0 0 30px rgba(109, 195, 219, 0.2);
+  color: var(--accent-primary);
 }
 
-.actions {
+.navLinkActive::after {
+  width: 100%;
+}
+
+.utilityRow {
   display: flex;
-  gap: var(--space-sm);
   align-items: center;
+  gap: 0.75rem;
 }
 
-.contactChip {
-  background: var(--color-brand-soft);
+.utilityButton {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  padding: 0.5rem 1.25rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  color: var(--text-primary);
+  transition: all var(--transition-fast);
+}
+
+.utilityButton:hover,
+.utilityButton:focus-visible {
+  border-color: var(--accent-primary);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--accent-primary);
+}
+
+.menuToggle {
+  border-radius: var(--radius-full);
+  border: 1px solid transparent;
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.menuToggle:hover,
+.menuToggle:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(79, 224, 208, 0.35);
+}
+
+.menuBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.menuBars span {
+  width: 16px;
+  height: 2px;
+  background: currentColor;
   border-radius: 999px;
-  padding: var(--space-2xs) var(--space-sm);
+  transition: transform var(--transition-fast);
+}
+
+.navbarMenuOpen .menuBars span:first-child {
+  transform: translateY(2px) rotate(45deg);
+}
+
+.navbarMenuOpen .menuBars span:last-child {
+  transform: translateY(-2px) rotate(-45deg);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 7, 8, 0.96);
+  z-index: 1100;
+  color: var(--text-primary);
+  animation: fadeIn 250ms ease forwards;
+}
+
+.overlayInner {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(2rem, 4vw, 4rem) var(--container-padding);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.overlayHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 1.5rem;
+}
+
+.overlayEyebrow {
+  margin: 0;
+  font-size: 0.75rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.overlayTitle {
+  margin: 0.35rem 0 0;
+  font-size: clamp(2.5rem, 4vw, 3.75rem);
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+.overlayClose {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.5rem 1.25rem;
+  cursor: pointer;
+}
+
+.overlayGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: 2.5rem;
+}
+
+.overlayPrimary {
+  display: flex;
+  flex-direction: column;
+}
+
+.overlayLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-light);
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.overlayLink:first-of-type {
+  border-top: 1px solid var(--border-light);
+}
+
+.overlayLink:hover,
+.overlayLink:focus-visible {
+  color: var(--accent-primary);
+  padding-left: 0.5rem;
+}
+
+.overlayLinkActive {
+  color: var(--accent-primary);
+}
+
+.overlayArrow {
+  font-size: 1.5rem;
+}
+
+.overlayMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.overlayGroup {
+  border: 1px solid var(--border-light);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  background: rgba(17, 24, 32, 0.7);
+}
+
+.overlayGroupLabel {
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+.overlayChipGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.overlayChip {
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
+  padding: 0.4rem 1rem;
+  text-decoration: none;
+  color: var(--text-secondary);
   font-size: 0.85rem;
   letter-spacing: 0.08em;
-  color: var(--color-brand);
+  text-transform: uppercase;
+  transition: all var(--transition-fast);
 }
 
-.menuButton {
-  display: none;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  background: transparent;
-  color: var(--color-text-primary);
-  border-radius: var(--radius-sm);
-  padding: var(--space-2xs) var(--space-sm);
+.overlayChip:hover,
+.overlayChip:focus-visible {
+  color: var(--text-inverse);
+  background: var(--accent-primary);
+  border-color: transparent;
 }
 
-.mobileMenu {
-  display: none;
+.overlayChipActive {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary);
 }
 
-@media (max-width: 1024px) {
-  .navLinks,
-  .actions {
+.overlaySocials {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  color: var(--text-secondary);
+  text-transform: capitalize;
+  font-size: 0.85rem;
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+.socialIcon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+}
+
+.socialLabel {
+  text-transform: capitalize;
+}
+
+.overlayContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.overlayContact a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.overlayContact a:hover,
+.overlayContact a:focus-visible {
+  color: var(--accent-primary);
+}
+
+.overlayContact p {
+  margin: 0;
+  color: var(--text-tertiary);
+  font-size: 0.85rem;
+}
+
+.overlayContactMeta {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+.overlayContactMeta a {
+  color: var(--accent-primary);
+  text-decoration: none;
+}
+
+.overlayContactMeta a:hover,
+.overlayContactMeta a:focus-visible {
+  text-decoration: underline;
+}
+
+.overlayCta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  text-decoration: none;
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1200px) {
+  .primaryNav {
     display: none;
   }
 
-  .menuButton {
-    display: inline-flex;
-    gap: var(--space-xs);
-    align-items: center;
-    font-size: 0.95rem;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
+  .inner {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 900px) {
+  .utilityButton {
+    display: none;
   }
 
-  .mobileMenu {
-    display: flex;
+  .inner {
+    padding: 0.75rem 1.5rem;
+  }
+
+  .overlayGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    gap: 1rem;
+  }
+
+  .brandName {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .brandTagline {
+    letter-spacing: 0.2em;
+  }
+
+  .overlayInner {
+    padding: 2rem 1.5rem;
+  }
+
+  .overlayLink {
+    font-size: 1.5rem;
+  }
+
+  .overlayChip {
+    width: 100%;
+    text-align: center;
+  }
+
+  .overlayHeader {
     flex-direction: column;
-    gap: var(--space-xs);
-    padding: var(--space-md) var(--space-xl);
-    background: rgba(15, 15, 16, 0.95);
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    align-items: flex-start;
   }
+}
 
-  .mobileLink {
-    color: var(--color-text-primary);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-decoration: none;
-    padding: var(--space-xs) 0;
-    display: block;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
   }
-
-  .mobileLink:hover,
-  .mobileLink:focus {
-    color: var(--color-brand);
-  }
-
-  .mobileSubMenu {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2xs);
-    padding-left: var(--space-md);
-    margin-top: var(--space-2xs);
-    margin-bottom: var(--space-xs);
-  }
-
-  .mobileSubLink {
-    color: var(--color-text-secondary);
-    font-size: 0.85rem;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    padding: var(--space-2xs) 0;
-    display: block;
-  }
-
-  .mobileSubLink:hover,
-  .mobileSubLink:focus {
-    color: var(--color-brand);
-  }
-
-  .mobileGroupLabel {
-    margin-top: var(--space-sm);
-    font-size: 0.75rem;
-    letter-spacing: 0.24em;
-    color: var(--color-text-secondary);
+  to {
+    opacity: 1;
   }
 }

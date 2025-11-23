@@ -13,10 +13,10 @@ export const QuickLinks = () => {
     },
     {
       title: 'Schedule a Consultation',
-      href: '/contact',
+      href: 'https://calendly.com/pmanningtnrealtor/realestateconsultation?month=2025-11',
       description: 'Book your private strategy session',
       icon: '📅',
-      internal: true,
+      external: true,
     },
     {
       title: 'Browse Properties',
@@ -94,7 +94,9 @@ export const QuickLinks = () => {
     <div className={styles.page}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.avatar}>PM</div>
+          <div className={styles.avatar}>
+            <img src="/media/patrick.png" alt="Patrick Manning" loading="lazy" />
+          </div>
           <h1 className={styles.name}>{agentProfile.name}</h1>
           <p className={styles.tagline}>{agentProfile.designation}</p>
           <p className={styles.subtitle}>{agentProfile.tagline}</p>

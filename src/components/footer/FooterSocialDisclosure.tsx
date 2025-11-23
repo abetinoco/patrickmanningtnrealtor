@@ -5,6 +5,8 @@ import { navigation } from '../../data/navigation'
 import { disclaimers } from '../../data/disclaimers'
 import styles from './FooterSocialDisclosure.module.css'
 
+const sanitizePhone = (value: string) => value.replace(/[^\d+]/g, '')
+
 // Social media icons
 const FacebookIcon = () => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -104,6 +106,7 @@ const LocationIcon = () => (
 export const FooterSocialDisclosure = () => {
   const primaryLinks = navigation.slice(0, 4)
   const secondaryLinks = navigation.slice(4)
+  const dmcaPhone = disclaimers.dmca?.phone ? sanitizePhone(disclaimers.dmca.phone) : null
 
   const navIcons: Record<string, React.ReactElement> = {
     'Home': <HomeIcon />,
@@ -170,7 +173,7 @@ export const FooterSocialDisclosure = () => {
             <EmailIcon />
             <span>Email Patrick</span>
           </a>
-          <a href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`} className={styles.linkWithIcon}>
+          <a href={`tel:${sanitizePhone(agentProfile.phone)}`} className={styles.linkWithIcon}>
             <PhoneIcon />
             <span>Call {agentProfile.phone}</span>
           </a>
@@ -192,13 +195,129 @@ export const FooterSocialDisclosure = () => {
           </div>
         </div>
 
-        <p className={styles.disclaimer}>
-          {disclaimers.idx}
-          <br />
-          {disclaimers.equalHousing}
-          <br />
-          {disclaimers.privacy}
-        </p>
+        <div className={styles.compliancePanel}>
+          <div className={styles.complianceCard}>
+            <div className={styles.complianceHeader}>
+              <span className={styles.complianceTag}>MLS / IDX Compliance</span>
+              <div className={styles.providerChips}>
+                {disclaimers.providers?.map((provider) => {
+                  if (provider.href) {
+                    return (
+                      <a
+                        key={provider.label}
+                        href={provider.href}
+                        className={styles.providerChip}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        {provider.label}
+                      </a>
+                    )
+                  }
+
+                  return (
+                    <span key={provider.label} className={`${styles.providerChip} ${styles.providerChipStatic}`}>
+                      {provider.label}
+                    </span>
+                  )
+                })}
+              </div>
+            </div>
+            <p>{disclaimers.dataSource}</p>
+            <p>{disclaimers.idx}</p>
+            <p>{disclaimers.verification}</p>
+          </div>
+
+          <div className={styles.metaGrid}>
+            <div className={styles.metaItem}>
+              <span className={styles.metaLabel}>Brokerage & Licenses</span>
+              <p className={styles.metaValue}>{agentProfile.brokerage.name}</p>
+              <p className={styles.metaValue}>{agentProfile.brokerage.licenseStatement}</p>
+              <ul className={styles.brokerContacts}>
+                {agentProfile.brokerage.managingBrokers.map((broker) => (
+                  <li key={broker.name} className={styles.brokerContact}>
+                    <span className={styles.brokerContactName}>
+                      {broker.name}
+                      {broker.title && <span className={styles.brokerContactTitle}> · {broker.title}</span>}
+                    </span>
+                    <div className={styles.brokerContactLinks}>
+                      {broker.phone && (
+                        <a href={`tel:${sanitizePhone(broker.phone)}`} aria-label={`Call ${broker.name}`}>
+                          {broker.phone}
+                        </a>
+                      )}
+                      {broker.email && (
+                        <a href={`mailto:${broker.email}`} aria-label={`Email ${broker.name}`}>
+                          {broker.email}
+                        </a>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className={styles.metaItem}>
+              <span className={styles.metaLabel}>{disclaimers.dmca.heading}</span>
+              <p className={styles.metaValue}>{disclaimers.dmca.summary}</p>
+              <div className={styles.metaContacts}>
+                <a href={`mailto:${disclaimers.dmca.email}`} aria-label="Email broker team">
+                  {disclaimers.dmca.email}
+                </a>
+                {dmcaPhone && (
+                  <a href={`tel:${dmcaPhone}`} aria-label="Call broker team">
+                    {disclaimers.dmca.phone}
+                  </a>
+                )}
+              </div>
+              {agentProfile.brokerage.teamEmail && agentProfile.brokerage.teamPhone && (
+                <div className={styles.metaContactsStack}>
+                  <span className={styles.metaLabel}>Broker Team</span>
+                  <div className={styles.metaContacts}>
+                    <a href={`mailto:${agentProfile.brokerage.teamEmail}`}>
+                      {agentProfile.brokerage.teamEmail}
+                    </a>
+                    <a href={`tel:${sanitizePhone(agentProfile.brokerage.teamPhone)}`}>
+                      {agentProfile.brokerage.teamPhone}
+                    </a>
+                  </div>
+                </div>
+              )}
+              <p className={styles.metaSubtle}>{disclaimers.dmca.mailing}</p>
+            </div>
+          </div>
+
+          <div className={styles.disclosureStack}>
+            <p className={styles.disclosureText}>{disclaimers.equalHousing}</p>
+            <p className={styles.disclosureText}>{disclaimers.privacy}</p>
+          </div>
+
+          {disclaimers.legalLinks && disclaimers.legalLinks.length > 0 && (
+            <div className={styles.legalLinks}>
+              {disclaimers.legalLinks.map((link) => {
+                if (link.href) {
+                  return (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      className={styles.legalLink}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {link.label}
+                    </a>
+                  )
+                }
+
+                return (
+                  <span key={link.label} className={`${styles.legalLink} ${styles.legalLinkStatic}`}>
+                    {link.label}
+                  </span>
+                )
+              })}
+            </div>
+          )}
+        </div>
       </div>
 
       <div className={styles.copy}>

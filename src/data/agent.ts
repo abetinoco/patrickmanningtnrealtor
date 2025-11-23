@@ -1,17 +1,23 @@
 export const agentProfile = {
   name: 'Patrick Manning',
-  designation: 'Luxury Real Estate Advisor',
-  tagline: 'Work Hard. Be Kind. Exclusive Agent for You',
+  designation: 'Realtor & Home Lifestyle Expert',
+  tagline: 'Homes that fit the way you actually live.',
   phone: '+1 615-302-8000',
   email: 'pmanningtnrealtor@gmail.com',
   brokerage: {
     name: 'Real Broker, LLC',
-    officeTennessee: '7121 Regal Lane, Suite 215, Knoxville, TN 37918',
-    officeKentucky: '406 Blankenbaker Parkway, Suite C2, Louisville, KY 40243',
+    officeTennessee: '1 Music Cir North, Suite 318, Nashville, TN 37203',
+    officeKentucky: '222 East Witherspoon Street, 1st Floor, Louisville, KY 40202',
     managingBrokers: [
-      { name: 'Tina Baker', phone: '+1 844-591-7325', email: 'kybic1@therealbrokerage.com' },
-      { name: 'Andrew Pruitt', phone: '+1 502-717-1685' },
+      {
+        name: 'Andrew Pruitt',
+        title: 'Designated Broker',
+        phone: '+1 502-500-9000',
+        email: 'kybroker@therealbrokerage.com',
+      },
     ],
+    teamEmail: 'kybroker@therealbrokerage.com',
+    teamPhone: '+1 502-500-9000',
     licenseStatement: 'Licensed in Tennessee and Kentucky | TN License IDs: 341965 & 291536',
   },
   serviceAreas: [
@@ -36,21 +42,29 @@ export const agentProfile = {
     realtor: 'https://www.realtor.com/realestateagents/5996385d293c320011666ad1',
   },
   hero: {
-    headline: 'Curated Real Estate Strategies for Middle Tennessee Luxury Buyers & Sellers',
+    headline: 'Lifestyle-first real estate for Middle Tennessee & Western Kentucky',
     subheadline:
-      'A concierge-level advisory delivering trusted guidance, market intelligence, and discreet representation for discerning clients relocating to Tennessee.',
-    primaryCta: { label: 'Schedule a Private Consultation', href: '/contact' },
-    secondaryCta: { label: 'Explore Properties', href: '/buy' },
+      'Patrick Manning is a Realtor and Home Lifestyle Expert with Real Broker, matching clients to homes that reflect their daily routines, commutes, and community vibe while drawing on $60M+ in sales and 125 successful moves since 2018.',
+    primaryCta: { label: 'Book a Quick Call', href: '/contact' },
+    secondaryCta: { label: 'See Available Homes', href: '/buy' },
     backgroundVideo: '',
     backgroundImage: '/media/hero-luxury-residence.jpg',
     overlayTone: 0.55,
   },
+  lifestyleMessaging: {
+    intro:
+      'Patrick Manning is a Realtor and Home Lifestyle Expert with Real Broker, helping clients in Middle Tennessee and Western Kentucky find homes that fit the way they actually live. He has closed over $60 million in sales since 2018 and guided more than 125 families through moves, new builds, and fresh starts.',
+    lifestyle:
+      'Patrick blends market expertise with a lifestyle-first lens—focusing on daily routines, community vibe, commute, schools, and amenities so your next home lines up with real life, not just a wish list. With deep experience in Williamson, Maury, and Western Kentucky communities, he connects clients to neighborhoods that match their season of life and long-term goals.',
+    relocation:
+      'After 26 years in New York and 22 in Chicagoland, Patrick understands relocation, change, and what it takes to feel “at home” quickly. His negotiation skills, clear communication, and modern, content-driven approach make every move straightforward, informed, and genuinely personalized.',
+  },
   elevatorPitch:
-    'Patrick Manning pairs Wall Street diligence with Southern hospitality to navigate high-net-worth clients through competitive Tennessee markets, from new construction builds to legacy estates.',
+    'Patrick blends market expertise with a lifestyle-first lens—matching you with neighborhoods across Williamson, Maury, and Western Kentucky that fit your daily rhythm, commute, and goals.',
   differentiators: [
-    'Concierge-level service that anticipates every detail of your transaction',
-    'Proven negotiation record across both Tennessee and Kentucky luxury markets',
-    'Relocation playbooks tailored for executives and multi-state households',
+    'Lifestyle-first guidance that prioritizes commute, schools, routines, and amenities',
+    'Proven negotiation record with $60M+ closed since 2018 and 125 relocations',
+    'Personal experience relocating across major markets, so every step feels clear and supported',
   ],
 }
 

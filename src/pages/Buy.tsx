@@ -3,21 +3,22 @@ import { defaultMeta } from '../seo/metaDefaults'
 import { ChimeWidget } from '../components/listings/ChimeWidget'
 import { LeadCaptureForm } from '../components/forms/LeadCaptureForm'
 import { PageHeader } from '../components/shared/PageHeader'
+import { agentProfile } from '../data/agent'
 import styles from './Home.module.css'
 import buyStyles from './Buy.module.css'
 
 const Buy = () => (
   <div>
     <Seo
-      title="Luxury Home Buying Advisory | Patrick Manning"
-      description="Experience concierge-level buyer representation with private previews, negotiation mastery, and strategic guidance across Middle Tennessee."
+      title="Lifestyle-First Home Buying Services | Patrick Manning"
+      description={agentProfile.lifestyleMessaging.lifestyle}
       openGraph={defaultMeta.openGraph}
       canonical="https://patrickmanningrealtor.com/buy"
     />
     <PageHeader
       kicker="For Buyers"
       title="Private Access to the Region's Most Coveted Residences"
-      subtitle="Leverage Patrick's network to preview homes before they reach the public MLS, plus off-market introductions tailored to your relocation timeline."
+      subtitle={`${agentProfile.lifestyleMessaging.lifestyle} Patrick sources opportunities before they reach the public MLS and aligns commutes, schools, and amenities around how you live.`}
       backgroundImage="/media/buy.jpg"
     />
 
@@ -25,10 +26,10 @@ const Buy = () => (
     <section className={buyStyles.benefitsSection}>
       <div className={buyStyles.container}>
         <div className="section-subtitle">Why Buy With Patrick</div>
-        <h2 className="section-title">Concierge-Level Buyer Representation</h2>
+        <h2 className="section-title">Professional Buyer Representation</h2>
         <p className={buyStyles.intro}>
-          Every property search deserves strategic guidance. Patrick's buyer advisory combines market intelligence, 
-          off-market access, and meticulous negotiation to secure your ideal home.
+          Every property search starts with how you actually spend your day. Patrick listens for routines, school needs, commute windows,
+          and neighborhood energy, then curates tours and pre-market introductions that keep only the right homes on your list.
         </p>
         <div className={buyStyles.benefitsGrid}>
           <article className={buyStyles.benefitCard}>
@@ -36,7 +37,7 @@ const Buy = () => (
             <h3 className={buyStyles.benefitTitle}>Private Market Access</h3>
             <p className={buyStyles.benefitDescription}>
               Gain early entry to pre-market listings and pocket opportunities through Patrick's extensive network 
-              of builders, brokers, and luxury homeowners.
+              of builders, brokers, and homeowners.
             </p>
           </article>
           <article className={buyStyles.benefitCard}>
@@ -73,8 +74,8 @@ const Buy = () => (
           <div className="section-subtitle">Live Market Search</div>
           <h2 className="section-title">Search the MLS with Patrick’s Filters</h2>
           <p>
-            Dial in price, neighborhood, and lifestyle preferences using the same MLS interface Patrick employs for his private
-            client roster. Save properties, request tours, and flag homes for concierge previews in a single dashboard.
+            Dial in price, neighborhood, and lifestyle preferences using the same MLS interface Patrick employs for his
+            client roster. Save properties, request tours, and schedule showings in a single dashboard.
           </p>
         </div>
         <ChimeWidget widgetUrl="https://www.patrickmanningrealtor.com/api-site/widget/74054" title="MLS Search" />
@@ -87,15 +88,14 @@ const Buy = () => (
         <div className="section-subtitle">Market Expertise</div>
         <h2 className="section-title">Middle Tennessee's Premier Communities</h2>
         <p className={buyStyles.intro}>
-          Patrick specializes in luxury markets across the Greater Nashville corridor, guiding buyers 
-          to neighborhoods that match their lifestyle and investment criteria.
+          Patrick works across the Greater Nashville corridor, curating neighborhoods that match lifestyle, commute, and long-term goals.
         </p>
         <div className={buyStyles.neighborhoodGrid}>
           <article className={buyStyles.neighborhoodCard}>
             <h3 className={buyStyles.neighborhoodName}>Williamson County</h3>
             <p className={buyStyles.neighborhoodDescription}>
-              Brentwood, Franklin, and Arrington offer top-rated schools, gated communities, and executive 
-              estates on sprawling acreage. The epicenter of Nashville's luxury market.
+              Brentwood, Franklin, and Arrington offer top-rated schools, gated communities, and beautiful 
+              estates on sprawling acreage. A highly sought-after area in the Nashville region.
             </p>
             <div className={buyStyles.neighborhoodStats}>
               <span>Median: $950K+</span>
@@ -124,14 +124,14 @@ const Buy = () => (
             <div className={buyStyles.neighborhoodStats}>
               <span>Median: $1.2M+</span>
               <span>•</span>
-              <span>Urban Luxury</span>
+              <span>Urban Living</span>
             </div>
           </article>
           <article className={buyStyles.neighborhoodCard}>
             <h3 className={buyStyles.neighborhoodName}>Southern Kentucky</h3>
             <p className={buyStyles.neighborhoodDescription}>
-              Bowling Green and surrounding counties provide affordable luxury, low property taxes, 
-              and easy access to Nashville—ideal for savvy buyers seeking strategic value.
+              Bowling Green and surrounding counties provide great value, low property taxes, 
+              and easy access to Nashville—ideal for buyers seeking affordability.
             </p>
             <div className={buyStyles.neighborhoodStats}>
               <span>Median: $385K+</span>
@@ -146,11 +146,11 @@ const Buy = () => (
     <section className={`${styles.widgetSection} ${styles.widgetSectionAlt}`}>
       <div className={styles.widgetInner}>
         <div className={styles.widgetCopy}>
-          <div className="section-subtitle">Curated Portfolio</div>
-          <h2 className="section-title">Preview Exclusive Residences and Coming Soon Inventory</h2>
+          <div className="section-subtitle">Available Properties</div>
+          <h2 className="section-title">Browse Homes and Coming Soon Inventory</h2>
           <p>
-            Explore luxury listings across Middle Tennessee and the Western Kentucky lake region, updated directly from Patrick’s
-            MLS feeds. Each property includes vetted insights, private showing availability, and relocation guidance.
+            Explore listings across Middle Tennessee and the Western Kentucky lake region, updated directly from Patrick's
+            MLS feeds. Each property includes detailed information, showing availability, and guidance.
           </p>
         </div>
         <ChimeWidget widgetUrl="https://www.patrickmanningrealtor.com/api-site/widget/74056" title="Featured Listings" />
@@ -158,17 +158,18 @@ const Buy = () => (
     </section>
     <section className={styles.leadSection}>
       <div className={styles.leadGrid}>
-        <div className={styles.copy}>
-          <div className="section-subtitle">Ready to Begin Your Search?</div>
-          <h2 className="section-title">Schedule a Private Buyer Consultation</h2>
-          <p>
-            Share your wishlist, timeline, and budget with Patrick for a confidential strategy session. 
-            Whether you're relocating from out of state or upgrading locally, Patrick provides the market 
-            intelligence and negotiation leverage to secure your next home with confidence.
-          </p>
-        </div>
-        <div className={styles.formContainer}>
-          <LeadCaptureForm layout="inline" />
+        <div className={styles.leadPanel}>
+          <div className={styles.copy}>
+            <div className="section-subtitle">Ready to Begin Your Search?</div>
+            <h2 className="section-title">Schedule a Private Buyer Consultation</h2>
+            <p>
+              Share how you live, work, and recharge—Patrick will map out commute options, amenities, and school districts across Williamson,
+              Maury, Greater Nashville, and Western Kentucky so every showing feels aligned.
+            </p>
+          </div>
+          <div className={styles.formContainer}>
+            <LeadCaptureForm layout="inline" />
+          </div>
         </div>
       </div>
     </section>
