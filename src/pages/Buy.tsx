@@ -17,7 +17,7 @@ const Buy = () => (
     />
     <PageHeader
       kicker="For Buyers"
-      title="Private Access to the Region's Most Coveted Residences"
+      title="Lifestyle-First Buyer Representation"
       subtitle={`${agentProfile.lifestyleMessaging.lifestyle} Patrick sources opportunities before they reach the public MLS and aligns commutes, schools, and amenities around how you live.`}
       backgroundImage="/media/buy.jpg"
     />
