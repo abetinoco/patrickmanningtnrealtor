@@ -22,6 +22,8 @@
   padding: 0 var(--container-padding);
   position: relative;
   z-index: 1;
+  display: flex;
+  justify-content: center;
 }
 
 .leadPanel {
@@ -35,6 +37,8 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 35px 60px rgba(0, 0, 0, 0.55);
   backdrop-filter: blur(18px);
+  width: 100%;
+  max-width: 980px;
 }
 
 .leadPanel::before {
@@ -64,7 +68,7 @@
 
 .formContainer {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   padding: var(--space-lg);
   background: rgba(15, 20, 28, 0.85);
   border-radius: 1.25rem;
@@ -296,6 +300,10 @@
     text-align: left;
   }
 
+  .formContainer {
+    justify-content: flex-end;
+  }
+
   .homeCtaCopy {
     margin: 1rem 0 0;
   }
@@ -312,10 +320,6 @@
 
   .leadPanel {
     grid-template-columns: 1fr;
-  }
-
-  .formContainer {
-    justify-content: center;
   }
 
   .homeCtaPanel {

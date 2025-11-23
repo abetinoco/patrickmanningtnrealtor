@@ -26,7 +26,7 @@ const Sell = () => (
     <section className="container" style={{ padding: 'var(--space-4xl) 0' }}>
       <div className="section-subtitle">Marketing Approach</div>
       <h2 className="section-title">What You Can Expect</h2>
-      <div style={{ display: 'grid', gap: 'var(--space-xl)' }}>
+      <div style={{ display: 'grid', gap: 'var(--space-xl)', justifyItems: 'center' }}>
         {serviceTiers
           .filter((tier) => tier.id === 'signature-sellers')
           .map((tier) => (

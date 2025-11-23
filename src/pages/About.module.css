@@ -267,15 +267,13 @@
   width: 100%;
   max-width: var(--container-width);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 3rem var(--container-padding);
   display: grid;
   gap: 2rem;
   text-align: center;
   background: rgba(5, 7, 8, 0.6);
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-light);
-  padding-top: 3rem;
-  padding-bottom: 3rem;
   box-shadow: var(--shadow-md);
 }
 
