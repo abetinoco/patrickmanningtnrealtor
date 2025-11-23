@@ -19,6 +19,7 @@ const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/buy', element: <Buy /> },
       { path: '/buy/sold', element: <BuySold /> },
+      { path: '/buy-sold', element: <BuySold /> },
       { path: '/sell', element: <Sell /> },
       { path: '/sell/valuation', element: <SellValuation /> },
       { path: '/about', element: <About /> },

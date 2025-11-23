@@ -3,7 +3,6 @@ import { defaultMeta } from '../seo/metaDefaults'
 import { PageHeader } from '../components/shared/PageHeader'
 import { LeadCaptureForm } from '../components/forms/LeadCaptureForm'
 import { agentProfile } from '../data/agent'
-import { disclaimers } from '../data/disclaimers'
 import styles from './Contact.module.css'
 
 const Contact = () => {
@@ -97,8 +96,6 @@ const Contact = () => {
           </div>
         </article>
         </div>
-
-        <p style={{ marginTop: 'var(--space-xl)', color: 'var(--color-text-secondary)' }}>{disclaimers.idx}</p>
       </section>
     </div>
   )
