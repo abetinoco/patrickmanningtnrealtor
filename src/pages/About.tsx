@@ -3,7 +3,7 @@ import { defaultMeta } from '../seo/metaDefaults'
 import { PageHeader } from '../components/shared/PageHeader'
 import { agentProfile } from '../data/agent'
 import { Link } from 'react-router-dom'
-import { ArrowUpRightIcon, ArrowRightIcon, InstagramIcon, TikTokIcon, FacebookIcon, LinkedInIcon } from '../components/icons/Icons'
+import { ArrowUpRightIcon, ArrowRightIcon } from '../components/icons/Icons'
 import styles from './About.module.css'
 
 const About = () => (

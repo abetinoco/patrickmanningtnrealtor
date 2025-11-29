@@ -1,21 +1,6 @@
 import { Link } from 'react-router-dom'
 import { agentProfile } from '../data/agent'
-import {
-  HomeIcon,
-  CalendarIcon,
-  SearchIcon,
-  DollarIcon,
-  UsersIcon,
-  CameraIcon,
-  MusicIcon,
-  VideoIcon,
-  BriefcaseIcon,
-  PhoneIcon,
-  MailIcon,
-  RealtorIcon,
-  type IconName,
-  iconMap,
-} from '../components/icons/Icons'
+import { type IconName, iconMap } from '../components/icons/Icons'
 import styles from './QuickLinks.module.css'
 
 export const QuickLinks = () => {
