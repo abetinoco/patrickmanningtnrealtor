@@ -1,4 +1,5 @@
 import { quickLinks } from '../../data/quickLinks'
+import { iconMap, ArrowRightIcon } from '../icons/Icons'
 import styles from './QuickLinksGrid.module.css'
 
 const isExternalLink = (href: string) => /^https?:\/\//.test(href)
@@ -14,6 +15,7 @@ export const QuickLinksGrid = () => (
     <div className={styles.grid}>
       {quickLinks.map((link, index) => {
         const external = isExternalLink(link.href)
+        const IconComponent = link.icon ? iconMap[link.icon] : null
         return (
           <a
             key={link.id}
@@ -24,9 +26,9 @@ export const QuickLinksGrid = () => (
           >
           <div className={styles.cardHeader}>
             <span className={styles.badge}>0{index + 1}</span>
-            {link.icon && (
-              <span className={styles.icon} aria-hidden>
-                {link.icon}
+            {IconComponent && (
+              <span className={styles.icon} aria-hidden="true">
+                <IconComponent width={24} height={24} />
               </span>
             )}
           </div>
@@ -36,8 +38,8 @@ export const QuickLinksGrid = () => (
           </div>
           <div className={styles.cardFooter}>
             <span className={styles.arrowLabel}>Explore</span>
-            <span className={styles.arrowIcon} aria-hidden>
-              →
+            <span className={styles.arrowIcon} aria-hidden="true">
+              <ArrowRightIcon width={18} height={18} />
             </span>
           </div>
           </a>

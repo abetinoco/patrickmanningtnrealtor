@@ -105,6 +105,18 @@
   border-top: 1px solid var(--border-light);
 }
 
+.tickerTrack {
+  display: contents;
+}
+
+.statItem[aria-hidden="true"] {
+  display: none;
+}
+
+.statItem {
+  display: block;
+}
+
 .profilePanel {
   position: relative;
   backdrop-filter: blur(14px);
@@ -215,5 +227,280 @@
     order: -1;
     grid-template-columns: 1fr;
     max-width: 340px;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .content {
+    padding: var(--space-lg) var(--container-padding);
+    gap: 1.25rem;
+  }
+
+  .copy {
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .kicker {
+    font-size: 0.75rem;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    max-width: none;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    max-width: none;
+  }
+
+  .actions {
+    margin-top: 0.5rem;
+    justify-content: center;
+  }
+
+  .statsBar {
+    overflow: hidden;
+    padding: 0.75rem 0 0;
+    margin: 0.5rem calc(-1 * var(--container-padding)) 0;
+    border-top: 1px solid var(--border-light);
+    position: relative;
+  }
+
+  .statsBar::before,
+  .statsBar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2.5rem;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .statsBar::before {
+    left: 0;
+    background: linear-gradient(to right, var(--surface-primary), transparent);
+  }
+
+  .statsBar::after {
+    right: 0;
+    background: linear-gradient(to left, var(--surface-primary), transparent);
+  }
+
+  .tickerTrack {
+    display: flex;
+    gap: 2.5rem;
+    width: max-content;
+    animation: ticker 20s linear infinite;
+  }
+
+  @keyframes ticker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .statItem {
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+
+  .statItem[aria-hidden="true"] {
+    display: block;
+  }
+
+  .statValue {
+    font-size: 1.35rem;
+  }
+
+  .statLabel {
+    font-size: 0.7rem;
+    white-space: nowrap;
+  }
+
+  .profilePanel {
+    display: none;
+  }
+}
+
+/* =============================================
+   MOBILE HERO - Visual-first with background
+   ============================================= */
+
+.mobileHero {
+  display: none;
+}
+
+@media (max-width: 520px) {
+  /* Hide the desktop content on mobile */
+  .content {
+    display: none;
+  }
+
+  /* Show the mobile hero */
+  .mobileHero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    min-height: 70vh;
+    padding: 0 1.25rem 1.5rem;
+    box-sizing: border-box;
+  }
+
+  /* Darken overlay more on mobile for text contrast */
+  .hero .overlay {
+    background: linear-gradient(
+      to top,
+      rgba(5, 7, 8, 0.95) 0%,
+      rgba(5, 7, 8, 0.7) 30%,
+      rgba(5, 7, 8, 0.3) 60%,
+      rgba(5, 7, 8, 0.1) 100%
+    );
+  }
+
+  .hero .backgroundMedia {
+    object-position: center bottom;
+  }
+
+  .mobileTitle {
+    font-family: var(--font-serif);
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    margin: 0 0 0.5rem;
+    color: #ffffff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+  }
+
+  .mobileSubtitle {
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 0 1.25rem;
+    color: #ffffff;
+    text-shadow: 0 1px 10px rgba(0,0,0,0.6);
+    max-width: 300px;
+    line-height: 1.4;
+  }
+
+  .mobileActions {
+    display: flex;
+    gap: 0.75rem;
+    width: 100%;
+    max-width: 360px;
+    margin-bottom: 1.25rem;
+  }
+
+  .mobilePrimaryCta,
+  .mobileSecondaryCta {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  .mobilePrimaryCta {
+    background-color: #4FE0D0;
+    color: #050708;
+    font-weight: 700;
+  }
+
+  .mobileSecondaryCta {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Stats ticker */
+  .mobileStats {
+    width: 100vw;
+    margin: 0 -1.25rem -1.5rem;
+    overflow: hidden;
+    padding: 0.75rem 0;
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+  }
+
+  .mobileStats::before,
+  .mobileStats::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 2rem;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .mobileStats::before {
+    left: 0;
+    background: transparent;
+  }
+
+  .mobileStats::after {
+    right: 0;
+    background: transparent;
+  }
+
+  .mobileStatsTrack {
+    display: flex;
+    gap: 2rem;
+    width: max-content;
+    animation: mobileTicker 18s linear infinite;
+    padding: 0 1rem;
+  }
+
+  @keyframes mobileTicker {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .mobileStatItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  .mobileStatValue {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #4FE0D0;
+  }
+
+  .mobileStatLabel {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
   }
 }

@@ -312,16 +312,7 @@
 
 @media (max-width: 640px) {
   .leadSection {
-    padding: 3.5rem 0;
-  }
-
-  .leadPanel {
-    grid-template-columns: 1fr;
-  }
-
-  .copy {
-    text-align: center;
-    justify-items: center;
+    display: none;
   }
 
   .homeCtaPanel {
@@ -339,6 +330,18 @@
 }
 
 @media (max-width: 520px) {
+  .widgetSection {
+    padding: 2.5rem 0;
+  }
+
+  .widgetInner {
+    gap: 1.5rem;
+  }
+
+  .leadSection {
+    padding: 2.5rem 0;
+  }
+
   .leadPanel {
     padding: var(--space-xl);
     gap: var(--space-lg);
@@ -346,5 +349,105 @@
 
   .formContainer {
     padding: var(--space-md);
+  }
+
+  .homeCtaSection {
+    padding: 0.5rem 0;
+  }
+
+  .homeCtaPanel {
+    padding: var(--space-md) var(--space-sm);
+    gap: 0.75rem;
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .homeCtaContent {
+    order: 2;
+    text-align: center;
+    gap: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .homeCtaContent > div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .homeCtaContent > div:first-child .section-subtitle {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent-primary);
+    margin: 0;
+  }
+
+  .homeCtaContent > div:first-child .section-title {
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.25;
+  }
+
+  .homeCtaCopy {
+    display: none;
+  }
+
+  .homeCtaButton {
+    order: 3;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.68rem;
+    margin: 0.65rem 0 0;
+    width: 100%;
+    max-width: 220px;
+    text-align: center;
+  }
+
+  .homeCtaProfile {
+    order: 1;
+    align-self: center;
+    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .homeCtaPortrait {
+    width: 54px;
+    height: 54px;
+    max-width: none;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    border: 2px solid rgba(79, 224, 208, 0.45);
+    box-shadow: 0 0 18px rgba(79, 224, 208, 0.35);
+  }
+
+  .homeCtaProfileMeta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+  }
+
+  .homeCtaProfileName {
+    font-size: 0.95rem;
+  }
+
+  .homeCtaProfileRole {
+    font-size: 0.75rem;
+  }
+
+  .homeCtaProfileTag {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+  }
+
+  .homeCtaProfileLink {
+    display: none;
   }
 }

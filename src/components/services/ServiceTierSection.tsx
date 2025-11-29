@@ -15,6 +15,7 @@ export const ServiceTierSection = () => (
         Dedicated Support for Buyers, Sellers, and Investors
       </h2>
     </div>
+    {/* Desktop: Card grid */}
     <div className={styles.grid}>
       {serviceTiers.map((tier, index) => (
         <article key={tier.id} className={styles.card}>
@@ -32,6 +33,27 @@ export const ServiceTierSection = () => (
             </ul>
           </div>
         </article>
+      ))}
+    </div>
+    {/* Mobile: Accordion */}
+    <div className={styles.accordion}>
+      {serviceTiers.map((tier, index) => (
+        <details key={tier.id} className={styles.accordionItem} open={index === 0}>
+          <summary className={styles.accordionTrigger}>
+            <span className={styles.accordionIndex}>0{index + 1}</span>
+            <span className={styles.accordionTitle}>{tier.name}</span>
+            <span className={styles.accordionLabel}>{tierLabels[tier.id] ?? 'Advisory'}</span>
+            <span className={styles.accordionChevron} aria-hidden="true" />
+          </summary>
+          <div className={styles.accordionContent}>
+            <p className={styles.description}>{tier.description}</p>
+            <ul className={styles.bulletList}>
+              {tier.bullets.map((bullet) => (
+                <li key={bullet}>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+        </details>
       ))}
     </div>
   </section>

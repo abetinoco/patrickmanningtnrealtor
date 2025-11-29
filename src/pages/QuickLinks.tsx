@@ -1,91 +1,114 @@
 import { Link } from 'react-router-dom'
 import { agentProfile } from '../data/agent'
+import {
+  HomeIcon,
+  CalendarIcon,
+  SearchIcon,
+  DollarIcon,
+  UsersIcon,
+  CameraIcon,
+  MusicIcon,
+  VideoIcon,
+  BriefcaseIcon,
+  PhoneIcon,
+  MailIcon,
+  RealtorIcon,
+  type IconName,
+  iconMap,
+} from '../components/icons/Icons'
 import styles from './QuickLinks.module.css'
 
 export const QuickLinks = () => {
-  const links = [
+  const links: Array<{
+    title: string
+    href: string
+    description: string
+    icon: IconName
+    internal?: boolean
+    external?: boolean
+  }> = [
     {
       title: 'PatrickManning.com Homepage',
       href: '/',
       description: 'Visit my full website',
-      icon: '🏠',
+      icon: 'home',
       internal: true,
     },
     {
       title: 'Schedule a Consultation',
       href: 'https://calendly.com/pmanningtnrealtor/realestateconsultation?month=2025-11',
       description: 'Book your private strategy session',
-      icon: '📅',
+      icon: 'calendar',
       external: true,
     },
     {
       title: 'Browse Properties',
       href: '/buy',
       description: 'Search Middle Tennessee luxury homes',
-      icon: '🔍',
+      icon: 'search',
       internal: true,
     },
     {
       title: 'Value Your Home',
       href: '/sell/valuation',
       description: 'Get a comprehensive property valuation',
-      icon: '💰',
+      icon: 'dollar',
       internal: true,
     },
     {
       title: 'Facebook',
       href: agentProfile.socialLinks.facebook,
       description: '@pmanningtnrealtor',
-      icon: '👥',
+      icon: 'facebook',
       external: true,
     },
     {
       title: 'Instagram',
       href: agentProfile.socialLinks.instagram,
       description: '@pmanningtnrealtor',
-      icon: '📸',
+      icon: 'instagram',
       external: true,
     },
     {
       title: 'TikTok',
       href: agentProfile.socialLinks.tiktok,
       description: '@pmanningtnrealtor',
-      icon: '🎵',
+      icon: 'tiktok',
       external: true,
     },
     {
       title: 'YouTube',
       href: agentProfile.socialLinks.youtube,
       description: '@pmanningtnrealtor',
-      icon: '📹',
+      icon: 'youtube',
       external: true,
     },
     {
       title: 'LinkedIn',
       href: agentProfile.socialLinks.linkedin,
       description: 'Connect professionally',
-      icon: '💼',
+      icon: 'linkedin',
       external: true,
     },
     {
       title: 'Realtor.com Profile',
       href: agentProfile.socialLinks.realtor,
       description: 'View my agent profile',
-      icon: '🏡',
+      icon: 'realtor',
       external: true,
     },
     {
       title: 'Call Me',
       href: `tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`,
       description: agentProfile.phone,
-      icon: '📞',
+      icon: 'phone',
       external: true,
     },
     {
       title: 'Email Me',
       href: `mailto:${agentProfile.email}`,
       description: agentProfile.email,
-      icon: '✉️',
+      icon: 'mail',
       external: true,
     },
   ]
@@ -103,14 +126,17 @@ export const QuickLinks = () => {
         </div>
 
         <div className={styles.linksGrid}>
-          {links.map((link) => (
-            link.internal ? (
+          {links.map((link) => {
+            const IconComponent = iconMap[link.icon]
+            return link.internal ? (
               <Link
                 key={link.title}
                 to={link.href}
                 className={styles.linkCard}
               >
-                <div className={styles.linkIcon}>{link.icon}</div>
+                <div className={styles.linkIcon}>
+                  <IconComponent width={24} height={24} />
+                </div>
                 <div className={styles.linkContent}>
                   <div className={styles.linkTitle}>{link.title}</div>
                   <div className={styles.linkDescription}>{link.description}</div>
@@ -124,14 +150,16 @@ export const QuickLinks = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <div className={styles.linkIcon}>{link.icon}</div>
+                <div className={styles.linkIcon}>
+                  <IconComponent width={24} height={24} />
+                </div>
                 <div className={styles.linkContent}>
                   <div className={styles.linkTitle}>{link.title}</div>
                   <div className={styles.linkDescription}>{link.description}</div>
                 </div>
               </a>
             )
-          ))}
+          })}
         </div>
 
         <div className={styles.footer}>

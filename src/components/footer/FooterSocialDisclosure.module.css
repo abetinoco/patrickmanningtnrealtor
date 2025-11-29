@@ -377,12 +377,72 @@
 }
 
 @media (max-width: 640px) {
+  .footer {
+    padding: 2rem 0 1.5rem;
+  }
+
   .grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .brandBlock {
+    grid-column: 1 / -1;
   }
 
   .socialLinks {
     flex-wrap: wrap;
+  }
+
+  .linkColumn {
+    gap: 0.35rem;
+  }
+
+  .linkColumn:nth-child(4) {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .linkColumn:nth-child(4) .linkHeading {
+    grid-column: 1 / -1;
+  }
+
+  .officeItem {
+    font-size: 0.85rem;
+  }
+
+  .officeItem p {
+    line-height: 1.4;
+  }
+
+  .linkHeading {
+    font-size: 0.7rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .linkWithIcon {
+    font-size: 0.9rem;
+    padding: 0.15rem 0;
+  }
+
+  .compliancePanel {
+    grid-column: 1 / -1;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .complianceCard {
+    padding: 1.25rem;
+    border-radius: 1rem;
+  }
+
+  .metaGrid {
+    gap: 0.75rem;
+  }
+
+  .metaItem {
+    padding: 1rem;
   }
 }

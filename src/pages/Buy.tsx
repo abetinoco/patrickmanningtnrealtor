@@ -4,6 +4,7 @@ import { ChimeWidget } from '../components/listings/ChimeWidget'
 import { LeadCaptureForm } from '../components/forms/LeadCaptureForm'
 import { PageHeader } from '../components/shared/PageHeader'
 import { agentProfile } from '../data/agent'
+import { SearchIcon, TargetIcon, BriefcaseIcon, HomeIcon } from '../components/icons/Icons'
 import styles from './Home.module.css'
 import buyStyles from './Buy.module.css'
 
@@ -33,7 +34,9 @@ const Buy = () => (
         </p>
         <div className={buyStyles.benefitsGrid}>
           <article className={buyStyles.benefitCard}>
-            <div className={buyStyles.benefitIcon}>🔍</div>
+            <div className={buyStyles.benefitIcon}>
+              <SearchIcon width={28} height={28} />
+            </div>
             <h3 className={buyStyles.benefitTitle}>Private Market Access</h3>
             <p className={buyStyles.benefitDescription}>
               Gain early entry to pre-market listings and pocket opportunities through Patrick's extensive network 
@@ -41,7 +44,9 @@ const Buy = () => (
             </p>
           </article>
           <article className={buyStyles.benefitCard}>
-            <div className={buyStyles.benefitIcon}>🎯</div>
+            <div className={buyStyles.benefitIcon}>
+              <TargetIcon width={28} height={28} />
+            </div>
             <h3 className={buyStyles.benefitTitle}>Tailored Property Match</h3>
             <p className={buyStyles.benefitDescription}>
               Share your lifestyle criteria and investment goals—Patrick curates showing itineraries that 
@@ -49,7 +54,9 @@ const Buy = () => (
             </p>
           </article>
           <article className={buyStyles.benefitCard}>
-            <div className={buyStyles.benefitIcon}>💼</div>
+            <div className={buyStyles.benefitIcon}>
+              <BriefcaseIcon width={28} height={28} />
+            </div>
             <h3 className={buyStyles.benefitTitle}>Strategic Negotiation</h3>
             <p className={buyStyles.benefitDescription}>
               Leverage market data, comparable analysis, and Patrick's proven negotiation tactics to secure 
@@ -57,7 +64,9 @@ const Buy = () => (
             </p>
           </article>
           <article className={buyStyles.benefitCard}>
-            <div className={buyStyles.benefitIcon}>🏡</div>
+            <div className={buyStyles.benefitIcon}>
+              <HomeIcon width={28} height={28} />
+            </div>
             <h3 className={buyStyles.benefitTitle}>Relocation Concierge</h3>
             <p className={buyStyles.benefitDescription}>
               Moving from out of state? Patrick coordinates every detail—from school research to contractor 

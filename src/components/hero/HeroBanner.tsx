@@ -46,12 +46,20 @@ export const HeroBanner = () => {
           </div>
 
           <div className={styles.statsBar}>
-            {valueMetrics.slice(0, 4).map((metric) => (
-              <div key={metric.label}>
-                <div className={styles.statValue}>{metric.value}</div>
-                <div className={styles.statLabel}>{metric.label}</div>
-              </div>
-            ))}
+            <div className={styles.tickerTrack}>
+              {valueMetrics.slice(0, 4).map((metric) => (
+                <div key={metric.label} className={styles.statItem}>
+                  <div className={styles.statValue}>{metric.value}</div>
+                  <div className={styles.statLabel}>{metric.label}</div>
+                </div>
+              ))}
+              {valueMetrics.slice(0, 4).map((metric) => (
+                <div key={`dup-${metric.label}`} className={styles.statItem} aria-hidden="true">
+                  <div className={styles.statValue}>{metric.value}</div>
+                  <div className={styles.statLabel}>{metric.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -69,6 +77,83 @@ export const HeroBanner = () => {
             </a>
           </div>
         </aside>
+      </div>
+
+      {/* MOBILE HERO - Visual-first with background image */}
+      <div className={styles.mobileHero}>
+        <h1 
+          className={styles.mobileTitle}
+          style={{ color: '#ffffff', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
+        >
+          Find Your <span style={{ color: '#4FE0D0' }}>Perfect</span> Home
+        </h1>
+        <p 
+          className={styles.mobileSubtitle}
+          style={{ color: '#ffffff', textShadow: '0 1px 10px rgba(0,0,0,0.6)' }}
+        >
+          Lifestyle-first real estate for Middle Tennessee &amp; Western Kentucky
+        </p>
+        <div className={styles.mobileActions}>
+          <a 
+            className={styles.mobilePrimaryCta} 
+            href={hero.primaryCta.href}
+            style={{ 
+              backgroundColor: '#4FE0D0', 
+              color: '#050708',
+              fontWeight: 700 
+            }}
+          >
+            {hero.primaryCta.label}
+          </a>
+          <a 
+            className={styles.mobileSecondaryCta} 
+            href={hero.secondaryCta.href}
+            style={{ 
+              backgroundColor: 'rgba(255,255,255,0.15)', 
+              color: '#ffffff',
+              backdropFilter: 'blur(10px)',
+              fontWeight: 600
+            }}
+          >
+            {hero.secondaryCta.label}
+          </a>
+        </div>
+        <div className={styles.mobileStats}>
+          <div className={styles.mobileStatsTrack}>
+            {valueMetrics.slice(0, 4).map((metric) => (
+              <div key={metric.label} className={styles.mobileStatItem}>
+                <span 
+                  className={styles.mobileStatValue}
+                  style={{ color: '#4FE0D0' }}
+                >
+                  {metric.value}
+                </span>
+                <span 
+                  className={styles.mobileStatLabel}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                >
+                  {metric.label}
+                </span>
+              </div>
+            ))}
+            {valueMetrics.slice(0, 4).map((metric) => (
+              <div key={`dup-${metric.label}`} className={styles.mobileStatItem} aria-hidden="true">
+                <span 
+                  className={styles.mobileStatValue}
+                  style={{ color: '#4FE0D0' }}
+                >
+                  {metric.value}
+                </span>
+                <span 
+                  className={styles.mobileStatLabel}
+                  style={{ color: 'rgba(255,255,255,0.8)' }}
+                >
+                  {metric.label}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   )

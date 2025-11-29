@@ -1,19 +1,10 @@
 .section {
   position: relative;
   padding: var(--space-4xl) 0;
+  padding-top: calc(var(--space-4xl) + 10px);
   background: var(--surface-primary);
   border-top: 1px solid var(--border-light);
-  overflow: hidden;
-}
-
-.section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top right, rgba(79, 224, 208, 0.18), transparent 55%),
-    radial-gradient(circle at bottom left, rgba(31, 163, 149, 0.12), transparent 45%);
-  opacity: 0.5;
-  pointer-events: none;
+  overflow: visible;
 }
 
 .grid {
@@ -34,33 +25,17 @@
   padding: var(--space-2xl) var(--space-xl);
   border-radius: 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.45);
+  box-shadow: none;
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   overflow: hidden;
 }
 
 .card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 1px;
-  background: linear-gradient(135deg, rgba(79, 224, 208, 0.7), rgba(18, 32, 43, 0.5));
-  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-  opacity: 0.5;
+  display: none;
 }
 
 .card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 20% 20%, rgba(79, 224, 208, 0.18), transparent 45%),
-    radial-gradient(circle at 80% 60%, rgba(31, 163, 149, 0.12), transparent 50%);
-  opacity: 0.35;
-  pointer-events: none;
+  display: none;
 }
 
 .icon {
@@ -80,7 +55,7 @@
 .card:hover,
 .card:focus-visible {
   transform: translateY(-6px);
-  box-shadow: 0 35px 65px rgba(0, 0, 0, 0.55);
+  box-shadow: none;
 }
 
 .cardHeader {
@@ -147,7 +122,30 @@
 }
 
 @media (max-width: 768px) {
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: var(--space-md);
+    padding: 0 var(--space-lg);
+    width: 100%;
+    scrollbar-width: none;
+  }
+
+  .grid::-webkit-scrollbar {
+    display: none;
+  }
+
   .card {
+    flex: 0 0 85%;
+    min-width: 280px;
+    max-width: 320px;
+    scroll-snap-align: center;
     padding: var(--space-xl);
   }
 

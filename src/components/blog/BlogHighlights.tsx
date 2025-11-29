@@ -1,4 +1,5 @@
 import { blogPosts } from '../../data/blog'
+import { ArrowRightIcon } from '../icons/Icons'
 import styles from './BlogHighlights.module.css'
 
 export const BlogHighlights = () => (
@@ -21,7 +22,7 @@ export const BlogHighlights = () => (
           <h3 className={styles.title}>{post.title}</h3>
           <p className={styles.excerpt}>{post.excerpt}</p>
           <a className={styles.link} href={`/blog/${post.slug}`}>
-            Read Story <span aria-hidden>→</span>
+            Read Story <ArrowRightIcon width={16} height={16} aria-hidden="true" style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '4px' }} />
           </a>
         </article>
       ))}

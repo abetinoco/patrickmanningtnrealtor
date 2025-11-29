@@ -2,6 +2,7 @@ import { Outlet, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import { NavigationBar } from '../components/navigation/NavigationBar'
 import { FooterSocialDisclosure } from '../components/footer/FooterSocialDisclosure'
+import { FloatingContactBar } from '../components/navigation/FloatingContactBar'
 
 export const MainLayout = () => {
   const location = useLocation()
@@ -17,6 +18,7 @@ export const MainLayout = () => {
         <Outlet />
       </main>
       <FooterSocialDisclosure />
+      <FloatingContactBar />
     </div>
   )
 }

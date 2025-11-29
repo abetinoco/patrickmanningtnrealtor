@@ -7,7 +7,6 @@ import { ServiceTierSection } from '../components/services/ServiceTierSection'
 import { ChimeWidget } from '../components/listings/ChimeWidget'
 import { SoldListings } from '../components/listings/SoldListings'
 import { AdvisoryProcess } from '../components/process/AdvisoryProcess'
-import { LeadCaptureForm } from '../components/forms/LeadCaptureForm'
 import { agentProfile } from '../data/agent'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
@@ -42,26 +41,6 @@ const Home = () => (
       </div>
     </section>
     <SoldListings limit={6} showViewAll={true} />
-    <section className={styles.leadSection} aria-labelledby="consultation-heading">
-      <div className={styles.leadGrid}>
-        <div className={styles.leadPanel}>
-          <div className={styles.copy}>
-            <div className="section-subtitle">Here to Help</div>
-            <h2 id="consultation-heading" className="section-title">
-              Need a hand buying, selling, or relocating?
-            </h2>
-            <p>{agentProfile.elevatorPitch}</p>
-            <p>
-              Call or text <a href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`}>{agentProfile.phone}</a> or share a few
-              details and we will set up a quick call that fits your schedule.
-            </p>
-          </div>
-          <div className={styles.formContainer}>
-            <LeadCaptureForm />
-          </div>
-        </div>
-      </div>
-    </section>
     <AdvisoryProcess />
     <section className={styles.homeCtaSection} aria-labelledby="home-cta-heading">
       <div className={styles.homeCtaInner}>
@@ -78,7 +57,7 @@ const Home = () => (
               </p>
             </div>
             <Link to="/buy" className={styles.homeCtaButton}>
-              Plan Your Move
+              Get Started
             </Link>
           </div>
           <div className={styles.homeCtaProfile}>

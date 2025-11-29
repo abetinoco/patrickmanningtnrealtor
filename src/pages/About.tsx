@@ -3,6 +3,7 @@ import { defaultMeta } from '../seo/metaDefaults'
 import { PageHeader } from '../components/shared/PageHeader'
 import { agentProfile } from '../data/agent'
 import { Link } from 'react-router-dom'
+import { ArrowUpRightIcon, ArrowRightIcon, InstagramIcon, TikTokIcon, FacebookIcon, LinkedInIcon } from '../components/icons/Icons'
 import styles from './About.module.css'
 
 const About = () => (
@@ -97,7 +98,7 @@ const About = () => (
             className={styles.advocacyButton}
           >
             Sign the Change.org Petition
-            <span aria-hidden="true">↗</span>
+            <ArrowUpRightIcon width={18} height={18} aria-hidden="true" style={{ display: 'inline', verticalAlign: 'middle', marginLeft: '6px' }} />
           </a>
         </div>
       </div>
@@ -203,7 +204,7 @@ const About = () => (
                 </div>
                 <div className={styles.instagramText}>
                   <div className={styles.instagramHandle}>@pmanningtnrealtor</div>
-                  <div className={styles.instagramCta}>View latest posts →</div>
+                  <div className={styles.instagramCta}>View latest posts <ArrowRightIcon width={14} height={14} style={{ display: 'inline', verticalAlign: 'middle' }} /></div>
                 </div>
               </a>
             </div>
@@ -231,7 +232,7 @@ const About = () => (
                 </div>
                 <div className={styles.instagramText}>
                   <div className={styles.instagramHandle}>@pmanningtnrealtor</div>
-                  <div className={styles.instagramCta}>Watch videos →</div>
+                  <div className={styles.instagramCta}>Watch videos <ArrowRightIcon width={14} height={14} style={{ display: 'inline', verticalAlign: 'middle' }} /></div>
                 </div>
               </a>
             </div>
@@ -259,7 +260,7 @@ const About = () => (
                 </div>
                 <div className={styles.instagramText}>
                   <div className={styles.instagramHandle}>Patrick Manning TN Realtor</div>
-                  <div className={styles.instagramCta}>View updates →</div>
+                  <div className={styles.instagramCta}>View updates <ArrowRightIcon width={14} height={14} style={{ display: 'inline', verticalAlign: 'middle' }} /></div>
                 </div>
               </a>
             </div>
@@ -287,7 +288,7 @@ const About = () => (
               </div>
               <div className={styles.instagramText}>
                 <div className={styles.instagramHandle}>LinkedIn</div>
-                <div className={styles.instagramCta}>Connect professionally →</div>
+                <div className={styles.instagramCta}>Connect professionally <ArrowRightIcon width={14} height={14} style={{ display: 'inline', verticalAlign: 'middle' }} /></div>
               </div>
             </a>
             </div>
