@@ -8,12 +8,22 @@ export const agentProfile = {
     name: 'Real Broker, LLC',
     officeTennessee: '1 Music Cir North, Suite 318, Nashville, TN 37203',
     officeKentucky: '222 East Witherspoon Street, 1st Floor, Louisville, KY 40202',
+    tennesseeLicenseNumber: '266923',
+    tennesseeOfficeCode: 'RBRO01',
     managingBrokers: [
       {
+        name: 'Carrie Anne Walters',
+        title: 'Managing Broker – Tennessee',
+        phone: '+1 844-591-7325',
+        email: 'tn.nashvillebroker@therealbrokerage.com',
+        region: 'Tennessee',
+      },
+      {
         name: 'Andrew Pruitt',
-        title: 'Designated Broker',
+        title: 'Designated Broker – Kentucky',
         phone: '+1 502-500-9000',
         email: 'kybroker@therealbrokerage.com',
+        region: 'Kentucky',
       },
     ],
     teamEmail: 'kybroker@therealbrokerage.com',
@@ -30,6 +40,7 @@ export const agentProfile = {
   valueMetrics: [
     { label: 'Gross Sales Volume Since 2018', value: '$60M+' },
     { label: 'Families Relocated', value: '125+' },
+    { label: 'Deals Closed', value: '60+' },
     { label: 'Years in Real Estate', value: '10+' },
     { label: 'Multi-Market Expertise', value: 'TN & KY Licensed' },
   ],
@@ -39,7 +50,6 @@ export const agentProfile = {
     linkedin: 'https://www.linkedin.com/in/pmanningtnrealtor/',
     tiktok: 'https://www.tiktok.com/@pmanningtnrealtor',
     youtube: 'https://www.youtube.com/@pmanningtnrealtor',
-    realtor: 'https://www.realtor.com/realestateagents/5996385d293c320011666ad1',
   },
   hero: {
     headline: 'Lifestyle-first real estate for Middle Tennessee & Western Kentucky',

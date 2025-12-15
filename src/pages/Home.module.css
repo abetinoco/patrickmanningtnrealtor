@@ -55,7 +55,7 @@
   opacity: 0.5;
 }
 
-.leadPanel > * {
+.leadPanel>* {
   position: relative;
   z-index: 1;
 }
@@ -131,20 +131,10 @@
 
 .homeCtaSection {
   position: relative;
-  padding: 4rem 0;
-  background: var(--surface-primary);
+  padding: 2.5rem 0;
+  background: #0f131a;
   border-top: 1px solid var(--border-light);
   overflow: hidden;
-}
-
-.homeCtaSection::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 35% 20%, rgba(79, 224, 208, 0.18), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(31, 163, 149, 0.18), transparent 50%);
-  opacity: 0.8;
-  pointer-events: none;
 }
 
 .homeCtaInner {
@@ -162,13 +152,14 @@
   position: relative;
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: minmax(0, 1.4fr) minmax(220px, 300px);
-  padding: var(--space-2xl);
+  grid-template-columns: minmax(0, 1.6fr) minmax(180px, 220px);
+  padding: var(--space-xl);
   background: rgba(11, 18, 26, 0.92);
-  border-radius: 1.75rem;
+  border-radius: 1.5rem;
   border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 45px 80px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
   backdrop-filter: blur(22px);
+  align-items: center;
 }
 
 .homeCtaPanel::before {
@@ -185,20 +176,22 @@
   opacity: 0.65;
 }
 
-.homeCtaPanel > * {
+.homeCtaPanel>* {
   position: relative;
   z-index: 1;
 }
 
 .homeCtaCopy {
   color: var(--text-secondary);
-  max-width: 60ch;
-  margin: 1rem auto 0;
+  max-width: 55ch;
+  margin: 0.5rem auto 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .homeCtaContent {
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
 }
 
 .homeCtaButton {
@@ -207,28 +200,29 @@
   align-items: center;
   justify-content: center;
   gap: var(--space-sm);
-  padding: 1.1rem 2.75rem;
+  padding: 0.9rem 2.25rem;
   border-radius: var(--radius-full);
   border: none;
   background: var(--gradient-primary);
   color: #041014;
   font-weight: 700;
+  font-size: 0.85rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  box-shadow: 0 18px 35px rgba(79, 224, 208, 0.25);
+  box-shadow: 0 14px 28px rgba(79, 224, 208, 0.2);
 }
 
 .homeCtaButton:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 25px 45px rgba(79, 224, 208, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 18px 35px rgba(79, 224, 208, 0.3);
 }
 
 .homeCtaProfile {
   position: relative;
   display: grid;
-  gap: 1rem;
+  gap: 0.75rem;
   justify-items: center;
   text-align: center;
 }
@@ -236,10 +230,11 @@
 .homeCtaPortrait {
   position: relative;
   width: 100%;
-  border-radius: 1.25rem;
+  max-width: 180px;
+  border-radius: 1rem;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
 }
 
 .homeCtaPortrait img {
@@ -259,7 +254,7 @@
 
 .homeCtaProfileMeta {
   display: grid;
-  gap: 0.3rem;
+  gap: 0.2rem;
 }
 
 .homeCtaProfileTag {
@@ -372,14 +367,14 @@
     align-items: center;
   }
 
-  .homeCtaContent > div:first-child {
+  .homeCtaContent>div:first-child {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
   }
 
-  .homeCtaContent > div:first-child .section-subtitle {
+  .homeCtaContent>div:first-child .section-subtitle {
     font-size: 0.65rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -387,7 +382,7 @@
     margin: 0;
   }
 
-  .homeCtaContent > div:first-child .section-title {
+  .homeCtaContent>div:first-child .section-title {
     font-size: 1rem;
     margin: 0;
     line-height: 1.25;

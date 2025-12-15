@@ -48,7 +48,7 @@
   margin-bottom: 0.5rem;
 }
 
-.panel > div {
+.panel>div {
   position: relative;
   z-index: 1;
 }
@@ -113,6 +113,56 @@
   z-index: 1;
 }
 
+.brokerMeta {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  color: var(--text-secondary);
+}
+
+.brokerLabel {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent-primary);
+}
+
+.brokerName {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.brokerStats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 1rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.brokerContact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 0.4rem;
+}
+
+.brokerContact a {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.brokerContact a:hover {
+  color: var(--accent-primary);
+}
+
 .mapContainer {
   margin-top: 1.5rem;
   border-radius: var(--radius-md);
@@ -127,29 +177,62 @@
   filter: grayscale(0%) contrast(1);
 }
 
+/* Calendly Booking Widget */
+.calendlySection {
+  width: 100%;
+  max-width: var(--container-width);
+  margin: 4rem auto 0;
+  padding: 0 var(--container-padding);
+}
+
+.calendlyHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.calendlyIntro {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 1rem auto 0;
+  line-height: 1.6;
+}
+
+.calendlyWidget {
+  background: var(--surface-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.calendlyWidget iframe {
+  display: block;
+  min-height: 700px;
+}
+
 @media (max-width: 768px) {
   .wrapper {
     padding: 3rem 0;
   }
-  
+
   .grid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .officeGrid {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .panel {
     padding: 1.5rem;
   }
-  
+
   .officeCard {
     padding: 2rem;
   }
-  
+
   .officeTitle {
     font-size: 1.25rem;
   }

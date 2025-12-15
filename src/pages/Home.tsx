@@ -4,8 +4,8 @@ import { buildAgentSchema } from '../utils/schema'
 import { HeroBanner } from '../components/hero/HeroBanner'
 import { QuickLinksGrid } from '../components/quick-links/QuickLinksGrid'
 import { ServiceTierSection } from '../components/services/ServiceTierSection'
-import { ChimeWidget } from '../components/listings/ChimeWidget'
 import { SoldListings } from '../components/listings/SoldListings'
+import { GoogleReviews } from '../components/testimonials/GoogleReviews'
 import { AdvisoryProcess } from '../components/process/AdvisoryProcess'
 import { agentProfile } from '../data/agent'
 import { Link } from 'react-router-dom'
@@ -25,22 +25,8 @@ const Home = () => (
     <HeroBanner />
     <QuickLinksGrid />
     <ServiceTierSection />
-    <section className={styles.widgetSection} aria-labelledby="home-listings-heading">
-      <div className={styles.widgetInner}>
-        <div className={styles.widgetCopy}>
-          <div className="section-subtitle">Live Market Window</div>
-          <h2 id="home-listings-heading" className="section-title">
-            Explore Available Listings in Real Time
-          </h2>
-          <p>
-            Browse active listings directly from the MLS. Filter by price, neighborhood, or property type and
-            request a showing without leaving the site.
-          </p>
-        </div>
-        <ChimeWidget widgetUrl="https://www.patrickmanningrealtor.com/api-site/widget/74056" title="Featured Listings" />
-      </div>
-    </section>
     <SoldListings limit={6} showViewAll={true} />
+    <GoogleReviews />
     <AdvisoryProcess />
     <section className={styles.homeCtaSection} aria-labelledby="home-cta-heading">
       <div className={styles.homeCtaInner}>

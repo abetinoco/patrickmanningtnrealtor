@@ -1,7 +1,7 @@
 import { Seo } from '../components/seo/Seo'
 import { defaultMeta } from '../seo/metaDefaults'
+import { Link } from 'react-router-dom'
 import { PageHeader } from '../components/shared/PageHeader'
-import { LeadCaptureForm } from '../components/forms/LeadCaptureForm'
 import { AdvisoryProcess } from '../components/process/AdvisoryProcess'
 import { agentProfile } from '../data/agent'
 import homeStyles from './Home.module.css'
@@ -23,19 +23,37 @@ const Sell = () => (
 
     <AdvisoryProcess />
 
-    <section className={homeStyles.leadSection}>
-      <div className={homeStyles.leadGrid}>
-        <div className={homeStyles.leadPanel}>
-          <div className={homeStyles.copy}>
-            <div className="section-subtitle">Sell with Confidence</div>
-            <h2 className="section-title">Request Your Listing Consultation</h2>
-            <p>
-              Patrick frames your property through a lifestyle lens, handles pricing, content, and negotiations, and keeps you focused on
-              your next chapter with clear communication the whole way through.
-            </p>
+    <section className={homeStyles.homeCtaSection} aria-labelledby="sell-cta-heading">
+      <div className={homeStyles.homeCtaInner}>
+        <div className={homeStyles.homeCtaPanel}>
+          <div className={homeStyles.homeCtaContent}>
+            <div>
+              <div className="section-subtitle">Next Step</div>
+              <h2 id="sell-cta-heading" className="section-title">
+                Ready to plan your next move?
+              </h2>
+              <p className={homeStyles.homeCtaCopy}>
+                Share how you live day to day—routines, commute, schools, and amenities—and Patrick will curate neighborhoods in
+                Williamson, Maury, and Western Kentucky that match your season of life and next move.
+              </p>
+            </div>
+            <Link to="/contact" className={homeStyles.homeCtaButton}>
+              Get Started
+            </Link>
           </div>
-          <div className={homeStyles.formContainer}>
-            <LeadCaptureForm layout="inline" />
+          <div className={homeStyles.homeCtaProfile}>
+            <div className={homeStyles.homeCtaPortrait}>
+              <img src="/media/patrick.png" alt="Patrick Manning" loading="lazy" />
+              <span className={homeStyles.homeCtaPortraitGlow} aria-hidden="true" />
+            </div>
+            <div className={homeStyles.homeCtaProfileMeta}>
+              <span className={homeStyles.homeCtaProfileTag}>Real Broker, LLC</span>
+              <span className={homeStyles.homeCtaProfileName}>Patrick Manning</span>
+              <span className={homeStyles.homeCtaProfileRole}>Real Estate Advisor</span>
+              <a className={homeStyles.homeCtaProfileLink} href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`}>
+                Call or Text {agentProfile.phone}
+              </a>
+            </div>
           </div>
         </div>
       </div>

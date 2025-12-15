@@ -47,13 +47,13 @@ export const HeroBanner = () => {
 
           <div className={styles.statsBar}>
             <div className={styles.tickerTrack}>
-              {valueMetrics.slice(0, 4).map((metric) => (
+              {valueMetrics.slice(0, 5).map((metric) => (
                 <div key={metric.label} className={styles.statItem}>
                   <div className={styles.statValue}>{metric.value}</div>
                   <div className={styles.statLabel}>{metric.label}</div>
                 </div>
               ))}
-              {valueMetrics.slice(0, 4).map((metric) => (
+              {valueMetrics.slice(0, 5).map((metric) => (
                 <div key={`dup-${metric.label}`} className={styles.statItem} aria-hidden="true">
                   <div className={styles.statValue}>{metric.value}</div>
                   <div className={styles.statLabel}>{metric.label}</div>
@@ -120,7 +120,7 @@ export const HeroBanner = () => {
         </div>
         <div className={styles.mobileStats}>
           <div className={styles.mobileStatsTrack}>
-            {valueMetrics.slice(0, 4).map((metric) => (
+            {valueMetrics.slice(0, 5).map((metric) => (
               <div key={metric.label} className={styles.mobileStatItem}>
                 <span 
                   className={styles.mobileStatValue}
@@ -136,7 +136,7 @@ export const HeroBanner = () => {
                 </span>
               </div>
             ))}
-            {valueMetrics.slice(0, 4).map((metric) => (
+            {valueMetrics.slice(0, 5).map((metric) => (
               <div key={`dup-${metric.label}`} className={styles.mobileStatItem} aria-hidden="true">
                 <span 
                   className={styles.mobileStatValue}

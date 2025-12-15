@@ -213,6 +213,9 @@
 }
 
 .overlayClose {
+  position: absolute;
+  top: 1rem;
+  right: calc(var(--container-padding) + 9rem);
   border-radius: var(--radius-full);
   border: 1px solid var(--border-light);
   background: transparent;
@@ -221,6 +224,13 @@
   letter-spacing: 0.12em;
   padding: 0.5rem 1.25rem;
   cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.overlayClose:hover,
+.overlayClose:focus-visible {
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
 }
 
 .overlayGrid {
@@ -469,6 +479,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
