@@ -437,8 +437,8 @@
   }
 
   .mobilePrimaryCta {
-    background-color: #4FE0D0;
-    color: #050708;
+    background: var(--gradient-primary);
+    color: #ffffff;
     font-weight: 700;
   }
 
