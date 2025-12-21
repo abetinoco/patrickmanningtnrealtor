@@ -148,6 +148,8 @@
     -ms-overflow-style: none;
     padding: 2rem 0 1.5rem;
     cursor: grab;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
   }
 
   .timelineWrapper::-webkit-scrollbar {
@@ -169,6 +171,7 @@
     min-width: 280px;
     max-width: 280px;
     padding: 0 0.75rem;
+    scroll-snap-align: center;
   }
 
   .stepNode {

@@ -13,6 +13,20 @@ export const QuickLinks = () => {
     external?: boolean
   }> = [
       {
+        title: 'Call Me',
+        href: `tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`,
+        description: agentProfile.phone,
+        icon: 'phone',
+        external: true,
+      },
+      {
+        title: 'Email Me',
+        href: `mailto:${agentProfile.email}`,
+        description: agentProfile.email,
+        icon: 'mail',
+        external: true,
+      },
+      {
         title: 'PatrickManning.com Homepage',
         href: '/',
         description: 'Visit my full website',
@@ -73,20 +87,6 @@ export const QuickLinks = () => {
         href: agentProfile.socialLinks.linkedin,
         description: 'Connect professionally',
         icon: 'linkedin',
-        external: true,
-      },
-      {
-        title: 'Call Me',
-        href: `tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`,
-        description: agentProfile.phone,
-        icon: 'phone',
-        external: true,
-      },
-      {
-        title: 'Email Me',
-        href: `mailto:${agentProfile.email}`,
-        description: agentProfile.email,
-        icon: 'mail',
         external: true,
       },
     ]

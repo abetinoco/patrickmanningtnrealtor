@@ -32,7 +32,7 @@
 .reviewsTrack {
   display: flex;
   gap: 1.5rem;
-  animation: scroll 60s linear infinite;
+  animation: scroll 120s linear infinite;
   width: max-content;
 }
 
@@ -44,6 +44,7 @@
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-50%);
   }
@@ -60,6 +61,7 @@
   gap: 1rem;
   transition: all var(--transition-normal);
   position: relative;
+  height: 100%;
 }
 
 .reviewCard:hover {
@@ -83,6 +85,9 @@
   color: var(--text-secondary);
   margin: 0;
   flex: 1;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
 }
 
 .reviewFooter {
