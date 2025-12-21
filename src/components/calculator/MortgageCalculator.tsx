@@ -33,8 +33,8 @@ export const MortgageCalculator = () => {
     const [downPaymentPercent, setDownPaymentPercent] = useState(20)
     const [interestRate, setInterestRate] = useState(6.75)
     const [loanTerm, setLoanTerm] = useState(30)
-    const [propertyTaxRate, setPropertyTaxRate] = useState(0.75) // TN average
-    const [insuranceRate, setInsuranceRate] = useState(0.35)
+    const [propertyTaxRate] = useState(0.75) // TN average
+    const [insuranceRate] = useState(0.35)
     const [result, setResult] = useState<CalculationResult | null>(null)
 
     useEffect(() => {
