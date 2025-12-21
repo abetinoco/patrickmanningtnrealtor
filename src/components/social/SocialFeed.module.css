@@ -1,0 +1,241 @@
+.section {
+    padding: 5rem 0;
+    background: var(--surface-primary);
+    border-top: 1px solid var(--border-light);
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.intro {
+    max-width: 500px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Embeds Grid */
+.embedsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.embedCard {
+    background: var(--surface-secondary);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 480px;
+}
+
+.embedHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.25rem;
+    border-bottom: 1px solid var(--border-light);
+    background: var(--surface-elevated);
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.embedHeader svg {
+    color: var(--accent-primary);
+}
+
+/* YouTube Wrapper - fill available space */
+.youtubeWrapper {
+    flex: 1;
+    position: relative;
+    background: #000;
+    min-height: 0;
+}
+
+.youtubeWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Facebook Wrapper */
+.facebookWrapper {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    overflow: hidden;
+    min-height: 0;
+}
+
+.facebookWrapper iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 380px;
+}
+
+/* TikTok Wrapper */
+.tiktokWrapper {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.75rem;
+    background: var(--surface-elevated);
+    overflow: hidden;
+    min-height: 0;
+}
+
+.tiktokWrapper blockquote {
+    margin: 0;
+    width: 100%;
+}
+
+.embedLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem;
+    color: var(--accent-primary);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    border-top: 1px solid var(--border-light);
+    transition: background var(--transition-fast);
+    margin-top: auto;
+}
+
+.embedLink:hover {
+    background: var(--surface-elevated);
+}
+
+/* Links Section */
+.linksSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.linksTitle {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.linksGrid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.linkCard {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--surface-secondary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-light);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+}
+
+.linkCard:hover {
+    transform: translateY(-2px);
+    border-color: var(--platform-color, var(--accent-primary));
+}
+
+.linkCard:hover .linkIcon {
+    background: var(--platform-color, var(--accent-primary));
+    color: white;
+}
+
+.linkIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(79, 224, 208, 0.1);
+    color: var(--accent-primary);
+    transition: all var(--transition-normal);
+}
+
+.linkInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+    text-align: left;
+}
+
+.linkName {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.linkHandle {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .embedsGrid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .embedCard {
+        min-height: 420px;
+    }
+}
+
+@media (max-width: 640px) {
+    .section {
+        padding: 3rem 0;
+    }
+
+    .embedCard {
+        min-height: 380px;
+    }
+
+    .linksGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .linkCard {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+
+    .linkInfo {
+        align-items: center;
+        text-align: center;
+    }
+}

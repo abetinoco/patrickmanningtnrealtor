@@ -1,3 +1,140 @@
+/* Seller Benefits Section */
+.benefitsSection {
+  padding: 4rem 0;
+  background: var(--surface-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.headerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 var(--container-padding);
+  text-align: center;
+}
+
+.intro {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.benefitsScrollWrapper {
+  width: 100%;
+  overflow: visible;
+}
+
+.benefitsTrack {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: 0 var(--space-xl);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.benefitCard {
+  position: relative;
+  flex: 0 0 calc(25% - 1.5rem);
+  min-width: 240px;
+  max-width: 280px;
+  background: var(--surface-secondary);
+  border-radius: 1.25rem;
+  border: 1px solid var(--border-light);
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.benefitCard:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
+}
+
+.benefitIcon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(79, 224, 208, 0.12);
+  border: 1px solid rgba(79, 224, 208, 0.35);
+  color: var(--accent-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.benefitTitle {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  margin: 0;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.benefitDescription {
+  color: var(--text-secondary);
+  line-height: 1.55;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* Marketing Section */
+.marketingSection {
+  padding: 4rem 0;
+  background: var(--bg-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.marketingContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.marketingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.marketingCard {
+  background: var(--surface-secondary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-light);
+  padding: 2rem;
+  transition: all var(--transition-normal);
+}
+
+.marketingCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-primary);
+}
+
+.marketingCardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin: 0 0 0.75rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.marketingCardDescription {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Legacy service card styles */
 .serviceCard {
   position: relative;
   background: var(--surface-secondary);
@@ -43,4 +180,46 @@
   color: var(--text-secondary);
   position: relative;
   z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .benefitsScrollWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .benefitsScrollWrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .benefitsTrack {
+    justify-content: flex-start;
+    padding: 0 var(--container-padding);
+    min-width: max-content;
+  }
+
+  .benefitCard {
+    flex: 0 0 auto;
+    min-width: 260px;
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .benefitsSection,
+  .marketingSection {
+    padding: 3rem 0;
+  }
+
+  .marketingGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .marketingCard {
+    padding: 1.5rem;
+  }
 }

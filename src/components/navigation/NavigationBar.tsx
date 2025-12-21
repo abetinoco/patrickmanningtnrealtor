@@ -48,7 +48,7 @@ export const NavigationBar = () => {
     'https://www.change.org/p/give-users-control-over-social-media-algorithms?recruiter=1391582840&recruited_by_id=a9a973f0-a402-11f0-a3c4-c5a3dc6ae203&utm_source=share_petition&utm_campaign=share_petition&utm_medium=copylink&utm_content=cl_sharecopy_490822308_en-US%3A7'
   const overlayLinks = [
     { label: 'Quick Links', href: '/quicklinks' },
-    { label: 'Home Valuation', href: '/sell/valuation' },
+    { label: 'Home Valuation', href: '/sell#home-valuation' },
     { label: 'Sign Algorithm Petition', href: petitionUrl, external: true },
   ]
   const socialEntries = Object.entries(agentProfile.socialLinks)
@@ -95,9 +95,8 @@ export const NavigationBar = () => {
   return (
     <>
       <header
-        className={`${styles.navbar} ${isScrolled ? styles.navbarScrolled : ''} ${
-          isMenuOpen ? styles.navbarMenuOpen : ''
-        }`.trim()}
+        className={`${styles.navbar} ${isScrolled ? styles.navbarScrolled : ''} ${isMenuOpen ? styles.navbarMenuOpen : ''
+          }`.trim()}
       >
         <div className={styles.inner}>
           <Link to="/" className={styles.brand} onClick={closeMenu}>
@@ -127,6 +126,7 @@ export const NavigationBar = () => {
               <span className={styles.menuBars} aria-hidden="true">
                 <span />
                 <span />
+                <span />
               </span>
             </button>
           </div>
@@ -138,7 +138,7 @@ export const NavigationBar = () => {
           <div className={styles.overlayInner}>
             <div className={styles.overlayHeader}>
               <div>
-                <p className={styles.overlayEyebrow}>Navigate Patrick Manning Real Estate</p>
+
                 <p className={styles.overlayTitle}>Make a move for your future.</p>
               </div>
               <button className={styles.overlayClose} onClick={closeMenu}>

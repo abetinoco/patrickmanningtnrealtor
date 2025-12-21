@@ -1,0 +1,269 @@
+.section {
+    padding: 4rem 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-light);
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.intro {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+.calculatorGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+}
+
+.inputsPanel {
+    background: var(--surface-elevated);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-light);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sliderGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sliderHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sliderLabel {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.sliderValue {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--accent-primary);
+}
+
+.slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: var(--surface-secondary);
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(79, 224, 208, 0.4);
+    transition: transform 0.15s;
+}
+
+.slider::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+.slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 8px rgba(79, 224, 208, 0.4);
+}
+
+.sliderRange {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+}
+
+.termGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.termButtons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.termButton {
+    flex: 1;
+    padding: 0.75rem 1.5rem;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.termButton:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.termButtonActive {
+    background: rgba(79, 224, 208, 0.12);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.loanSummary {
+    border-top: 1px solid var(--border-light);
+    padding-top: 1rem;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.summaryRow span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Result Panel */
+.resultPanel {
+    background: var(--surface-elevated);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-light);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.monthlyTotal {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(79, 224, 208, 0.08);
+    border-radius: var(--radius-lg);
+}
+
+.monthlyLabel {
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+}
+
+.monthlyAmount {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    line-height: 1;
+}
+
+.breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.breakdownItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.breakdownItem:last-child {
+    border-bottom: none;
+}
+
+.breakdownLabel {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.breakdownValue {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.totalInterest {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background: var(--surface-secondary);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.totalInterest span:last-child {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.disclaimer {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .section {
+        padding: 3rem 0;
+    }
+
+    .calculatorGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .inputsPanel,
+    .resultPanel {
+        padding: 1.5rem;
+    }
+
+    .monthlyAmount {
+        font-size: 2rem;
+    }
+}

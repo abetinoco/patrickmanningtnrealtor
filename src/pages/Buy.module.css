@@ -1,7 +1,16 @@
 /* Buyer Benefits Section */
 .benefitsSection {
-  padding: 5rem 0;
+  padding: 4rem 0;
   background: var(--surface-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.headerContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  padding: 0 var(--container-padding);
+  text-align: center;
 }
 
 .container {
@@ -13,30 +22,41 @@
 }
 
 .intro {
-  max-width: 700px;
-  margin: 0 auto 3rem;
+  max-width: 600px;
+  margin: 0 auto;
   color: var(--text-secondary);
-  font-size: 1.125rem;
-  line-height: 1.8;
+  font-size: 1.05rem;
+  line-height: 1.7;
 }
 
-.benefitsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
+.benefitsScrollWrapper {
+  width: 100%;
+  overflow: visible;
+}
+
+.benefitsTrack {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  padding: 0 var(--space-xl);
+  max-width: 1280px;
+  margin: 0 auto;
 }
 
 .benefitCard {
   position: relative;
+  flex: 0 0 calc(25% - 1.5rem);
+  min-width: 240px;
+  max-width: 280px;
   background: var(--surface-secondary);
-  border-radius: var(--radius-md);
+  border-radius: 1.25rem;
   border: 1px solid var(--border-light);
-  padding: 2rem;
-  text-align: center;
+  padding: var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
   box-shadow: var(--shadow-sm);
-  transition: all var(--transition-normal);
-  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
 }
 
 .benefitCard:hover {
@@ -46,30 +66,31 @@
 }
 
 .benefitIcon {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  position: relative;
-  z-index: 1;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(79, 224, 208, 0.12);
+  border: 1px solid rgba(79, 224, 208, 0.35);
   color: var(--accent-primary);
+  margin-bottom: var(--space-xs);
 }
 
 .benefitTitle {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
-  position: relative;
-  z-index: 1;
+  font-size: 1.15rem;
+  margin: 0;
   color: var(--text-primary);
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .benefitDescription {
   color: var(--text-secondary);
-  line-height: 1.6;
-  font-size: 0.95rem;
-  position: relative;
-  z-index: 1;
+  line-height: 1.55;
+  font-size: 0.9rem;
+  margin: 0;
 }
 
 /* Neighborhood Section */
@@ -137,15 +158,56 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 900px) {
+  .benefitsScrollWrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .benefitsScrollWrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .benefitsTrack {
+    justify-content: flex-start;
+    padding: 0 var(--container-padding);
+    min-width: max-content;
+  }
+
+  .benefitCard {
+    flex: 0 0 auto;
+    min-width: 260px;
+    max-width: 280px;
+  }
+}
+
 @media (max-width: 768px) {
-  .benefitsGrid,
+  .benefitsSection {
+    padding: 3rem 0;
+  }
+
+  .neighborhoodSection {
+    padding: 3rem 0;
+  }
+
   .neighborhoodGrid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+    margin-top: 2rem;
   }
 
-  .benefitCard,
   .neighborhoodCard {
-    padding: 1.5rem;
+    padding: 1.75rem;
+  }
+
+  .neighborhoodName {
+    font-size: 1.25rem;
+  }
+
+  .neighborhoodDescription {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
   }
 }

@@ -35,7 +35,7 @@ export const QuickLinks = () => {
       },
       {
         title: 'Value Your Home',
-        href: '/sell/valuation',
+        href: '/sell#home-valuation',
         description: 'Get a comprehensive property valuation',
         icon: 'dollar',
         internal: true,

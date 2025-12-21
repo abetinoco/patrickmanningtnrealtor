@@ -20,7 +20,7 @@ export const quickLinks: QuickLink[] = [
     id: 'sell-value',
     title: 'Value My Property',
     description: 'Get a no-pressure home value review with simple next steps.',
-    href: '/sell/valuation',
+    href: '/sell#home-valuation',
     icon: 'chart',
   },
   {

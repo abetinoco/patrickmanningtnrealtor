@@ -7,36 +7,11 @@ import {
   ArrowUpRightIcon,
   PhoneIcon,
   MailIcon,
-  FacebookIcon,
-  InstagramIcon,
-  LinkedInIcon,
-  TikTokIcon,
-  YouTubeIcon,
-  RealtorIcon,
 } from '../components/icons/Icons'
 import { GoogleReviews } from '../components/testimonials/GoogleReviews'
+import { SocialFeed } from '../components/social/SocialFeed'
 import styles from './About.module.css'
 import homeStyles from './Home.module.css'
-
-const socialPlatformIcons: Record<string, React.FC<React.SVGProps<SVGSVGElement>>> = {
-  facebook: FacebookIcon,
-  instagram: InstagramIcon,
-  linkedin: LinkedInIcon,
-  tiktok: TikTokIcon,
-  youtube: YouTubeIcon,
-  realtor: RealtorIcon,
-}
-
-const socialLabelMap: Record<string, string> = {
-  facebook: 'Facebook',
-  instagram: 'Instagram',
-  linkedin: 'LinkedIn',
-  tiktok: 'TikTok',
-  youtube: 'YouTube',
-  realtor: 'Realtor.com',
-}
-
-const formatSocialLabel = (key: string) => socialLabelMap[key] ?? key.charAt(0).toUpperCase() + key.slice(1)
 
 const About = () => (
   <div>
@@ -53,18 +28,9 @@ const About = () => (
       profileImage="/media/patrick.png"
     />
 
-    <section className={styles.socialSection}>
+    {/* Quick Contact Cards */}
+    <section className={styles.quickContactSection}>
       <div className={styles.socialContainer}>
-        <div className={styles.socialHeader}>
-          <div className="section-subtitle">Stay Connected</div>
-          <h2 className="section-title">Connect with Patrick</h2>
-          <p className={styles.socialIntro}>
-            Reach Patrick directly or follow his daily market insights, relocation tips, and behind-the-scenes tours
-            across your preferred platforms.
-          </p>
-        </div>
-
-        {/* Hero Contact Cards */}
         <div className={styles.heroContactGrid}>
           <a href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`} className={styles.heroCard}>
             <div className={styles.heroIcon}>
@@ -86,30 +52,11 @@ const About = () => (
             </div>
           </a>
         </div>
-
-        {/* Social Media Grid */}
-        <div className={styles.socialGrid}>
-          {Object.entries(agentProfile.socialLinks).map(([platform, url]) => {
-            const Icon = socialPlatformIcons[platform]
-            return (
-              <a
-                key={platform}
-                href={url}
-                target="_blank"
-                rel="noreferrer"
-                className={styles.socialCard}
-              >
-                <div className={styles.socialIconWrapper}>
-                  {Icon && <Icon width={40} height={40} />}
-                </div>
-                <div className={styles.socialPlatform}>{formatSocialLabel(platform)}</div>
-                <div className={styles.socialCta}>Follow</div>
-              </a>
-            )
-          })}
-        </div>
       </div>
     </section>
+
+    {/* Social Media Embeds */}
+    <SocialFeed />
 
     <section className={styles.wrapper}>
       <div className={styles.grid}>

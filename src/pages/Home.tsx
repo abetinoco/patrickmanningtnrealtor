@@ -7,6 +7,7 @@ import { ServiceTierSection } from '../components/services/ServiceTierSection'
 import { SoldListings } from '../components/listings/SoldListings'
 import { GoogleReviews } from '../components/testimonials/GoogleReviews'
 import { AdvisoryProcess } from '../components/process/AdvisoryProcess'
+import { SocialFeed } from '../components/social/SocialFeed'
 import { agentProfile } from '../data/agent'
 import { Link } from 'react-router-dom'
 import styles from './Home.module.css'
@@ -24,10 +25,11 @@ const Home = () => (
     />
     <HeroBanner />
     <QuickLinksGrid />
+    <AdvisoryProcess />
     <ServiceTierSection />
     <SoldListings limit={6} showViewAll={true} />
     <GoogleReviews />
-    <AdvisoryProcess />
+    <SocialFeed />
     <section className={styles.homeCtaSection} aria-labelledby="home-cta-heading">
       <div className={styles.homeCtaInner}>
         <div className={styles.homeCtaPanel}>

@@ -79,9 +79,9 @@
   justify-content: center;
   padding: 0.75rem 1.5rem;
   border-radius: var(--radius-md);
-  border: 1px solid var(--border-strong);
+  border: 1px solid var(--border-medium);
   color: var(--text-primary);
-  background: rgba(21, 29, 41, 0.85);
+  background: var(--surface-secondary);
   backdrop-filter: blur(8px);
   font-weight: 600;
   transition: all var(--transition-fast);
@@ -89,9 +89,9 @@
 
 .secondaryButton:hover,
 .secondaryButton:focus {
-  background: rgba(21, 29, 41, 0.95);
+  background: var(--surface-tertiary);
   border-color: var(--accent-primary);
-  color: var(--accent-tertiary);
+  color: var(--accent-primary);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
@@ -137,11 +137,11 @@
 .profilePanel {
   position: relative;
   backdrop-filter: blur(14px);
-  background: rgba(6, 10, 16, 0.75);
+  background: var(--surface-secondary);
   border-radius: 1.5rem;
   padding: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
   display: grid;
   gap: 1.25rem;
 }
@@ -151,7 +151,7 @@
   border-radius: 1rem;
   overflow: hidden;
   aspect-ratio: 3 / 4;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-light);
 }
 
 .profileMedia img {
@@ -224,7 +224,7 @@
 
 @media (max-width: 768px) {
   .overlay {
-    background: rgba(5, 7, 8, 0.9);
+    background: rgba(255, 255, 255, 0.9);
   }
 
   .content {

@@ -1,0 +1,365 @@
+.section {
+    padding: 5rem 0;
+    background: var(--surface-primary);
+    border-top: 1px solid var(--border-light);
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.intro {
+    max-width: 600px;
+    margin: 0 auto;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Step Indicator */
+.stepIndicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 2rem;
+}
+
+.stepDot {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--surface-secondary);
+    border: 2px solid var(--border-light);
+    color: var(--text-tertiary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition-normal);
+}
+
+.stepDot.active {
+    background: var(--gradient-primary);
+    border-color: var(--accent-primary);
+    color: var(--text-inverse);
+}
+
+.stepLine {
+    width: 4rem;
+    height: 2px;
+    background: var(--border-light);
+}
+
+/* Form */
+.form {
+    background: var(--surface-elevated);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-light);
+    padding: 2.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.stepContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.stepTitle {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.stepSubtitle {
+    color: var(--text-secondary);
+    margin: -0.5rem 0 0.5rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+}
+
+.input,
+.select {
+    padding: 0.875rem 1rem;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all var(--transition-fast);
+}
+
+.select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%234FE0D0' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.input:focus,
+.select:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 3px rgba(79, 224, 208, 0.15);
+}
+
+/* Checkbox Grid for Updates */
+.checkboxGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.updateButton {
+    padding: 0.5rem 1rem;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-full);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.updateButton:hover {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+.updateButtonActive {
+    background: rgba(79, 224, 208, 0.12);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
+/* Buttons */
+.buttonRow {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.nextButton,
+.submitButton {
+    flex: 1;
+    padding: 1rem 2rem;
+    background: var(--gradient-primary);
+    color: var(--text-inverse);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 20px rgba(79, 224, 208, 0.25);
+}
+
+.nextButton:hover:not(:disabled),
+.submitButton:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(79, 224, 208, 0.35);
+}
+
+.nextButton:disabled,
+.submitButton:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.backButton {
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 500;
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.backButton:hover {
+    border-color: var(--text-secondary);
+    color: var(--text-primary);
+}
+
+/* Result */
+.resultContent {
+    text-align: center;
+}
+
+.resultCard {
+    padding: 2rem;
+}
+
+.resultTitle {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin: 0 0 2rem;
+}
+
+.estimateRange {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.rangeValue {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.rangePrimary {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.rangeLabel {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+}
+
+.rangeAmount {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.rangeAmountPrimary {
+    font-family: var(--font-serif);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent-primary);
+    line-height: 1;
+}
+
+.disclaimer {
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.resultActions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: var(--gradient-primary);
+    color: var(--text-inverse);
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-full);
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 20px rgba(79, 224, 208, 0.25);
+}
+
+.ctaButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(79, 224, 208, 0.35);
+}
+
+.resetButton {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color var(--transition-fast);
+}
+
+.resetButton:hover {
+    color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .section {
+        padding: 3rem 0;
+    }
+
+    .form {
+        padding: 1.5rem;
+    }
+
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .stepLine {
+        width: 2rem;
+    }
+
+    .estimateRange {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .rangeAmountPrimary {
+        font-size: 2rem;
+    }
+
+    .buttonRow {
+        flex-direction: column-reverse;
+    }
+
+    .backButton,
+    .nextButton,
+    .submitButton {
+        width: 100%;
+    }
+}

@@ -12,7 +12,8 @@
   display: grid;
   gap: var(--space-xl);
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  width: min(100% - 2 * var(--space-xl), var(--max-width-container));
+  width: min(100% - 2 * var(--space-xl), 1280px);
+  padding: 0 var(--space-xl);
   margin: 0 auto;
 }
 
@@ -21,13 +22,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-lg);
-  background: rgba(10, 16, 23, 0.85);
+  background: var(--surface-secondary);
   padding: var(--space-2xl) var(--space-xl);
   border-radius: 1.25rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: none;
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
   transition: transform var(--transition-base), box-shadow var(--transition-base);
   overflow: hidden;
+  height: 100%;
 }
 
 .card::before {
@@ -55,7 +57,8 @@
 .card:hover,
 .card:focus-visible {
   transform: translateY(-6px);
-  box-shadow: none;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--accent-primary);
 }
 
 .cardHeader {
@@ -66,18 +69,14 @@
   z-index: 1;
 }
 
-.badge {
-  font-size: 0.85rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--text-tertiary);
-}
+
 
 .cardBody {
   position: relative;
   z-index: 1;
   display: grid;
   gap: var(--space-sm);
+  flex-grow: 1;
 }
 
 .title {
@@ -88,7 +87,7 @@
 }
 
 .description {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--text-secondary);
   margin: 0;
 }
 
@@ -99,7 +98,7 @@
   align-items: center;
   justify-content: space-between;
   padding-top: var(--space-sm);
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-light);
 }
 
 .arrowLabel {
@@ -149,7 +148,5 @@
     padding: var(--space-xl);
   }
 
-  .badge {
-    letter-spacing: 0.15em;
-  }
+
 }

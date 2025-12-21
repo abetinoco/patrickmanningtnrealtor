@@ -1,7 +1,9 @@
 import { Seo } from '../components/seo/Seo'
 import { defaultMeta } from '../seo/metaDefaults'
 import { Link } from 'react-router-dom'
-import { PageHeader } from '../components/shared/PageHeader'
+import { BuyHero } from '../components/hero/BuyHero'
+import { BuyerQuestionnaireForm } from '../components/forms/BuyerQuestionnaireForm'
+import { MortgageCalculator } from '../components/calculator/MortgageCalculator'
 import { agentProfile } from '../data/agent'
 import { SearchIcon, TargetIcon, BriefcaseIcon, HomeIcon } from '../components/icons/Icons'
 import styles from './Home.module.css'
@@ -15,61 +17,63 @@ const Buy = () => (
       openGraph={defaultMeta.openGraph}
       canonical="https://patrickmanningrealtor.com/buy"
     />
-    <PageHeader
+    <BuyHero
       kicker="For Buyers"
-      title="Lifestyle-First Buyer Representation"
-      subtitle={`${agentProfile.lifestyleMessaging.lifestyle} Patrick sources opportunities before they reach the public MLS and aligns commutes, schools, and amenities around how you live.`}
-      backgroundImage="/media/buy.jpg"
+      title="Find Your Perfect Home"
+      subtitle="Lifestyle-first buyer representation across Middle Tennessee and Southern Kentucky. Expert guidance from first tour to closing day."
+      ctaButton={{ label: "Start Your Search", href: "#buyer-questionnaire" }}
+      stats={[
+        { value: "125+", label: "Families Helped" },
+        { value: "$65M+", label: "In Transactions" },
+        { value: "5★", label: "Google Rating" },
+      ]}
     />
 
     {/* Buyer Benefits Section */}
     <section className={buyStyles.benefitsSection}>
-      <div className={buyStyles.container}>
+      <div className={buyStyles.headerContainer}>
         <div className="section-subtitle">Why Buy With Patrick</div>
         <h2 className="section-title">Professional Buyer Representation</h2>
         <p className={buyStyles.intro}>
-          Every property search starts with how you actually spend your day. Patrick listens for routines, school needs, commute windows,
-          and neighborhood energy, then curates tours and pre-market introductions that keep only the right homes on your list.
+          Every property search starts with your lifestyle. Patrick listens, then curates tours and pre-market opportunities tailored to you.
         </p>
-        <div className={buyStyles.benefitsGrid}>
+      </div>
+      <div className={buyStyles.benefitsScrollWrapper}>
+        <div className={buyStyles.benefitsTrack}>
           <article className={buyStyles.benefitCard}>
             <div className={buyStyles.benefitIcon}>
-              <SearchIcon width={28} height={28} />
+              <SearchIcon width={24} height={24} />
             </div>
             <h3 className={buyStyles.benefitTitle}>Private Market Access</h3>
             <p className={buyStyles.benefitDescription}>
-              Gain early entry to pre-market listings and pocket opportunities through Patrick's extensive network
-              of builders, brokers, and homeowners.
+              Early access to pre-market listings through Patrick's network of builders and brokers.
             </p>
           </article>
           <article className={buyStyles.benefitCard}>
             <div className={buyStyles.benefitIcon}>
-              <TargetIcon width={28} height={28} />
+              <TargetIcon width={24} height={24} />
             </div>
             <h3 className={buyStyles.benefitTitle}>Tailored Property Match</h3>
             <p className={buyStyles.benefitDescription}>
-              Share your lifestyle criteria and investment goals—Patrick curates showing itineraries that
-              eliminate noise and focus on homes aligned with your vision.
+              Curated showings aligned with your lifestyle criteria and investment goals.
             </p>
           </article>
           <article className={buyStyles.benefitCard}>
             <div className={buyStyles.benefitIcon}>
-              <BriefcaseIcon width={28} height={28} />
+              <BriefcaseIcon width={24} height={24} />
             </div>
             <h3 className={buyStyles.benefitTitle}>Strategic Negotiation</h3>
             <p className={buyStyles.benefitDescription}>
-              Leverage market data, comparable analysis, and Patrick's proven negotiation tactics to secure
-              favorable terms, inspections, and closing timelines.
+              Data-driven tactics to secure favorable terms, inspections, and timelines.
             </p>
           </article>
           <article className={buyStyles.benefitCard}>
             <div className={buyStyles.benefitIcon}>
-              <HomeIcon width={28} height={28} />
+              <HomeIcon width={24} height={24} />
             </div>
             <h3 className={buyStyles.benefitTitle}>Relocation Concierge</h3>
             <p className={buyStyles.benefitDescription}>
-              Moving from out of state? Patrick coordinates every detail—from school research to contractor
-              referrals—ensuring a seamless transition to Tennessee.
+              Full-service coordination for out-of-state moves to Tennessee.
             </p>
           </article>
         </div>
@@ -136,6 +140,10 @@ const Buy = () => (
         </div>
       </div>
     </section>
+
+    <MortgageCalculator />
+
+    <BuyerQuestionnaireForm />
 
     <section className={styles.homeCtaSection} aria-labelledby="buy-cta-heading">
       <div className={styles.homeCtaInner}>

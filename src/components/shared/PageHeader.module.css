@@ -83,6 +83,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -118,6 +119,29 @@
   font-size: clamp(1rem, 2.5vw, 1.25rem);
 }
 
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  margin-top: 1.25rem;
+  background: var(--gradient-primary);
+  color: var(--text-inverse);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  box-shadow: 0 4px 20px rgba(79, 224, 208, 0.25);
+}
+
+.ctaButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(79, 224, 208, 0.35);
+}
+
 @media (max-width: 768px) {
   .section:not(.withProfile) {
     min-height: 250px;
@@ -127,7 +151,7 @@
   .section.withProfile {
     padding: 3rem 0;
   }
-  
+
   .inner {
     flex-direction: column;
     text-align: center;
@@ -138,11 +162,11 @@
     width: 200px;
     height: 200px;
   }
-  
+
   .title {
     font-size: clamp(1.75rem, 5vw, 2.5rem);
   }
-  
+
   .subtitle {
     font-size: clamp(0.95rem, 3vw, 1.1rem);
   }
@@ -157,16 +181,16 @@
   .section.withProfile {
     padding: 2rem 0;
   }
-  
+
   .profileImage {
     width: 160px;
     height: 160px;
   }
-  
+
   .kicker {
     font-size: 0.75rem;
   }
-  
+
   .title {
     font-size: clamp(1.5rem, 5vw, 2rem);
   }

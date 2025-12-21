@@ -32,11 +32,10 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
   padding: var(--space-2xl);
-  background: rgba(10, 15, 22, 0.92);
+  background: var(--surface-secondary);
   border-radius: 1.8rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 35px 60px rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(18px);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-lg);
   width: 100%;
   max-width: 980px;
 }
@@ -132,7 +131,7 @@
 .homeCtaSection {
   position: relative;
   padding: 2.5rem 0;
-  background: #0f131a;
+  background: var(--surface-tertiary);
   border-top: 1px solid var(--border-light);
   overflow: hidden;
 }
@@ -154,11 +153,10 @@
   gap: 1.5rem;
   grid-template-columns: minmax(0, 1.6fr) minmax(180px, 220px);
   padding: var(--space-xl);
-  background: rgba(11, 18, 26, 0.92);
+  background: var(--surface-secondary);
   border-radius: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(22px);
+  border: 1px solid var(--border-light);
+  box-shadow: var(--shadow-md);
   align-items: center;
 }
 
@@ -168,7 +166,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, rgba(79, 224, 208, 0.8), rgba(18, 33, 44, 0.8));
+  background: linear-gradient(135deg, rgba(31, 163, 149, 0.3), rgba(240, 244, 247, 0.3));
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -233,7 +231,7 @@
   max-width: 180px;
   border-radius: 1rem;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border-light);
   aspect-ratio: 4 / 5;
 }
 

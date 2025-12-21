@@ -386,6 +386,12 @@
   color: var(--accent-tertiary);
 }
 
+/* Quick Contact Section (compact version for About page) */
+.quickContactSection {
+  padding: 3rem 0 0;
+  background: var(--surface-primary);
+}
+
 .socialSection {
   padding: 5rem 0;
   background: var(--surface-primary);

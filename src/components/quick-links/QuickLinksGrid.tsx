@@ -13,7 +13,7 @@ export const QuickLinksGrid = () => (
       </h2>
     </div>
     <div className={styles.grid}>
-      {quickLinks.map((link, index) => {
+      {quickLinks.map((link) => {
         const external = isExternalLink(link.href)
         const IconComponent = link.icon ? iconMap[link.icon] : null
         return (
@@ -24,24 +24,23 @@ export const QuickLinksGrid = () => (
             target={external ? '_blank' : undefined}
             rel={external ? 'noreferrer' : undefined}
           >
-          <div className={styles.cardHeader}>
-            <span className={styles.badge}>0{index + 1}</span>
-            {IconComponent && (
-              <span className={styles.icon} aria-hidden="true">
-                <IconComponent width={24} height={24} />
+            <div className={styles.cardHeader}>
+              <div className={styles.title}>{link.title}</div>
+              {IconComponent && (
+                <span className={styles.icon} aria-hidden="true">
+                  <IconComponent width={24} height={24} />
+                </span>
+              )}
+            </div>
+            <div className={styles.cardBody}>
+              <p className={styles.description}>{link.description}</p>
+            </div>
+            <div className={styles.cardFooter}>
+              <span className={styles.arrowLabel}>Explore</span>
+              <span className={styles.arrowIcon} aria-hidden="true">
+                <ArrowRightIcon width={18} height={18} />
               </span>
-            )}
-          </div>
-          <div className={styles.cardBody}>
-            <div className={styles.title}>{link.title}</div>
-            <p className={styles.description}>{link.description}</p>
-          </div>
-          <div className={styles.cardFooter}>
-            <span className={styles.arrowLabel}>Explore</span>
-            <span className={styles.arrowIcon} aria-hidden="true">
-              <ArrowRightIcon width={18} height={18} />
-            </span>
-          </div>
+            </div>
           </a>
         )
       })}
