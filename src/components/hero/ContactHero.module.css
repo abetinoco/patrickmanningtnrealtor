@@ -1,5 +1,5 @@
 .hero {
-    padding: calc(var(--header-height) + 4rem) 0 4rem;
+    padding: calc(var(--header-height) + 1rem) 0 4rem;
     background: var(--surface-primary);
     min-height: 70vh;
     display: flex;
