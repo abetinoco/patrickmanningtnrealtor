@@ -1,6 +1,6 @@
 import { Seo } from '../components/seo/Seo'
 import { defaultMeta } from '../seo/metaDefaults'
-import { PageHeader } from '../components/shared/PageHeader'
+import { ContactHero } from '../components/hero/ContactHero'
 import { LeadCaptureForm } from '../components/forms/LeadCaptureForm'
 import { agentProfile } from '../data/agent'
 import styles from './Contact.module.css'
@@ -35,11 +35,16 @@ const Contact = () => {
         openGraph={defaultMeta.openGraph}
         canonical="https://patrickmanningrealtor.com/contact"
       />
-      <PageHeader
+      <ContactHero
         kicker="Contact"
         title="Let's Talk About Your Move"
         subtitle="Call, text, or message any time to talk daily routines, commutes, schools, or next steps—Patrick tailors every plan to the way you actually live."
-        backgroundImage="/media/contact.webp"
+        ctaButton={{ label: "Schedule a Consultation", href: "#calendly" }}
+        stats={[
+          { value: "7 Days", label: "Availability" },
+          { value: "1 Hour", label: "Avg. Response" },
+          { value: "TN & KY", label: "Licensed" },
+        ]}
       />
 
       <section className={styles.wrapper}>
