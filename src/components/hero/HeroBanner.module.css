@@ -404,14 +404,14 @@
     top: 28%;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 2rem);
-    max-width: 340px;
+    width: calc(100% - 1.5rem);
+    max-width: 320px;
     z-index: 15;
   }
 
   .mobileSearchBar iframe {
-    width: 130% !important;
-    transform: scale(0.77);
+    width: 150% !important;
+    transform: scale(0.67);
     transform-origin: left top;
   }
 
