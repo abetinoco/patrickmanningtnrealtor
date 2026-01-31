@@ -34,7 +34,7 @@ export const IDX_CONFIG = {
  * Generate the widget script URL
  */
 export const getWidgetScriptUrl = (widgetId: string): string => {
-  return `//patrickmanningrealtor.idxbroker.com/idx/widgets/${widgetId}`
+  return `https://patrickmanningrealtor.idxbroker.com/idx/widgets/${widgetId}`
 }
 
 /**

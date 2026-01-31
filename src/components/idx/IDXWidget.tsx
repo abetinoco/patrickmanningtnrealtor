@@ -1,68 +1,76 @@
-import { useEffect, useRef } from 'react'
-import { getWidgetScriptUrl, getWidgetScriptId } from '../../data/idxConfig'
+import { useMemo } from 'react'
+import { getWidgetScriptUrl } from '../../data/idxConfig'
 import styles from './IDXWidget.module.css'
 
 interface IDXWidgetProps {
   widgetId: string
   className?: string
+  minHeight?: string
 }
-
-// Track which widgets have been initialized to prevent duplicates
-const initializedWidgets = new Set<string>()
 
 /**
  * Base component for embedding IDX Broker widgets in React.
- * 
- * IDX Broker widgets work by injecting content via document.write() after the script tag.
- * This component handles the script loading in a way that works with React.
+ * Uses an iframe to properly load IDX scripts that rely on document.currentScript.
  */
 export const IDXWidget = ({
   widgetId,
   className = '',
+  minHeight = '400px',
 }: IDXWidgetProps) => {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const mountedRef = useRef(false)
-
-  useEffect(() => {
-    // Prevent double initialization in StrictMode
-    if (mountedRef.current) return
-    if (initializedWidgets.has(widgetId)) return
-    
-    const container = containerRef.current
-    if (!container) return
-
-    mountedRef.current = true
-    initializedWidgets.add(widgetId)
-
-    const scriptId = getWidgetScriptId(widgetId)
-    const scriptUrl = getWidgetScriptUrl(widgetId)
-
-    // Remove any existing script with this ID
-    const existingScript = document.getElementById(scriptId)
-    if (existingScript) {
-      existingScript.remove()
-    }
-
-    // Create script element
-    const script = document.createElement('script')
-    script.id = scriptId
-    script.src = scriptUrl
-    script.type = 'text/javascript'
-    script.charset = 'UTF-8'
-
-    // Append script to container - IDX widgets inject content after the script
-    container.appendChild(script)
-
-    return () => {
-      // Cleanup only on actual unmount, not StrictMode re-render
-      // We keep the widget initialized to prevent duplicates
-    }
-  }, [widgetId])
+  const scriptUrl = getWidgetScriptUrl(widgetId)
+  const scriptId = `idxwidgetsrc-${widgetId}`
+  
+  // Create iframe srcdoc with the widget script
+  const iframeSrc = useMemo(() => {
+    return `
+      <!DOCTYPE html>
+      <html>
+        <head>
+          <base target="_parent">
+          <style>
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            html, body { 
+              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              overflow: hidden;
+              width: 100%;
+            }
+            /* Make IDX widget responsive */
+            form, div, table, input, select, button {
+              max-width: 100% !important;
+              box-sizing: border-box !important;
+            }
+            input[type="text"], input[type="search"], select {
+              width: 100% !important;
+              max-width: 100% !important;
+            }
+            table {
+              width: 100% !important;
+              table-layout: fixed !important;
+            }
+            td, th {
+              word-wrap: break-word !important;
+            }
+          </style>
+        </head>
+        <body>
+          <script charset="UTF-8" type="text/javascript" id="${scriptId}" src="${scriptUrl}"></script>
+        </body>
+      </html>
+    `
+  }, [widgetId, scriptUrl, scriptId])
 
   return (
-    <div
-      ref={containerRef}
+    <iframe
+      srcDoc={iframeSrc}
       className={`${styles.widgetContainer} ${className}`}
+      style={{ 
+        border: 'none', 
+        width: '100%',
+        minHeight,
+        overflow: 'hidden',
+      }}
+      scrolling="no"
+      title={`IDX Widget ${widgetId}`}
     />
   )
 }

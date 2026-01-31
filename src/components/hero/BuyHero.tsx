@@ -27,7 +27,7 @@ export const BuyHero = ({
                     {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
 
                     <div className={styles.searchBar}>
-                        <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} />
+                        <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} minHeight="60px" />
                     </div>
 
                     {stats && stats.length > 0 && (

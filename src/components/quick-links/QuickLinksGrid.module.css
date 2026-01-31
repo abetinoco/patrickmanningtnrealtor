@@ -3,7 +3,6 @@
   padding: var(--space-4xl) 0;
   padding-top: calc(var(--space-4xl) + 10px);
   background: var(--surface-primary);
-  border-top: 1px solid var(--border-light);
   overflow: visible;
 }
 

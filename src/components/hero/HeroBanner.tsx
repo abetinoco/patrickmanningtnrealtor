@@ -30,6 +30,11 @@ export const HeroBanner = () => {
       )}
       <div className={styles.overlay} />
 
+      {/* Mobile-only search bar - absolutely positioned */}
+      <div className={styles.mobileSearchBar}>
+        <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} minHeight="60px" />
+      </div>
+
       <div className={styles.content}>
         <div className={styles.copy}>
 
@@ -38,8 +43,9 @@ export const HeroBanner = () => {
           </h1>
           <p className={styles.subtitle}>{hero.subheadline}</p>
 
-          <div className={styles.searchBar}>
-            <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} />
+          {/* Desktop-only search bar - in content flow */}
+          <div className={styles.desktopSearchBar}>
+            <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} minHeight="60px" />
           </div>
 
           <div className={styles.actions}>
@@ -105,7 +111,7 @@ export const HeroBanner = () => {
             href={hero.primaryCta.href}
             style={{
               backgroundColor: '#4FE0D0',
-              color: '#050708',
+              color: '#ffffff',
               fontWeight: 700
             }}
           >
