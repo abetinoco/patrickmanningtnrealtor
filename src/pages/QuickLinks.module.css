@@ -86,6 +86,36 @@
   border-color: var(--accent-primary);
 }
 
+/* Primary/highlighted card (Book a Time) */
+.primaryCard {
+  background: var(--gradient-primary);
+  border-color: var(--accent-primary);
+  color: var(--text-inverse);
+}
+
+.primaryCard .linkIcon {
+  background: rgba(255, 255, 255, 0.2);
+  color: var(--text-inverse);
+}
+
+.primaryCard:hover .linkIcon {
+  background: rgba(255, 255, 255, 0.3);
+  color: var(--text-inverse);
+}
+
+.primaryCard .linkTitle,
+.primaryCard .linkDescription {
+  color: var(--text-inverse);
+}
+
+.primaryCard .linkDescription {
+  opacity: 0.9;
+}
+
+.primaryCard:hover {
+  box-shadow: var(--shadow-lg);
+}
+
 .linkIcon {
   flex-shrink: 0;
   width: 48px;

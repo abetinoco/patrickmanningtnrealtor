@@ -23,18 +23,5 @@ export const quickLinks: QuickLink[] = [
     href: '/sell#home-valuation',
     icon: 'chart',
   },
-  {
-    id: 'sold-listings',
-    title: 'Recently Sold Homes',
-    description: 'See the mix of starter homes, mini-farms, and move-up properties we\'ve closed.',
-    href: '/buy/sold',
-    icon: 'home',
-  },
-  {
-    id: 'full-service',
-    title: 'Need Help Fast?',
-    description: 'Friendly guidance for first-time buyers, VA loans, relocations, and more.',
-    href: '/about#services',
-    icon: 'handshake',
-  },
+
 ]

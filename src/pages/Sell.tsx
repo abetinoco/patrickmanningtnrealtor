@@ -45,36 +45,41 @@ const Sell = () => (
               <CameraIcon width={24} height={24} />
             </div>
             <h3 className={styles.benefitTitle}>Lifestyle Photography</h3>
-            <p className={styles.benefitDescription}>
-              Show buyers how your home supports real life, not just how it looks in staged photos.
-            </p>
+            <ul className={styles.benefitList}>
+              <li>Show buyers how your home supports real life</li>
+              <li>Beyond staged photos</li>
+            </ul>
           </article>
           <article className={styles.benefitCard}>
             <div className={styles.benefitIcon}>
               <ChartIcon width={24} height={24} />
             </div>
             <h3 className={styles.benefitTitle}>Strategic Pricing</h3>
-            <p className={styles.benefitDescription}>
-              Data-driven pricing analysis to attract qualified buyers and maximize your return.
-            </p>
+            <ul className={styles.benefitList}>
+              <li>Data-driven pricing analysis</li>
+              <li>Attract qualified buyers</li>
+              <li>Maximize your return</li>
+            </ul>
           </article>
           <article className={styles.benefitCard}>
             <div className={styles.benefitIcon}>
               <TargetIcon width={24} height={24} />
             </div>
             <h3 className={styles.benefitTitle}>Multi-Platform Marketing</h3>
-            <p className={styles.benefitDescription}>
-              Maximum exposure across MLS, social media, and Patrick's private buyer network.
-            </p>
+            <ul className={styles.benefitList}>
+              <li>Maximum exposure across MLS and social media</li>
+              <li>Patrick's private buyer network</li>
+            </ul>
           </article>
           <article className={styles.benefitCard}>
             <div className={styles.benefitIcon}>
               <BriefcaseIcon width={24} height={24} />
             </div>
             <h3 className={styles.benefitTitle}>Expert Negotiation</h3>
-            <p className={styles.benefitDescription}>
-              $60M+ experience protecting your interests through every offer and counteroffer.
-            </p>
+            <ul className={styles.benefitList}>
+              <li>$60M+ experience</li>
+              <li>Protecting your interests through every offer</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -91,27 +96,33 @@ const Sell = () => (
         <div className={styles.marketingGrid}>
           <article className={styles.marketingCard}>
             <h3 className={styles.marketingCardTitle}>Professional Photography & Video</h3>
-            <p className={styles.marketingCardDescription}>
-              High-quality imagery and video walkthroughs that capture your home's character and appeal.
-            </p>
+            <ul className={styles.marketingList}>
+              <li>High-quality imagery</li>
+              <li>Video walkthroughs</li>
+              <li>Capture your home's character</li>
+            </ul>
           </article>
           <article className={styles.marketingCard}>
             <h3 className={styles.marketingCardTitle}>MLS & Syndication</h3>
-            <p className={styles.marketingCardDescription}>
-              Listing syndication to Zillow, Realtor.com, Redfin, and hundreds of partner sites for maximum reach.
-            </p>
+            <ul className={styles.marketingList}>
+              <li>Zillow, Realtor.com, Redfin syndication</li>
+              <li>Hundreds of partner sites</li>
+              <li>Maximum reach</li>
+            </ul>
           </article>
           <article className={styles.marketingCard}>
             <h3 className={styles.marketingCardTitle}>Social Media Campaigns</h3>
-            <p className={styles.marketingCardDescription}>
-              Targeted ads on Facebook and Instagram reaching buyers actively searching in your area.
-            </p>
+            <ul className={styles.marketingList}>
+              <li>Targeted Facebook and Instagram ads</li>
+              <li>Reaching buyers actively searching your area</li>
+            </ul>
           </article>
           <article className={styles.marketingCard}>
             <h3 className={styles.marketingCardTitle}>Private Network Outreach</h3>
-            <p className={styles.marketingCardDescription}>
-              Direct outreach to Patrick's network of buyers, investors, and fellow agents looking for properties.
-            </p>
+            <ul className={styles.marketingList}>
+              <li>Direct outreach to Patrick's network</li>
+              <li>Buyers, investors, and fellow agents</li>
+            </ul>
           </article>
         </div>
       </div>

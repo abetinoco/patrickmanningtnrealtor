@@ -1,7 +1,6 @@
 .hero {
-    padding: calc(var(--header-height) + 4rem) 0 4rem;
+    padding: calc(var(--header-height) + 2rem) 0 2rem;
     background: var(--bg-primary);
-    min-height: 70vh;
     display: flex;
     align-items: center;
 }
@@ -54,6 +53,13 @@
     color: var(--text-secondary);
     max-width: 500px;
     margin: 0;
+}
+
+.searchBar {
+    margin-top: 0.5rem;
+    margin-left: -12px;
+    width: 100%;
+    max-width: 500px;
 }
 
 .ctaButton {

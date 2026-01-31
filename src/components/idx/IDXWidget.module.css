@@ -1,0 +1,102 @@
+/* IDX Widget Base Styles */
+
+.widgetContainer {
+  width: 100%;
+  position: relative;
+}
+
+/* 
+ * IDX Broker Widget Overrides
+ * These styles customize the default IDX widget appearance to match the site design
+ */
+
+/* General widget styling */
+.widgetContainer :global(.IDX-wrapper),
+.widgetContainer :global(.IDX-resultsWrapper) {
+  font-family: var(--font-sans) !important;
+}
+
+/* Property cards */
+.widgetContainer :global(.IDX-showcaseCell),
+.widgetContainer :global(.IDX-propertyCard) {
+  border-radius: var(--radius-lg) !important;
+  overflow: hidden !important;
+  box-shadow: var(--shadow-sm) !important;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal) !important;
+}
+
+.widgetContainer :global(.IDX-showcaseCell:hover),
+.widgetContainer :global(.IDX-propertyCard:hover) {
+  transform: translateY(-4px) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+/* Property images */
+.widgetContainer :global(.IDX-showcasePhoto img),
+.widgetContainer :global(.IDX-propertyPhoto img) {
+  border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
+}
+
+/* Price styling */
+.widgetContainer :global(.IDX-showcasePrice),
+.widgetContainer :global(.IDX-propertyPrice) {
+  color: var(--text-primary) !important;
+  font-weight: 700 !important;
+}
+
+/* Address and location */
+.widgetContainer :global(.IDX-showcaseAddress),
+.widgetContainer :global(.IDX-propertyAddress) {
+  color: var(--text-primary) !important;
+}
+
+/* Property details (beds, baths, sqft) */
+.widgetContainer :global(.IDX-showcaseDetails),
+.widgetContainer :global(.IDX-propertyDetails) {
+  color: var(--text-secondary) !important;
+}
+
+/* Links and buttons */
+.widgetContainer :global(a) {
+  color: var(--accent-primary) !important;
+}
+
+.widgetContainer :global(a:hover) {
+  color: var(--accent-secondary) !important;
+}
+
+/* Search form inputs */
+.widgetContainer :global(input),
+.widgetContainer :global(select) {
+  border-radius: var(--radius-md) !important;
+  border: 1px solid var(--border-medium) !important;
+  padding: var(--space-sm) var(--space-md) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.widgetContainer :global(input:focus),
+.widgetContainer :global(select:focus) {
+  border-color: var(--accent-primary) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px var(--accent-light) !important;
+}
+
+/* Search buttons */
+.widgetContainer :global(button),
+.widgetContainer :global(.IDX-btn),
+.widgetContainer :global(input[type="submit"]) {
+  background: var(--accent-primary) !important;
+  color: var(--text-inverse) !important;
+  border: none !important;
+  border-radius: var(--radius-md) !important;
+  padding: var(--space-sm) var(--space-lg) !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: background var(--transition-fast) !important;
+}
+
+.widgetContainer :global(button:hover),
+.widgetContainer :global(.IDX-btn:hover),
+.widgetContainer :global(input[type="submit"]:hover) {
+  background: var(--accent-secondary) !important;
+}

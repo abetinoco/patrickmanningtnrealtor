@@ -3,11 +3,7 @@ import { defaultMeta } from '../seo/metaDefaults'
 import { PageHeader } from '../components/shared/PageHeader'
 import { agentProfile } from '../data/agent'
 import { Link } from 'react-router-dom'
-import {
-  ArrowUpRightIcon,
-  PhoneIcon,
-  MailIcon,
-} from '../components/icons/Icons'
+import { ArrowUpRightIcon } from '../components/icons/Icons'
 import { GoogleReviews } from '../components/testimonials/GoogleReviews'
 import { SocialFeed } from '../components/social/SocialFeed'
 import styles from './About.module.css'
@@ -27,33 +23,6 @@ const About = () => (
       subtitle={agentProfile.lifestyleMessaging.intro}
       profileImage="/media/patrick.png"
     />
-
-    {/* Quick Contact Cards */}
-    <section className={styles.quickContactSection}>
-      <div className={styles.socialContainer}>
-        <div className={styles.heroContactGrid}>
-          <a href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`} className={styles.heroCard}>
-            <div className={styles.heroIcon}>
-              <PhoneIcon width={20} height={20} />
-            </div>
-            <div className={styles.heroContent}>
-              <div className={styles.heroLabel}>Phone</div>
-              <div className={styles.heroValue}>{agentProfile.phone}</div>
-            </div>
-          </a>
-
-          <a href={`mailto:${agentProfile.email}`} className={styles.heroCard}>
-            <div className={styles.heroIcon}>
-              <MailIcon width={20} height={20} />
-            </div>
-            <div className={styles.heroContent}>
-              <div className={styles.heroLabel}>Email</div>
-              <div className={styles.heroValue}>{agentProfile.email}</div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </section>
 
     {/* Social Media Embeds */}
     <SocialFeed />
@@ -130,10 +99,10 @@ const About = () => (
     <section className={styles.milestonesSection}>
       <div className={styles.container}>
         <div className="section-subtitle">Track Record</div>
-        <h2 className="section-title">A Decade of Excellence in Real Estate</h2>
+        <h2 className="section-title">Since 2017: Excellence in Real Estate</h2>
         <p className={styles.intro}>
           Since 2018, Patrick has built a reputation for delivering exceptional results across Middle Tennessee and
-          Southern Kentucky. His client-first approach and market knowledge have helped buyers, sellers, and
+          Western Kentucky. His client-first approach and market knowledge have helped buyers, sellers, and
           relocating families achieve their real estate goals.
         </p>
         <div className={styles.metricsGrid}>
@@ -160,35 +129,38 @@ const About = () => (
         <div className={styles.expertiseGrid}>
           <article className={styles.expertiseCard}>
             <h3 className={styles.expertiseTitle}>New Construction Specialist</h3>
-            <p className={styles.expertiseDescription}>
-              Patrick guides clients through every phase of new construction—from design selections and builder
-              negotiations to timeline management and quality inspections. His deep relationships with top builders
-              in Williamson and Maury Counties ensure priority access to coveted lots and floor plans.
-            </p>
+            <ul className={styles.expertiseList}>
+              <li>Guides clients through every phase of new construction</li>
+              <li>Design selections and builder negotiations</li>
+              <li>Timeline management and quality inspections</li>
+              <li>Priority access to coveted lots and floor plans</li>
+            </ul>
           </article>
           <article className={styles.expertiseCard}>
             <h3 className={styles.expertiseTitle}>Relocation Concierge</h3>
-            <p className={styles.expertiseDescription}>
-              Having successfully relocated over 125 families, Patrick provides comprehensive transition support—
-              from school district research and neighborhood tours to contractor referrals and lifestyle integration.
-              His team-oriented approach ensures seamless moves from concept to completion.
-            </p>
+            <ul className={styles.expertiseList}>
+              <li>Successfully relocated over 125 families</li>
+              <li>School district research and neighborhood tours</li>
+              <li>Contractor referrals and lifestyle integration</li>
+              <li>Seamless moves from concept to completion</li>
+            </ul>
           </article>
           <article className={styles.expertiseCard}>
             <h3 className={styles.expertiseTitle}>Market Knowledge</h3>
-            <p className={styles.expertiseDescription}>
-              Patrick's portfolio includes homes across Greater Nashville,
-              Franklin, Brentwood, and Southern Kentucky. He combines deep market analytics with professional
-              representation to secure off-market opportunities and favorable transaction terms.
-            </p>
+            <ul className={styles.expertiseList}>
+              <li>Portfolio includes Greater Nashville, Franklin, Brentwood</li>
+              <li>Western Kentucky coverage</li>
+              <li>Deep market analytics</li>
+              <li>Off-market opportunities and favorable terms</li>
+            </ul>
           </article>
           <article className={styles.expertiseCard}>
             <h3 className={styles.expertiseTitle}>Strategic Negotiation</h3>
-            <p className={styles.expertiseDescription}>
-              With a foundation in analytical rigor and client advocacy, Patrick creates winning offers
-              that protect investments while maintaining competitive advantage. His proven negotiation record
-              spans both Tennessee and Kentucky markets.
-            </p>
+            <ul className={styles.expertiseList}>
+              <li>Foundation in analytical rigor and client advocacy</li>
+              <li>Creates winning offers that protect investments</li>
+              <li>Proven record across Tennessee and Kentucky</li>
+            </ul>
           </article>
         </div>
       </div>

@@ -85,6 +85,22 @@
   margin: 0;
 }
 
+.benefitList {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.benefitList li {
+  margin-bottom: 0.35rem;
+}
+
+.benefitList li:last-child {
+  margin-bottom: 0;
+}
+
 /* Marketing Section */
 .marketingSection {
   padding: 4rem 0;
@@ -101,7 +117,7 @@
 
 .marketingGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-top: 2.5rem;
 }
@@ -132,6 +148,22 @@
   line-height: 1.6;
   font-size: 0.95rem;
   margin: 0;
+}
+
+.marketingList {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.marketingList li {
+  margin-bottom: 0.35rem;
+}
+
+.marketingList li:last-child {
+  margin-bottom: 0;
 }
 
 /* Legacy service card styles */

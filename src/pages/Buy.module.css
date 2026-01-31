@@ -93,6 +93,22 @@
   margin: 0;
 }
 
+.benefitList {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.benefitList li {
+  margin-bottom: 0.35rem;
+}
+
+.benefitList li:last-child {
+  margin-bottom: 0;
+}
+
 /* Neighborhood Section */
 .neighborhoodSection {
   padding: 5rem 0;

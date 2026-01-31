@@ -1,4 +1,6 @@
 import { agentProfile } from '../../data/agent'
+import { IDXWidget } from '../idx/IDXWidget'
+import { IDX_CONFIG } from '../../data/idxConfig'
 import styles from './HeroBanner.module.css'
 
 export const HeroBanner = () => {
@@ -30,11 +32,15 @@ export const HeroBanner = () => {
 
       <div className={styles.content}>
         <div className={styles.copy}>
-          <span className={styles.kicker}>{agentProfile.tagline}</span>
+
           <h1 id="hero-heading" className={styles.title}>
             {hero.headline}
           </h1>
           <p className={styles.subtitle}>{hero.subheadline}</p>
+
+          <div className={styles.searchBar}>
+            <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} />
+          </div>
 
           <div className={styles.actions}>
             <a className="cta-button" href={hero.primaryCta.href}>
@@ -81,35 +87,35 @@ export const HeroBanner = () => {
 
       {/* MOBILE HERO - Visual-first with background image */}
       <div className={styles.mobileHero}>
-        <h1 
+        <h1
           className={styles.mobileTitle}
           style={{ color: '#ffffff', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
         >
           Find Your <span style={{ color: '#4FE0D0' }}>Perfect</span> Home
         </h1>
-        <p 
+        <p
           className={styles.mobileSubtitle}
           style={{ color: '#ffffff', textShadow: '0 1px 10px rgba(0,0,0,0.6)' }}
         >
-          Lifestyle-first real estate for Middle Tennessee &amp; Western Kentucky
+          Realtor & Home Lifestyle Expert
         </p>
         <div className={styles.mobileActions}>
-          <a 
-            className={styles.mobilePrimaryCta} 
+          <a
+            className={styles.mobilePrimaryCta}
             href={hero.primaryCta.href}
-            style={{ 
-              backgroundColor: '#4FE0D0', 
+            style={{
+              backgroundColor: '#4FE0D0',
               color: '#050708',
-              fontWeight: 700 
+              fontWeight: 700
             }}
           >
             {hero.primaryCta.label}
           </a>
-          <a 
-            className={styles.mobileSecondaryCta} 
+          <a
+            className={styles.mobileSecondaryCta}
             href={hero.secondaryCta.href}
-            style={{ 
-              backgroundColor: 'rgba(255,255,255,0.15)', 
+            style={{
+              backgroundColor: 'rgba(255,255,255,0.15)',
               color: '#ffffff',
               backdropFilter: 'blur(10px)',
               fontWeight: 600
@@ -122,13 +128,13 @@ export const HeroBanner = () => {
           <div className={styles.mobileStatsTrack}>
             {valueMetrics.slice(0, 5).map((metric) => (
               <div key={metric.label} className={styles.mobileStatItem}>
-                <span 
+                <span
                   className={styles.mobileStatValue}
                   style={{ color: '#4FE0D0' }}
                 >
                   {metric.value}
                 </span>
-                <span 
+                <span
                   className={styles.mobileStatLabel}
                   style={{ color: 'rgba(255,255,255,0.8)' }}
                 >
@@ -138,13 +144,13 @@ export const HeroBanner = () => {
             ))}
             {valueMetrics.slice(0, 5).map((metric) => (
               <div key={`dup-${metric.label}`} className={styles.mobileStatItem} aria-hidden="true">
-                <span 
+                <span
                   className={styles.mobileStatValue}
                   style={{ color: '#4FE0D0' }}
                 >
                   {metric.value}
                 </span>
-                <span 
+                <span
                   className={styles.mobileStatLabel}
                   style={{ color: 'rgba(255,255,255,0.8)' }}
                 >

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { BuyHero } from '../components/hero/BuyHero'
 import { BuyerQuestionnaireForm } from '../components/forms/BuyerQuestionnaireForm'
 import { MortgageCalculator } from '../components/calculator/MortgageCalculator'
+import { IDXFeaturedShowcase } from '../components/idx'
 import { agentProfile } from '../data/agent'
 import { SearchIcon, TargetIcon, BriefcaseIcon, HomeIcon } from '../components/icons/Icons'
 import styles from './Home.module.css'
@@ -20,13 +21,18 @@ const Buy = () => (
     <BuyHero
       kicker="For Buyers"
       title="Find Your Perfect Home"
-      subtitle="Lifestyle-first buyer representation across Middle Tennessee and Southern Kentucky. Expert guidance from first tour to closing day."
-      ctaButton={{ label: "Start Your Search", href: "#buyer-questionnaire" }}
+      subtitle="Lifestyle-first buyer representation across Middle Tennessee and Western Kentucky. Expert guidance from first tour to closing day."
       stats={[
         { value: "125+", label: "Families Helped" },
         { value: "$65M+", label: "In Transactions" },
         { value: "5★", label: "Google Rating" },
       ]}
+    />
+
+    <IDXFeaturedShowcase 
+      title="Featured Listings"
+      subtitle="Available Now"
+      description="Browse our curated selection of available homes that match the lifestyle you're looking for."
     />
 
     {/* Buyer Benefits Section */}
@@ -45,36 +51,40 @@ const Buy = () => (
               <SearchIcon width={24} height={24} />
             </div>
             <h3 className={buyStyles.benefitTitle}>Private Market Access</h3>
-            <p className={buyStyles.benefitDescription}>
-              Early access to pre-market listings through Patrick's network of builders and brokers.
-            </p>
+            <ul className={buyStyles.benefitList}>
+              <li>Early access to pre-market listings</li>
+              <li>Network of builders and brokers</li>
+            </ul>
           </article>
           <article className={buyStyles.benefitCard}>
             <div className={buyStyles.benefitIcon}>
               <TargetIcon width={24} height={24} />
             </div>
             <h3 className={buyStyles.benefitTitle}>Tailored Property Match</h3>
-            <p className={buyStyles.benefitDescription}>
-              Curated showings aligned with your lifestyle criteria and investment goals.
-            </p>
+            <ul className={buyStyles.benefitList}>
+              <li>Curated showings aligned with your lifestyle</li>
+              <li>Investment goals considered</li>
+            </ul>
           </article>
           <article className={buyStyles.benefitCard}>
             <div className={buyStyles.benefitIcon}>
               <BriefcaseIcon width={24} height={24} />
             </div>
             <h3 className={buyStyles.benefitTitle}>Strategic Negotiation</h3>
-            <p className={buyStyles.benefitDescription}>
-              Data-driven tactics to secure favorable terms, inspections, and timelines.
-            </p>
+            <ul className={buyStyles.benefitList}>
+              <li>Data-driven tactics</li>
+              <li>Favorable terms, inspections, and timelines</li>
+            </ul>
           </article>
           <article className={buyStyles.benefitCard}>
             <div className={buyStyles.benefitIcon}>
               <HomeIcon width={24} height={24} />
             </div>
             <h3 className={buyStyles.benefitTitle}>Relocation Concierge</h3>
-            <p className={buyStyles.benefitDescription}>
-              Full-service coordination for out-of-state moves to Tennessee.
-            </p>
+            <ul className={buyStyles.benefitList}>
+              <li>Full-service coordination</li>
+              <li>Out-of-state moves to Tennessee</li>
+            </ul>
           </article>
         </div>
       </div>
@@ -126,7 +136,7 @@ const Buy = () => (
             </div>
           </article>
           <article className={buyStyles.neighborhoodCard}>
-            <h3 className={buyStyles.neighborhoodName}>Southern Kentucky</h3>
+            <h3 className={buyStyles.neighborhoodName}>Western Kentucky</h3>
             <p className={buyStyles.neighborhoodDescription}>
               Bowling Green and surrounding counties provide great value, low property taxes,
               and easy access to Nashville—ideal for buyers seeking affordability.

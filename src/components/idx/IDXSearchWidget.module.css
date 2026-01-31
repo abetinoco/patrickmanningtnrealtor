@@ -1,0 +1,58 @@
+/* IDX Search Widget Section */
+
+.section {
+  padding: var(--space-4xl) 0;
+  background: var(--bg-primary);
+}
+
+.heroSection {
+  padding: var(--space-3xl) 0;
+  background: transparent;
+}
+
+.compactSection {
+  padding: var(--space-xl) 0;
+  background: transparent;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: var(--space-2xl);
+}
+
+.description {
+  max-width: 60ch;
+  margin: 0 auto;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.widgetWrapper {
+  /* Let the IDX widget determine its own styling */
+}
+
+.widgetWrapper.hero {
+  /* Hero variant styling if needed */
+}
+
+.widgetWrapper.compact {
+  /* Compact variant styling if needed */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .widgetWrapper {
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+}

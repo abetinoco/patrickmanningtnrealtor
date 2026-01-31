@@ -25,7 +25,7 @@ export const ServiceTierSection = () => (
           </div>
           <div className={styles.cardContent}>
             <h3 className={styles.tierName}>{tier.name}</h3>
-            <p className={styles.description}>{tier.description}</p>
+            {tier.description && <p className={styles.description}>{tier.description}</p>}
             <ul className={styles.bulletList}>
               {tier.bullets.map((bullet) => (
                 <li key={bullet}>{bullet}</li>
@@ -46,7 +46,7 @@ export const ServiceTierSection = () => (
             <span className={styles.accordionChevron} aria-hidden="true" />
           </summary>
           <div className={styles.accordionContent}>
-            <p className={styles.description}>{tier.description}</p>
+            {tier.description && <p className={styles.description}>{tier.description}</p>}
             <ul className={styles.bulletList}>
               {tier.bullets.map((bullet) => (
                 <li key={bullet}>{bullet}</li>

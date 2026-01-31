@@ -1,14 +1,11 @@
-import { Link } from 'react-router-dom'
+import { IDXWidget } from '../idx/IDXWidget'
+import { IDX_CONFIG } from '../../data/idxConfig'
 import styles from './BuyHero.module.css'
 
 interface BuyHeroProps {
     kicker?: string
     title: string
     subtitle?: string
-    ctaButton?: {
-        label: string
-        href: string
-    }
     stats?: Array<{
         value: string
         label: string
@@ -19,11 +16,8 @@ export const BuyHero = ({
     kicker = 'For Buyers',
     title,
     subtitle,
-    ctaButton,
     stats,
 }: BuyHeroProps) => {
-    const isExternal = ctaButton?.href.startsWith('http')
-
     return (
         <section className={styles.hero}>
             <div className={styles.container}>
@@ -32,17 +26,9 @@ export const BuyHero = ({
                     <h1 className={styles.title}>{title}</h1>
                     {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
 
-                    {ctaButton && (
-                        isExternal ? (
-                            <a href={ctaButton.href} className={styles.ctaButton} target="_blank" rel="noreferrer">
-                                {ctaButton.label}
-                            </a>
-                        ) : (
-                            <Link to={ctaButton.href} className={styles.ctaButton}>
-                                {ctaButton.label}
-                            </Link>
-                        )
-                    )}
+                    <div className={styles.searchBar}>
+                        <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} />
+                    </div>
 
                     {stats && stats.length > 0 && (
                         <div className={styles.stats}>

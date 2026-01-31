@@ -6,12 +6,34 @@
   border-top: 1px solid var(--border-light);
 }
 
-/* Timeline wrapper - non-scrollable on desktop, scrollable on mobile */
-.timelineWrapper {
-  width: 100%;
-  overflow: visible;
-  padding: 3rem 0 2rem;
+/* Simple bullet list container */
+.bulletContainer {
+  max-width: var(--container-width);
+  margin: 2rem auto 0;
+  padding: 0 var(--container-padding);
 }
+
+.processList {
+  margin: 0;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.processItem {
+  margin-bottom: 1rem;
+}
+
+.processItem:last-child {
+  margin-bottom: 0;
+}
+
+.processItem strong {
+  color: var(--text-primary);
+}
+
+/* Legacy timeline styles below - can be removed later */
 
 /* Timeline track - centered grid on desktop */
 .timelineTrack {
@@ -132,6 +154,16 @@
   line-height: 1.6;
   color: var(--text-secondary);
   margin: 0;
+  padding-left: 1.25rem;
+  list-style-type: disc;
+}
+
+.stepDescription li {
+  margin-bottom: 0.5rem;
+}
+
+.stepDescription li:last-child {
+  margin-bottom: 0;
 }
 
 /* Mobile adjustments - enable scrolling */

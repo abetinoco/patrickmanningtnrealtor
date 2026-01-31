@@ -9,10 +9,9 @@ export const serviceTiers: ServiceTier[] = [
   {
     id: 'buyer-services',
     name: 'Buyer Representation',
-    description:
-      'Dedicated representation and access to listings that match your needs, budget, and timeline. From first-time buyers to seasoned investors.',
+    description: '',
     bullets: [
-      'Property tours and showings tailored to your schedule',
+      'Dedicated representation tailored to your needs, budget, and timeline',
       'Market analysis, contract guidance, and skilled negotiation',
       'Closing support and connections to trusted local resources',
     ],
@@ -20,23 +19,21 @@ export const serviceTiers: ServiceTier[] = [
   {
     id: 'seller-services',
     name: 'Seller Representation',
-    description:
-      'Strategic marketing and pricing to attract qualified buyers and get your home sold for the best possible price.',
+    description: '',
     bullets: [
-      'Professional photography, video tours, and compelling property descriptions',
-      'Multi-platform marketing to reach the widest audience of buyers',
-      'Offer review, negotiation support, and organized showing coordination',
+      'Strategic marketing and pricing to attract qualified buyers',
+      'Professional photography, video tours, and multi-platform marketing',
+      'Offer review, negotiation support, and closing coordination',
     ],
   },
   {
     id: 'investment-services',
     name: 'Investment Properties',
-    description:
-      'Guidance for investors looking to build rental portfolios or find properties with strong appreciation potential.',
+    description: '',
     bullets: [
+      'Guidance for rental portfolios and appreciation properties',
       'Market analysis and rental income projections',
       'Connections to financing, legal, and property management resources',
-      'Long-term strategy and portfolio planning support',
     ],
   },
 ]
@@ -44,32 +41,42 @@ export const serviceTiers: ServiceTier[] = [
 export interface ProcessStep {
   id: string
   title: string
-  description: string
+  description: string[]
 }
 
 export const advisoryProcess: ProcessStep[] = [
   {
     id: 'discover',
     title: 'Discovery & Planning',
-    description:
-      'An initial consultation to understand your goals, timeline, and budget to create a personalized plan for your real estate journey.',
+    description: [
+      'Initial consultation to understand your goals, timeline, and budget',
+      'Create a personalized plan for your real estate journey',
+    ],
   },
   {
     id: 'curate',
     title: 'Search & Tour',
-    description:
-      'Using local market knowledge and MLS access to find properties that fit your needs and arrange convenient showings.',
+    description: [
+      'Using local market knowledge and MLS access to find properties that fit your needs',
+      'Arrange convenient showings',
+    ],
   },
   {
     id: 'negotiate',
     title: 'Offer & Negotiate',
-    description:
-      'Skilled negotiation, contract guidance, and coordination of inspections to protect your interests throughout the transaction.',
+    description: [
+      'Skilled negotiation',
+      'Contract guidance',
+      'Coordination of inspections to protect your interests',
+    ],
   },
   {
     id: 'concierge',
     title: 'Close & Support',
-    description:
-      'Closing coordination, moving resources, and continued guidance to ensure a smooth transition to your new home.',
+    description: [
+      'Closing coordination',
+      'Moving resources',
+      'Continued guidance to ensure a smooth transition to your new home',
+    ],
   },
 ]

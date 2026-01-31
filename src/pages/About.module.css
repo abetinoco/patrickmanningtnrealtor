@@ -159,9 +159,27 @@
 
 .metricsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
   margin-top: 3rem;
+}
+
+@media (max-width: 1100px) {
+  .metricsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .metricsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .metricsGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .metricCard {
@@ -256,6 +274,23 @@
   line-height: 1.8;
   position: relative;
   z-index: 1;
+}
+
+.expertiseList {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.expertiseList li {
+  margin-bottom: 0.5rem;
+}
+
+.expertiseList li:last-child {
+  margin-bottom: 0;
 }
 
 .ctaSection {
@@ -386,10 +421,39 @@
   color: var(--accent-tertiary);
 }
 
-/* Quick Contact Section (compact version for About page) */
+/* Quick Contact Section - Clean Inline */
 .quickContactSection {
-  padding: 3rem 0 0;
+  padding: 1.5rem 0;
   background: var(--surface-primary);
+}
+
+.contactInline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-light);
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.contactLink {
+  color: var(--text-primary);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.contactLink:hover {
+  color: var(--accent-primary);
+}
+
+.contactDivider {
+  color: var(--text-tertiary);
 }
 
 .socialSection {
@@ -634,16 +698,5 @@
 
   .expertiseCard {
     padding: 2rem;
-  }
-
-  .metricsGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .metricsGrid {
-    grid-template-columns: 1fr;
   }
 }

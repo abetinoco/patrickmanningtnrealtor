@@ -1,7 +1,7 @@
 export const agentProfile = {
   name: 'Patrick Manning',
   designation: 'Realtor & Home Lifestyle Expert',
-  tagline: 'Homes that fit the way you actually live.',
+  tagline: 'Realtor & Home Lifestyle Expert',
   phone: '+1 615-302-8000',
   email: 'pmanningtnrealtor@gmail.com',
   brokerage: {
@@ -35,7 +35,7 @@ export const agentProfile = {
     'Greater Nashville Area',
     'Williamson County',
     'Maury County',
-    'Southern Kentucky Border Communities',
+    'Western Kentucky Border Communities',
   ],
   valueMetrics: [
     { label: 'Gross Sales Volume Since 2018', value: '$60M+' },
@@ -52,7 +52,7 @@ export const agentProfile = {
     youtube: 'https://www.youtube.com/@pmanningtnrealtor',
   },
   hero: {
-    headline: 'Lifestyle-first real estate for Middle Tennessee & Western Kentucky',
+    headline: 'Realtor & Home Lifestyle Expert',
     subheadline:
       'Patrick Manning is a Realtor and Home Lifestyle Expert with Real Broker, matching clients to homes that reflect their daily routines, commutes, and community vibe while drawing on $60M+ in sales and 125 successful moves since 2018.',
     primaryCta: { label: 'Book a Quick Call', href: '/contact' },

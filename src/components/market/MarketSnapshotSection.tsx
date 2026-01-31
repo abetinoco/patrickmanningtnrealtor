@@ -10,7 +10,7 @@ export const MarketSnapshotSection = () => (
       </h2>
       <p>
         Receive live updates on absorption rates, executive relocation trends, and the luxury new construction pipeline across
-        Middle Tennessee and Southern Kentucky.
+        Middle Tennessee and Western Kentucky.
       </p>
     </div>
 

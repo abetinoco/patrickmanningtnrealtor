@@ -66,6 +66,13 @@
   line-height: 1.6;
 }
 
+.searchBar {
+  margin-top: 0.5rem;
+  margin-left: -12px;
+  width: 100%;
+  max-width: 560px;
+}
+
 .actions {
   display: flex;
   flex-wrap: wrap;

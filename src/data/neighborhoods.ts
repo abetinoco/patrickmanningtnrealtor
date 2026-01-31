@@ -92,10 +92,10 @@ export const neighborhoods: Neighborhood[] = [
         image: '/media/nashville.jpg'
     },
     {
-        slug: 'southern-kentucky',
-        name: 'Southern Kentucky',
+        slug: 'western-kentucky',
+        name: 'Western Kentucky',
         tagline: 'Value & Lifestyle at the Border',
-        description: `Southern Kentucky offers exceptional value with lower property taxes, growing communities, and easy access to Nashville. Bowling Green anchors the region with Western Kentucky University, a thriving economy, and beautiful countryside perfect for those seeking affordability without sacrificing convenience.`,
+        description: `Western Kentucky offers exceptional value with lower property taxes, growing communities, and easy access to Nashville. Bowling Green anchors the region with Western Kentucky University, a thriving economy, and beautiful countryside perfect for those seeking affordability without sacrificing convenience.`,
         medianPrice: '$385K+',
         priceRange: '$200K - $800K+',
         schoolRating: 'B+ Average',

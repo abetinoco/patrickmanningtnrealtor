@@ -11,6 +11,7 @@ export const QuickLinks = () => {
     icon: IconName
     internal?: boolean
     external?: boolean
+    isPrimary?: boolean
   }> = [
       {
         title: 'Call Me',
@@ -34,11 +35,12 @@ export const QuickLinks = () => {
         internal: true,
       },
       {
-        title: 'Schedule a Consultation',
+        title: 'Book a Time',
         href: 'https://calendly.com/pmanningtnrealtor/realestateconsultation?month=2025-11',
         description: 'Book your private strategy session',
         icon: 'calendar',
         external: true,
+        isPrimary: true,
       },
       {
         title: 'Browse Properties',
@@ -124,7 +126,7 @@ export const QuickLinks = () => {
               <a
                 key={link.title}
                 href={link.href}
-                className={styles.linkCard}
+                className={`${styles.linkCard} ${link.isPrimary ? styles.primaryCard : ''}`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
