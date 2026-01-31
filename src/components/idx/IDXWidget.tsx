@@ -70,6 +70,7 @@ export const IDXWidget = ({
         overflow: 'hidden',
       }}
       scrolling="no"
+      sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-top-navigation"
       title={`IDX Widget ${widgetId}`}
     />
   )
