@@ -403,17 +403,16 @@
     position: absolute;
     top: 28%;
     left: 50%;
-    transform: translateX(-50%) scale(0.9);
-    transform-origin: center center;
-    width: calc(100% - 1rem);
-    max-width: 480px;
+    transform: translateX(-50%);
+    width: calc(100% - 2rem);
+    max-width: 340px;
     z-index: 15;
   }
 
   .mobileSearchBar iframe {
-    width: 110% !important;
-    transform: scale(0.91);
-    transform-origin: left center;
+    width: 130% !important;
+    transform: scale(0.77);
+    transform-origin: left top;
   }
 
   /* Darken overlay more on mobile for text contrast */
@@ -431,19 +430,19 @@
 
   .mobileTitle {
     font-family: var(--font-serif);
-    font-size: 2.25rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1.1;
     text-align: center;
-    margin: 0 0 0.5rem;
+    margin: 0 0 0.35rem;
     color: #ffffff;
     text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8);
   }
 
   .mobileSubtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
     text-align: center;
-    margin: 0 0 1.25rem;
+    margin: 0 0 0.75rem;
     color: #ffffff;
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
     max-width: 300px;
@@ -453,10 +452,10 @@
   .mobileActions {
     display: flex;
     justify-content: center;
-    gap: 0.75rem;
-    width: calc(100% - 2.5rem);
-    max-width: 360px;
-    margin: 0 auto 1.25rem;
+    gap: 0.6rem;
+    width: calc(100% - 2rem);
+    max-width: 340px;
+    margin: 0 auto 0.75rem;
   }
 
   .mobilePrimaryCta,
@@ -465,9 +464,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.65rem 1rem;
+    padding: 0.55rem 0.85rem;
     border-radius: 0.5rem;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-decoration: none;
     text-align: center;
   }
