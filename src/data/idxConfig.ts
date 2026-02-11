@@ -13,7 +13,7 @@ export const IDX_CONFIG = {
   
   widgets: {
     featuredShowcase: {
-      id: '137091',
+      id: '137093',
       name: 'Featured Showcase',
       description: 'Displays featured MLS listings with property details',
     },

@@ -1,0 +1,15 @@
+/* PASTE INTO: Map Search */
+
+/* Map zoom + / - – excluded from nav dark styling via all-in-one */
+
+/* Map property cards – teal prices, badges, hover (no navy) */
+.IDX-mapSearch [class*="listingPrice"],[class*="mapSearch"] [class*="price"],[class*="mapWrapper"] [class*="price"],.leaflet-popup-content [class*="price"]{color:#38e0c3!important}
+.IDX-mapSearch [class*="reduction"],[class*="mapSearch"] [class*="badge"],[class*="mapWrapper"] [class*="badge"],.leaflet-popup-content [class*="reduction"],.leaflet-popup-content [class*="badge"]{background-color:#38e0c3!important;color:#fff!important}
+[class*="mapSearch"] [class*="listingCard"] a,[class*="mapWrapper"] [class*="listingCard"] a,.leaflet-popup-content a{color:#38e0c3!important}
+[class*="mapSearch"] [class*="listingCard"] a:hover,[class*="mapWrapper"] [class*="listingCard"] a:hover,.leaflet-popup-content a:hover{color:#2bc9b0!important}
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-mapSearch,.IDX-mapWrapper,[class*="mapSearch"],[class*="mapWrapper"],[class*="map-search"],[class*="map-wrapper"]{border-radius:.5rem!important;border:1px solid rgba(0,0,0,.08)!important;background-color:#fff!important}
+.IDX-mapSearch .IDX-btn-primary,.IDX-mapSearch input[type="submit"],[class*="mapSearch"] .IDX-btn-primary{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important}

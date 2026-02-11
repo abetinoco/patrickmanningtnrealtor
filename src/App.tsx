@@ -10,6 +10,7 @@ import Reviews from './pages/Reviews'
 import Blog from './pages/Blog'
 import { QuickLinks } from './pages/QuickLinks'
 import AreaGuide from './pages/areas/AreaGuide'
+import SearchResults from './pages/SearchResults'
 import NotFound from './pages/NotFound'
 
 const router = createBrowserRouter([
@@ -27,6 +28,7 @@ const router = createBrowserRouter([
       { path: '/blog', element: <Blog /> },
       { path: '/quicklinks', element: <QuickLinks /> },
       { path: '/areas/:slug', element: <AreaGuide /> },
+      { path: '/search-results', element: <SearchResults /> },
       { path: '*', element: <NotFound /> },
     ],
   },

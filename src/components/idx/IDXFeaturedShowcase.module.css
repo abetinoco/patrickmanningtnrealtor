@@ -1,7 +1,7 @@
 /* IDX Featured Showcase Section */
 
 .section {
-  padding: var(--space-4xl) 0;
+  padding: var(--space-2xl) 0;
   background: var(--bg-secondary);
 }
 
@@ -13,7 +13,7 @@
 
 .header {
   text-align: center;
-  margin-bottom: var(--space-3xl);
+  margin-bottom: var(--space-xl);
 }
 
 .description {
@@ -39,7 +39,7 @@
   background: var(--surface-primary) !important;
   border-radius: var(--radius-lg) !important;
   padding: var(--space-md) var(--space-lg) !important;
-  margin-bottom: var(--space-xl) !important;
+  margin-bottom: var(--space-lg) !important;
   border: 1px solid var(--border-light) !important;
   box-shadow: var(--shadow-sm) !important;
 }
@@ -222,11 +222,11 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .section {
-    padding: var(--space-3xl) 0;
+    padding: var(--space-2xl) 0;
   }
 
   .header {
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-lg);
   }
   
   .section :global(.IDX-showcasePrice),

@@ -1,0 +1,10 @@
+/* PASTE INTO: Contact */
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-contactForm,.IDX-homeValuation,.IDX-scheduleShowing,.IDX-moreInfo,[class*="contactForm"],[class*="homeValuation"],[class*="scheduleShowing"],[class*="moreInfo"],[class*="contact-form"],[class*="valuation"]{max-width:720px!important;margin-left:auto!important;margin-right:auto!important;padding:1.5rem!important;background-color:#fff!important;border-radius:.5rem!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 2px 8px rgba(0,0,0,.06)!important}
+.IDX-contactForm input,.IDX-contactForm select,.IDX-contactForm textarea,.IDX-homeValuation input,.IDX-scheduleShowing input,[class*="contactForm"] input,[class*="contactForm"] select,[class*="contactForm"] textarea,[class*="homeValuation"] input,[class*="scheduleShowing"] input{border-color:rgba(0,0,0,.12)!important;border-radius:.5rem!important}
+.IDX-contactForm input:focus,.IDX-contactForm select:focus,.IDX-contactForm textarea:focus,.IDX-homeValuation input:focus,.IDX-scheduleShowing input:focus{border-color:#38e0c3!important;box-shadow:0 0 0 3px rgba(56,224,195,.15)!important}
+.IDX-contactForm input[type="submit"],.IDX-homeValuation input[type="submit"],.IDX-scheduleShowing input[type="submit"],[class*="contactForm"] input[type="submit"],[class*="homeValuation"] input[type="submit"],[class*="scheduleShowing"] input[type="submit"]{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important}

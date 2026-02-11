@@ -1,0 +1,10 @@
+/* PASTE INTO: User */
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-userLogin,.IDX-userSignup,.IDX-myAccount,[class*="userLogin"],[class*="userSignup"],[class*="myAccount"],[class*="user-login"],[class*="user-signup"]{max-width:480px!important;margin-left:auto!important;margin-right:auto!important;padding:1.5rem!important;background-color:#fff!important;border-radius:.5rem!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 2px 8px rgba(0,0,0,.06)!important}
+.IDX-userLogin input,.IDX-userSignup input,[class*="userLogin"] input,[class*="userSignup"] input{border-color:rgba(0,0,0,.12)!important;border-radius:.5rem!important}
+.IDX-userLogin input:focus,.IDX-userSignup input:focus{border-color:#38e0c3!important;box-shadow:0 0 0 3px rgba(56,224,195,.15)!important}
+.IDX-userLogin input[type="submit"],.IDX-userSignup input[type="submit"],[class*="userLogin"] input[type="submit"],[class*="userSignup"] input[type="submit"]{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important}

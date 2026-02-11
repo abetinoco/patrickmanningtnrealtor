@@ -1,0 +1,1380 @@
+/**
+ * IDX Broker – ALL-IN-ONE Custom CSS (Patrick Manning theme)
+ * Paste into: IDX Dashboard → Design → Custom CSS → Global → Desktop
+ *
+ * OPTION A: Paste this entire file into Global (one paste, covers everything).
+ *
+ * OPTION B: Use docs/idx-css-by-idx/ for simpler category-based setup:
+ *   - Paste this file into Global for base, or use category files in page-specific slots
+ *   See docs/idx-css-by-idx/README.md for the full mapping.
+ *
+ * Brand: Teal #38e0c3, #2bc9b0 | Dark #1a2332 | Surfaces #f8fafb
+ */
+
+/* ---------- 00-base ---------- */
+#IDX-main {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.IDX-wrapper,
+.IDX-mainContent,
+.IDX-resultsPage,
+[class*="IDX-wrapper"] {
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.IDX-wrapper,
+.IDX-mainContent,
+[class*="IDX-wrapper"],
+[class*="idx-wrapper"] {
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif !important;
+  color: #1a2332 !important;
+  background-color: #f8fafb !important;
+}
+
+body.idx,
+body[class*="idx"] {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif !important;
+  background-color: #f8fafb !important;
+}
+/**
+ * IDX Broker – ACCOUNT / WELCOME BAR
+ * Scope: Pages where logged-in user sees "Welcome, [name]" bar (dark blue by default)
+ * Paste into: Global or Results/Details page CSS if IDX offers page-specific
+ */
+
+#IDX-accountBar,
+#IDX-memberBar,
+#IDX-leadToolsBar,
+.IDX-accountBar,
+.IDX-memberBar,
+[id*="accountBar"],
+[id*="memberBar"],
+[class*="accountBar"],
+[class*="memberBar"],
+[class*="welcomeBar"],
+[class*="leadToolsBar"],
+#IDX-main .navbar.bg-dark,
+#IDX-main .navbar.bg-primary,
+#IDX-main .navbar-inverse,
+#IDX-main .navbar:first-of-type,
+body.idx .navbar + .navbar {
+  background-color: #ffffff !important;
+  color: #1a2332 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Modify Search / Next Listing bar (detail page) – IDX may use .IDX-navbar-default, .IDX-navigation */
+.IDX-detailNav,
+.IDX-listingNav,
+.IDX-propertyNav,
+.IDX-detailsNav,
+[class*="detailNav"],
+[class*="listingNav"],
+[class*="propertyNav"] {
+  background-color: #ffffff !important;
+  color: #1a2332 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+.IDX-detailsPage .IDX-navbar-default,
+.IDX-detailsPage .IDX-navigation {
+  background-color: #ffffff !important;
+  color: #1a2332 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+.IDX-detailNav a,
+.IDX-listingNav a,
+.IDX-navigation a,
+.IDX-navbar-default a,
+[class*="detailNav"] a {
+  color: #38e0c3 !important;
+}
+
+#IDX-accountBar a,
+#IDX-memberBar a,
+.IDX-accountBar a,
+.IDX-memberBar a,
+[class*="accountBar"] a,
+[class*="memberBar"] a,
+#IDX-main .navbar:first-of-type a {
+  color: #38e0c3 !important;
+}
+
+#IDX-accountBar a:hover,
+.IDX-accountBar a:hover,
+[class*="accountBar"] a:hover,
+[class*="memberBar"] a:hover,
+[class*="welcomeBar"] a:hover {
+  color: #2bc9b0 !important;
+}
+/**
+ * IDX Broker – NAV, BUTTONS, FORMS, LINKS (shared)
+ * Main IDX nav, search type tabs, primary/secondary buttons, form inputs
+ * Paste into: Global | Desktop
+ */
+
+/* ========== MAIN NAV (search type tabs) – white/light, no dark ========== */
+.IDX-navbar-header,
+#IDX-navbar-collapse,
+.IDX-navbar,
+[class*="navbar-header"],
+[class*="idx-navbar"] {
+  background-color: #fff !important;
+  color: #1a2332 !important;
+  border-color: rgba(0, 0, 0, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Search type tabs (ADVANCED SEARCH bar, etc.) – no black borders */
+.IDX-searchNavItem,
+.IDX-searchNavItem a,
+[class*="searchNavItem"],
+[class*="searchType"] {
+  border: none !important;
+}
+
+/* ADVANCED SEARCH bar – direct target for IDX-searchNavItem.IDX-nav-advanced (beats #1a2332 rule) */
+.IDX-searchNavItem.IDX-nav-advanced,
+.IDX-searchNavItem.IDX-nav-advanced.IDX-active,
+.IDX-searchNavItem.IDX-nav-advanced .IDX-searchNavLink,
+.IDX-searchNavItem.IDX-nav-advanced a,
+.IDX-searchNavItem.IDX-nav-advanced .IDX-navLinkTitle {
+  background-color: #fff !important;
+  color: #38e0c3 !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* ADVANCED SEARCH bar – white bg, teal text to blend with page (filter bar / wrapper-standard-top only) */
+.IDX-wrapper-standard-top .IDX-searchNavItem,
+.IDX-wrapper-standard-top .IDX-searchNavItem a,
+.IDX-wrapper-standard-top [class*="searchNavItem"],
+.IDX-wrapper-standard-top [class*="searchType"],
+.IDX-filterBar .IDX-searchNavItem,
+.IDX-filterBar .IDX-searchNavItem a,
+.IDX-filterBar [class*="searchNavItem"],
+[class*="wrapper-standard-top"] .IDX-searchNavItem,
+[class*="wrapper-standard-top"] .IDX-searchNavItem a,
+[class*="wrapper-standard-top"] [class*="searchNavItem"],
+[class*="wrapper-standard-top"] [class*="searchType"],
+[class*="filterBar"] .IDX-searchNavItem,
+[class*="filterBar"] [class*="searchNavItem"],
+.IDX-wrapper-standard-top .IDX-navLinkTitle,
+.IDX-wrapper-standard-top [class*="navLinkTitle"],
+.IDX-filterBar .IDX-navLinkTitle,
+.IDX-filterBar [class*="navLinkTitle"],
+[class*="wrapper-standard-top"] .IDX-navLinkTitle,
+[class*="wrapper-standard-top"] [class*="navLinkTitle"],
+[class*="filterBar"] .IDX-navLinkTitle,
+[class*="filterBar"] [class*="navLinkTitle"],
+.IDX-wrapper-standard-top a:has(.IDX-navLinkTitle),
+.IDX-wrapper-standard-top a:has([class*="navLinkTitle"]),
+.IDX-filterBar a:has(.IDX-navLinkTitle),
+.IDX-filterBar a:has([class*="navLinkTitle"]),
+.IDX-wrapper-standard-top .IDX-searchNavItem.IDX-nav-advanced,
+.IDX-filterBar .IDX-searchNavItem.IDX-nav-advanced,
+.IDX-wrapper-standard-top .IDX-searchNavItem.IDX-active,
+.IDX-filterBar .IDX-searchNavItem.IDX-active,
+.IDX-wrapper-standard-top .IDX-searchNavLink,
+.IDX-filterBar .IDX-searchNavLink,
+.IDX-wrapper-standard-top a.IDX-searchNavLink,
+.IDX-filterBar a.IDX-searchNavLink {
+  background-color: #fff !important;
+  color: #38e0c3 !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.IDX-wrapper-standard-top .IDX-searchNavItem:hover,
+.IDX-wrapper-standard-top .IDX-searchNavItem a:hover,
+.IDX-wrapper-standard-top [class*="searchNavItem"]:hover,
+.IDX-filterBar .IDX-searchNavItem:hover,
+.IDX-filterBar .IDX-searchNavItem a:hover,
+[class*="wrapper-standard-top"] [class*="searchNavItem"]:hover,
+[class*="filterBar"] .IDX-searchNavItem:hover,
+[class*="filterBar"] [class*="searchNavItem"]:hover {
+  background-color: rgba(56, 224, 195, 0.08) !important;
+  color: #2bc9b0 !important;
+}
+
+/* Active ADVANCED SEARCH – white with teal text, teal bottom border */
+.IDX-wrapper-standard-top .IDX-active .IDX-searchNavItem,
+.IDX-wrapper-standard-top .IDX-active a,
+.IDX-wrapper-standard-top .IDX-searchNavItem.IDX-active,
+.IDX-wrapper-standard-top [class*="searchNavItem"].IDX-active,
+.IDX-filterBar .IDX-active .IDX-searchNavItem,
+.IDX-filterBar .IDX-searchNavItem.IDX-active,
+[class*="wrapper-standard-top"] .IDX-active [class*="searchNavItem"],
+[class*="wrapper-standard-top"] [class*="searchNavItem"].IDX-active,
+[class*="filterBar"] .IDX-active [class*="searchNavItem"],
+[class*="filterBar"] [class*="searchNavItem"].IDX-active,
+.IDX-wrapper-standard-top .IDX-active .IDX-navLinkTitle,
+.IDX-wrapper-standard-top .IDX-active [class*="navLinkTitle"],
+.IDX-filterBar .IDX-active .IDX-navLinkTitle,
+.IDX-filterBar .IDX-active [class*="navLinkTitle"],
+.IDX-wrapper-standard-top a.IDX-active:has(.IDX-navLinkTitle),
+.IDX-wrapper-standard-top a.IDX-active:has([class*="navLinkTitle"]),
+.IDX-filterBar a.IDX-active:has(.IDX-navLinkTitle),
+.IDX-filterBar a.IDX-active:has([class*="navLinkTitle"]),
+.IDX-wrapper-standard-top .IDX-searchNavItem.IDX-nav-advanced.IDX-active,
+.IDX-filterBar .IDX-searchNavItem.IDX-nav-advanced.IDX-active,
+.IDX-wrapper-standard-top .IDX-searchNavItem.IDX-active .IDX-searchNavLink,
+.IDX-filterBar .IDX-searchNavItem.IDX-active .IDX-searchNavLink,
+.IDX-wrapper-standard-top .IDX-searchNavItem.IDX-active a,
+.IDX-filterBar .IDX-searchNavItem.IDX-active a {
+  background-color: #fff !important;
+  color: #38e0c3 !important;
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* Advanced search collapse header – white bg, teal text, no black borders */
+.IDX-advancedSearch .card-header,
+.IDX-advancedSearch .panel-heading,
+.IDX-advancedSearch .collapse-toggle,
+[class*="advancedSearch"] [class*="card-header"],
+[class*="advancedSearch"] [class*="panel-heading"],
+[class*="advancedSearch"] [class*="collapse"],
+[class*="searchForm"] [class*="card-header"],
+[class*="searchForm"] [class*="panel-heading"] {
+  background-color: #fff !important;
+  color: #38e0c3 !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  border-radius: 0.5rem 0.5rem 0 0 !important;
+}
+
+/* ADVANCED SEARCH bar – remove black borders from parent containers */
+.IDX-wrapper-standard-top,
+.IDX-filterBar,
+.IDX-searchNav:not(.IDX-navbar-nav),
+[class*="wrapper-standard-top"],
+[class*="filterBar"],
+[class*="searchNav"]:not(.IDX-navbar-nav),
+.IDX-advancedSearch .card,
+.IDX-advancedSearch .panel,
+[class*="advancedSearch"] .card,
+[class*="advancedSearch"] .panel,
+[class*="searchForm"] .card,
+[class*="searchForm"] .panel,
+.IDX-wrapper-standard-top .card,
+.IDX-wrapper-standard-top .panel,
+.IDX-filterBar .card,
+.IDX-filterBar .panel {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Bootstrap nav-tabs and tab-content – strip black borders (ADVANCED SEARCH area) */
+.IDX-wrapper-standard-top .nav,
+.IDX-wrapper-standard-top .nav-tabs,
+.IDX-wrapper-standard-top .tab-content,
+.IDX-filterBar .nav,
+.IDX-filterBar .nav-tabs,
+.IDX-filterBar .tab-content,
+[class*="wrapper-standard-top"] .nav,
+[class*="wrapper-standard-top"] .nav-tabs,
+[class*="wrapper-standard-top"] .tab-content,
+[class*="filterBar"] .nav,
+[class*="filterBar"] .nav-tabs,
+[class*="filterBar"] .tab-content {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Nav items, list items, hr – strip borders in ADVANCED SEARCH area */
+.IDX-wrapper-standard-top ul,
+.IDX-wrapper-standard-top li,
+.IDX-filterBar ul,
+.IDX-filterBar li,
+.IDX-wrapper-standard-top .nav-item,
+.IDX-wrapper-standard-top .nav-link,
+.IDX-filterBar .nav-item,
+.IDX-filterBar .nav-link,
+.IDX-wrapper-standard-top hr,
+.IDX-filterBar hr,
+.IDX-wrapper-standard-top .IDX-searchNavItem::before,
+.IDX-wrapper-standard-top .IDX-searchNavItem::after,
+.IDX-filterBar .IDX-searchNavItem::before,
+.IDX-filterBar .IDX-searchNavItem::after {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  outline: none !important;
+}
+
+
+.IDX-navbar-toggle:hover,
+.IDX-searchNavItem:hover,
+.IDX-searchNavItem:focus,
+[class*="searchNavItem"]:hover {
+  background-color: rgba(56, 224, 195, 0.08) !important;
+}
+
+.IDX-navbar-nav a,
+.IDX-navbar-nav li a,
+.IDX-searchNavItem,
+.IDX-searchNavItem a,
+.IDX-nav-mapsearch a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out),
+.IDX-navigation a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out),
+[class*="navbar-nav"] a,
+[class*="searchNavItem"],
+[class*="searchType"] {
+  background-color: #fff !important;
+  border: none !important;
+  color: #38e0c3 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.IDX-navbar-nav a:hover,
+.IDX-searchNavItem:hover,
+.IDX-searchNavItem a:hover,
+[class*="navbar-nav"] a:hover,
+[class*="searchNavItem"]:hover {
+  background-color: rgba(56, 224, 195, 0.08) !important;
+  color: #2bc9b0 !important;
+}
+
+.IDX-active a,
+.IDX-active > a,
+.IDX-currentPageLink,
+.IDX-navbar-nav .IDX-active a,
+[class*="active"] a,
+.IDX-searchNavItem.IDX-active,
+.IDX-searchNavItem.IDX-active .IDX-searchNavLink,
+.IDX-searchNavItem.IDX-active a,
+.IDX-searchNavItem.IDX-active .IDX-navLinkTitle {
+  background-color: #fff !important;
+  border: none !important;
+  color: #38e0c3 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* ========== BUTTONS ========== */
+.IDX-btn-primary,
+.IDX-btn.IDX-btn-primary,
+#IDX-formSubmit,
+button.IDX-btn-primary,
+input[type="submit"].IDX-btn,
+[class*="btn-primary"],
+[class*="formSubmit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+
+.IDX-btn-primary:hover,
+.IDX-btn.IDX-btn-primary:hover,
+#IDX-formSubmit:hover,
+button.IDX-btn-primary:hover,
+[class*="btn-primary"]:hover {
+  background-color: #2bc9b0 !important;
+  border-color: #2bc9b0 !important;
+  color: #fff !important;
+}
+
+.IDX-btn-default,
+.IDX-btn:not(.IDX-btn-primary),
+[class*="btn-default"] {
+  border-color: #38e0c3 !important;
+  color: #38e0c3 !important;
+  background-color: transparent !important;
+}
+
+.IDX-wrapper button:not(.IDX-btn-primary):not([class*="close"]),
+.IDX-mainContent button:not(.IDX-btn-primary):not([class*="close"]) {
+  border-color: #38e0c3 !important;
+  color: #38e0c3 !important;
+}
+
+.IDX-btn-default:hover,
+.IDX-searchNavItem a:hover,
+.IDX-searchNavItem button:hover,
+[class*="btn-default"]:hover {
+  background-color: rgba(56, 224, 195, 0.1) !important;
+  border-color: #2bc9b0 !important;
+  color: #2bc9b0 !important;
+}
+
+.IDX-btn-default,
+.IDX-btn:not(.IDX-btn-primary),
+a.IDX-btn[href*="search"],
+a.IDX-btn[href*="new"],
+a.IDX-btn[href*="modify"],
+[class*="newSearch"],
+[class*="modifySearch"],
+[class*="btn-default"] {
+  border-radius: 0.5rem !important;
+}
+
+/* ========== LINKS ========== */
+.IDX-wrapper a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch),
+.IDX-mainContent a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch),
+[class*="IDX-"] a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch) {
+  color: #38e0c3 !important;
+}
+
+.IDX-wrapper a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch),
+.IDX-mainContent a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch),
+[class*="IDX-"] a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch) {
+  color: #2bc9b0 !important;
+}
+
+/* ========== FORMS ========== */
+.IDX-wrapper input[type="text"],
+.IDX-wrapper input[type="email"],
+.IDX-wrapper input[type="tel"],
+.IDX-wrapper input[type="number"],
+.IDX-wrapper select,
+.IDX-wrapper textarea,
+[class*="IDX-"] input,
+[class*="IDX-"] select,
+[class*="IDX-"] textarea {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0.5rem !important;
+}
+
+.IDX-wrapper input:focus,
+.IDX-wrapper select:focus,
+.IDX-wrapper textarea:focus {
+  border-color: #38e0c3 !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(56, 224, 195, 0.15) !important;
+}
+
+/* ========== PRICE / FILTER DROPDOWNS – constrain inputs so they don't overflow ========== */
+.IDX-filterBar .dropdown-menu input,
+.IDX-resultsFilterBar .dropdown-menu input,
+[class*="filterBar"] .dropdown-menu input,
+[class*="resultsFilter"] .dropdown-menu input,
+.IDX-wrapper .dropdown-menu input[type="text"],
+.IDX-wrapper .dropdown-menu input[type="number"],
+.IDX-wrapper .dropdown input,
+.IDX-wrapper [class*="dropdown"] input,
+.IDX-wrapper [class*="priceRange"] input,
+.IDX-wrapper [class*="Price"] input {
+  max-width: 140px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  padding: 0.5rem 0.75rem !important;
+}
+.IDX-filterBar .dropdown-menu,
+.IDX-resultsFilterBar .dropdown-menu,
+[class*="filterBar"] .dropdown-menu,
+.IDX-wrapper [class*="dropdown"] {
+  min-width: 160px !important;
+  max-width: 280px !important;
+  padding: 0.75rem 1rem !important;
+  overflow: visible !important;
+  background: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+  z-index: 1050 !important;
+}
+.IDX-filterBar .dropdown-menu .form-group,
+[class*="filterBar"] .dropdown-menu .form-group {
+  margin-bottom: 0.75rem !important;
+}
+.IDX-filterBar .dropdown-menu label,
+[class*="filterBar"] .dropdown-menu label {
+  display: block !important;
+  font-size: 0.8125rem !important;
+  color: #1a2332 !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Dropdown carets – teal instead of blue (Bootstrap uses border for triangle) */
+.IDX-wrapper .caret,
+.IDX-mainContent .caret,
+[class*="IDX-"] .caret,
+.dropdown .caret,
+.dropdown-toggle .caret {
+  border-top-color: #38e0c3 !important;
+}
+.IDX-wrapper .dropdown.open .caret,
+[class*="dropdown"].open .caret {
+  border-top-color: #38e0c3 !important;
+}
+/**
+ * IDX Broker – RESULTS PAGE (search results list)
+ * Filter bar, listing cards, results count, NEW/MODIFY SEARCH alignment
+ * Paste into: Results page CSS (if IDX has page-specific) or Global
+ */
+
+/* Collapse gap so NEW SEARCH / MODIFY SEARCH align with filter bar */
+.IDX-wrapper-standard-top,
+[class*="wrapper-standard-top"] {
+  margin-top: -1.25rem !important;
+  padding-top: 0.75rem !important;
+}
+
+.IDX-resultsPage > div > div:first-child,
+.IDX-mainContent > div > div:first-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+div:has(> .IDX-wrapper-standard-top),
+div:has(> [class*="wrapper-standard-top"]),
+.IDX-resultsPage > div:first-child,
+.IDX-mainContent > div:first-child {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  gap: 0.75rem !important;
+  width: 100% !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+div:has(> .IDX-wrapper-standard-top) > *:first-child,
+div:has(> [class*="wrapper-standard-top"]) > *:first-child,
+.IDX-resultsPage > div:first-child > *:first-child,
+.IDX-mainContent > div:first-child > *:first-child {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  flex-wrap: wrap !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+div:has(> .IDX-wrapper-standard-top) > *:last-child,
+div:has(> [class*="wrapper-standard-top"]) > *:last-child,
+.IDX-resultsPage > div:first-child > *:last-child,
+.IDX-mainContent > div:first-child > *:last-child {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.IDX-resultsPage .IDX-breadcrumb a[href*="home"]:first-of-type,
+.IDX-resultsPage [class*="breadcrumb"] a[href*="home"]:first-of-type {
+  display: none !important;
+}
+
+.IDX-searchNav,
+.IDX-filterBar,
+.IDX-resultsFilterBar,
+[class*="searchNav"]:not(.IDX-navbar-nav),
+[class*="filterBar"],
+[class*="resultsFilter"],
+[class*="search-filter"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.IDX-searchNav > div,
+.IDX-filterBar > div,
+.IDX-resultsFilterBar > div,
+[class*="filterBar"] > div,
+[class*="searchNav"] > div,
+.IDX-wrapper-standard-top,
+[class*="wrapper-standard"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  box-sizing: border-box !important;
+}
+
+.IDX-searchNavItem,
+.IDX-filterBar .IDX-btn,
+.IDX-resultsFilterBar .IDX-btn,
+[class*="filterBar"] .IDX-btn,
+[class*="searchNav"] .IDX-searchNavItem {
+  margin-left: 0.25rem !important;
+  margin-right: 0.25rem !important;
+}
+
+.IDX-searchNavItem a,
+.IDX-searchNavItem button,
+.IDX-filterBar .IDX-btn,
+.IDX-resultsFilterBar .IDX-btn,
+[class*="filterBar"] .IDX-btn,
+[class*="searchNav"] .IDX-searchNavItem a,
+[class*="searchNav"] .IDX-searchNavItem button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.5rem !important;
+  padding: 0.5rem 1rem !important;
+  min-height: 2.25rem !important;
+  box-sizing: border-box !important;
+}
+
+.IDX-searchNavItem .caret,
+.IDX-filterBar .caret,
+[class*="filterBar"] .caret,
+[class*="searchNav"] .caret {
+  margin-left: 0.25rem !important;
+}
+
+.IDX-wrapper-standard-top,
+[class*="wrapper-standard-top"],
+.IDX-filterBar,
+[class*="filterBar"] {
+  padding: 0.75rem 1rem !important;
+}
+
+.IDX-resultsCount,
+[class*="resultsCount"],
+[class*="listingCount"] {
+  background-color: rgba(56, 224, 195, 0.12) !important;
+  border-color: rgba(56, 224, 195, 0.25) !important;
+  color: #1a2332 !important;
+}
+
+.IDX-resultsPage,
+.IDX-resultsWrapper,
+[class*="resultsPage"],
+[class*="resultsWrapper"] {
+  background-color: #f8fafb !important;
+}
+
+/* Search results – sign up / submit buttons: white text on teal (fix invisible text) */
+.IDX-resultsPage input[type="submit"],
+.IDX-resultsPage button[type="submit"],
+.IDX-resultsPage .IDX-btn-primary,
+.IDX-resultsPage [class*="btn-primary"],
+.IDX-resultsFilterBar input[type="submit"],
+.IDX-resultsFilterBar button[type="submit"],
+.IDX-resultsFilterBar .IDX-btn-primary,
+[class*="resultsPage"] input[type="submit"],
+[class*="resultsPage"] button[type="submit"],
+[class*="resultsFilter"] input[type="submit"],
+[class*="resultsFilter"] button[type="submit"],
+[class*="signup"] input[type="submit"],
+[class*="signup"] button[type="submit"],
+[class*="leadTools"] input[type="submit"],
+[class*="leadTools"] button[type="submit"],
+[class*="saveSearch"] input[type="submit"],
+[class*="saveSearch"] button[type="submit"],
+.IDX-modal input[type="submit"],
+.IDX-modal button[type="submit"],
+[class*="modal"] input[type="submit"],
+[class*="modal"] button[type="submit"],
+#IDX-saveSearch,
+a#IDX-saveSearch,
+a.IDX-btn-primary,
+a.IDX-btn.IDX-btn-primary {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+
+.IDX-listingCard,
+.IDX-resultsList .IDX-listing,
+.IDX-showcaseCell,
+.IDX-propertyCard,
+[class*="listingCard"],
+[class*="resultCard"],
+[class*="showcaseCell"],
+[class*="propertyCard"] {
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+  background-color: #fff !important;
+}
+
+.IDX-listingCard:hover,
+.IDX-showcaseCell:hover,
+[class*="listingCard"]:hover,
+[class*="showcaseCell"]:hover {
+  border-color: rgba(56, 224, 195, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+.IDX-listingPrice,
+.IDX-showcasePrice,
+.IDX-propertyPrice,
+[class*="listingPrice"],
+[class*="showcasePrice"],
+[class*="propertyPrice"] {
+  color: #38e0c3 !important;
+  font-weight: 700 !important;
+}
+/**
+ * IDX Broker – DETAILS PAGE (single listing view)
+ * Detail nav bar, Back to results, Modify/New/Next buttons
+ * Paste into: Details page CSS (if IDX has page-specific) or Global
+ */
+
+/* Override main nav bar to white on details page (Modify Search / New Search / Next Listing) */
+.IDX-detailsPage .IDX-navbar-header,
+.IDX-detailsPage #IDX-navbar-collapse,
+.IDX-detailsPage .IDX-navbar,
+.IDX-detailsPage [class*="navbar-header"],
+.IDX-detailsPage [class*="idx-navbar"] {
+  background-color: #fff !important;
+  color: #1a2332 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Detail nav bar (Modify / New Search / Next Listing) – light to match page */
+.IDX-detailNav,
+.IDX-listingNav,
+.IDX-propertyNav,
+.IDX-detailsNav,
+[class*="detailNav"],
+[class*="listingNav"],
+[class*="propertyNav"],
+[class*="detailsNav"] {
+  background-color: #ffffff !important;
+  color: #1a2332 !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.IDX-detailNav a,
+.IDX-listingNav a,
+[class*="detailNav"] a,
+[class*="listingNav"] a,
+[class*="propertyNav"] a {
+  color: #38e0c3 !important;
+}
+
+.IDX-detailNav a:hover,
+.IDX-listingNav a:hover,
+[class*="detailNav"] a:hover,
+[class*="listingNav"] a:hover,
+[class*="propertyNav"] a:hover {
+  color: #2bc9b0 !important;
+}
+
+/* Hide duplicate "Back to results" – our header already has one */
+.IDX-backToResults,
+[class*="backToResults"],
+[class*="back-to-results"],
+a[href*="results"]:not([href*="search"]),
+.IDX-detailsPage a[href*="/idx/results"],
+.IDX-detailsPage a[href*="listings"]:first-of-type,
+[class*="detailNav"] a[href*="results"],
+[class*="detailNav"] a[href*="listings"] {
+  display: none !important;
+}
+
+.IDX-detailsPage .IDX-btn-primary,
+.IDX-detailsPage .IDX-btn.IDX-btn-primary,
+[class*="detailsPage"] .IDX-btn-primary,
+[class*="detailsPage"] input[type="submit"],
+[class*="detailsPage"] button[type="submit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+
+.IDX-detailsPage a,
+[class*="detailsPage"] a {
+  color: #38e0c3 !important;
+}
+
+.IDX-detailsPage a:hover,
+[class*="detailsPage"] a:hover {
+  color: #2bc9b0 !important;
+}
+/**
+ * IDX Broker – ADVANCED SEARCH PAGE
+ * Paste into: Advanced Search page CSS (if IDX has page-specific) or Global
+ */
+
+.IDX-advancedSearch,
+.IDX-searchForm,
+[class*="advancedSearch"],
+[class*="advSearch"],
+[class*="searchForm"] {
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 1.5rem !important;
+  background-color: #fff !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Search form layout – wrap instead of horizontal scroll */
+.IDX-advancedSearch,
+.IDX-searchForm,
+[class*="advancedSearch"],
+[class*="advSearch"],
+[class*="searchForm"] {
+  overflow-x: hidden !important;
+}
+
+.IDX-advancedSearch .IDX-form-group,
+.IDX-advancedSearch form > div,
+.IDX-searchForm .IDX-form-group,
+[class*="advancedSearch"] [class*="form-group"],
+[class*="advSearch"] [class*="form-group"],
+[class*="searchForm"] [class*="form-group"] {
+  display: inline-block !important;
+  vertical-align: top !important;
+  margin-right: 1rem !important;
+  margin-bottom: 1rem !important;
+  min-width: 160px !important;
+}
+
+/* Search nav / filter bar – prevent horizontal scroll, allow wrap */
+.IDX-resultsPage > div:first-child,
+.IDX-mainContent > div:first-child,
+.IDX-searchNav,
+.IDX-filterBar,
+.IDX-wrapper-standard-top,
+[class*="searchNav"]:not(.IDX-navbar-nav),
+[class*="filterBar"],
+[class*="wrapper-standard-top"] {
+  overflow-x: hidden !important;
+}
+
+.IDX-advancedSearch label,
+.IDX-searchForm label,
+[class*="advancedSearch"] label,
+[class*="advSearch"] label {
+  display: block !important;
+  font-size: 0.8125rem !important;
+  font-weight: 600 !important;
+  color: #1a2332 !important;
+  margin-bottom: 0.375rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+}
+
+.IDX-advancedSearch input,
+.IDX-advancedSearch select,
+.IDX-searchForm input,
+.IDX-searchForm select,
+[class*="advancedSearch"] input,
+[class*="advancedSearch"] select,
+[class*="advSearch"] input,
+[class*="advSearch"] select {
+  width: 100% !important;
+  min-width: 140px !important;
+  max-width: 280px !important;
+  padding: 0.5rem 0.75rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0.5rem !important;
+  background-color: #fff !important;
+  color: #1a2332 !important;
+}
+
+.IDX-advancedSearch input:focus,
+.IDX-advancedSearch select:focus,
+.IDX-searchForm input:focus,
+.IDX-searchForm select:focus {
+  border-color: #38e0c3 !important;
+  box-shadow: 0 0 0 3px rgba(56, 224, 195, 0.15) !important;
+}
+
+.IDX-advancedSearch input[type="submit"],
+.IDX-advancedSearch button[type="submit"],
+.IDX-searchForm input[type="submit"],
+.IDX-searchForm button[type="submit"],
+[class*="advancedSearch"] input[type="submit"],
+[class*="advancedSearch"] button[type="submit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+  padding: 0.625rem 1.25rem !important;
+  border-radius: 0.5rem !important;
+  font-weight: 600 !important;
+  min-width: 120px !important;
+  max-width: none !important;
+}
+
+.IDX-advancedSearch input[type="submit"]:hover,
+.IDX-advancedSearch button[type="submit"]:hover,
+.IDX-searchForm input[type="submit"]:hover,
+.IDX-searchForm button[type="submit"]:hover {
+  background-color: #2bc9b0 !important;
+  border-color: #2bc9b0 !important;
+}
+/**
+ * IDX Broker – SEARCH TYPES (Address, AI Smart Search, Listing ID, Basic Search, Email Update Signup)
+ * Paste into: Address, AI Smart Search, Listing ID, Basic Search, Email Update Signup page CSS
+ */
+
+.IDX-addressSearch,
+.IDX-listingIdSearch,
+.IDX-basicSearch,
+.IDX-aiSearch,
+.IDX-emailSignup,
+[class*="addressSearch"],
+[class*="listingIdSearch"],
+[class*="basicSearch"],
+[class*="aiSearch"],
+[class*="emailSignup"],
+[class*="address-search"],
+[class*="listing-id"],
+[class*="basic-search"] {
+  max-width: 900px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 1.5rem !important;
+  background-color: #fff !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+.IDX-addressSearch input,
+.IDX-listingIdSearch input,
+.IDX-basicSearch input,
+.IDX-basicSearch select,
+[class*="addressSearch"] input,
+[class*="basicSearch"] input,
+[class*="basicSearch"] select {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0.5rem !important;
+}
+
+.IDX-addressSearch input:focus,
+.IDX-listingIdSearch input:focus,
+.IDX-basicSearch input:focus,
+.IDX-basicSearch select:focus {
+  border-color: #38e0c3 !important;
+  box-shadow: 0 0 0 3px rgba(56, 224, 195, 0.15) !important;
+}
+
+.IDX-addressSearch input[type="submit"],
+.IDX-listingIdSearch input[type="submit"],
+.IDX-basicSearch input[type="submit"],
+.IDX-emailSignup input[type="submit"],
+[class*="addressSearch"] input[type="submit"],
+[class*="basicSearch"] input[type="submit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+/**
+ * IDX Broker – CONTACT PAGES
+ * Contact, Home Valuation, More Info, Schedule Showing
+ * Paste into: Contact page CSS
+ */
+
+.IDX-contactForm,
+.IDX-homeValuation,
+.IDX-scheduleShowing,
+.IDX-moreInfo,
+[class*="contactForm"],
+[class*="homeValuation"],
+[class*="scheduleShowing"],
+[class*="moreInfo"],
+[class*="contact-form"],
+[class*="valuation"] {
+  max-width: 720px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 1.5rem !important;
+  background-color: #fff !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+.IDX-contactForm input,
+.IDX-contactForm select,
+.IDX-contactForm textarea,
+.IDX-homeValuation input,
+.IDX-scheduleShowing input,
+[class*="contactForm"] input,
+[class*="contactForm"] select,
+[class*="contactForm"] textarea,
+[class*="homeValuation"] input,
+[class*="scheduleShowing"] input {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0.5rem !important;
+}
+
+.IDX-contactForm input:focus,
+.IDX-contactForm select:focus,
+.IDX-contactForm textarea:focus,
+.IDX-homeValuation input:focus,
+.IDX-scheduleShowing input:focus {
+  border-color: #38e0c3 !important;
+  box-shadow: 0 0 0 3px rgba(56, 224, 195, 0.15) !important;
+}
+
+.IDX-contactForm input[type="submit"],
+.IDX-homeValuation input[type="submit"],
+.IDX-scheduleShowing input[type="submit"],
+[class*="contactForm"] input[type="submit"],
+[class*="homeValuation"] input[type="submit"],
+[class*="scheduleShowing"] input[type="submit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+/**
+ * IDX Broker – USER PAGES
+ * My Account, User Login, User Signup
+ * Paste into: My Account, User Login, User Signup page CSS
+ */
+
+.IDX-userLogin,
+.IDX-userSignup,
+.IDX-myAccount,
+[class*="userLogin"],
+[class*="userSignup"],
+[class*="myAccount"],
+[class*="user-login"],
+[class*="user-signup"] {
+  max-width: 480px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 1.5rem !important;
+  background-color: #fff !important;
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+.IDX-userLogin input,
+.IDX-userSignup input,
+[class*="userLogin"] input,
+[class*="userSignup"] input {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0.5rem !important;
+}
+
+.IDX-userLogin input:focus,
+.IDX-userSignup input:focus {
+  border-color: #38e0c3 !important;
+  box-shadow: 0 0 0 3px rgba(56, 224, 195, 0.15) !important;
+}
+
+.IDX-userLogin input[type="submit"],
+.IDX-userSignup input[type="submit"],
+[class*="userLogin"] input[type="submit"],
+[class*="userSignup"] input[type="submit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+/**
+ * IDX Broker – MAP & MAP SEARCH
+ * Paste into: Map, Map Search page CSS
+ */
+
+.IDX-mapSearch,
+.IDX-mapWrapper,
+[class*="mapSearch"],
+[class*="mapWrapper"],
+[class*="map-search"],
+[class*="map-wrapper"] {
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  background-color: #fff !important;
+}
+
+/* Map zoom + / - – exclude from teal link color; don't override Leaflet's default styling */
+
+/* Map property cards / popups – teal prices, badges, hover (no navy) */
+.IDX-mapSearch .IDX-listingPrice,
+.IDX-mapSearch .IDX-showcasePrice,
+.IDX-mapSearch .IDX-propertyPrice,
+.IDX-mapWrapper .IDX-listingPrice,
+.IDX-mapWrapper .IDX-showcasePrice,
+.IDX-mapWrapper .IDX-propertyPrice,
+[class*="mapSearch"] [class*="listingPrice"],
+[class*="mapSearch"] [class*="showcasePrice"],
+[class*="mapSearch"] [class*="propertyPrice"],
+[class*="mapWrapper"] [class*="listingPrice"],
+[class*="mapWrapper"] [class*="showcasePrice"],
+[class*="mapWrapper"] [class*="propertyPrice"],
+.leaflet-popup-content [class*="price"],
+.leaflet-popup-content [class*="Price"] {
+  color: #38e0c3 !important;
+}
+
+.IDX-mapSearch .IDX-listingCard:hover,
+.IDX-mapSearch .IDX-showcaseCell:hover,
+.IDX-mapWrapper .IDX-listingCard:hover,
+.IDX-mapWrapper .IDX-showcaseCell:hover,
+[class*="mapSearch"] [class*="listingCard"]:hover,
+[class*="mapSearch"] [class*="showcaseCell"]:hover,
+[class*="mapWrapper"] [class*="listingCard"]:hover,
+[class*="mapWrapper"] [class*="showcaseCell"]:hover,
+.leaflet-popup-content .IDX-listingCard:hover,
+.leaflet-popup-content [class*="listingCard"]:hover {
+  border-color: rgba(56, 224, 195, 0.3) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Map: price reduction / status badges – teal instead of navy */
+.IDX-mapSearch [class*="reduction"],
+.IDX-mapSearch [class*="badge"],
+.IDX-mapSearch [class*="status"],
+.IDX-mapWrapper [class*="reduction"],
+.IDX-mapWrapper [class*="badge"],
+.IDX-mapWrapper [class*="status"],
+[class*="mapSearch"] [class*="reduction"],
+[class*="mapSearch"] [class*="badge"],
+[class*="mapSearch"] [class*="status"],
+[class*="mapWrapper"] [class*="reduction"],
+[class*="mapWrapper"] [class*="badge"],
+[class*="mapWrapper"] [class*="status"],
+.leaflet-popup-content [class*="reduction"],
+.leaflet-popup-content [class*="badge"],
+.leaflet-popup-content [class*="status"] {
+  background-color: #38e0c3 !important;
+  color: #fff !important;
+  border-color: #38e0c3 !important;
+}
+
+/* Map: links and hover – teal */
+.IDX-mapSearch .IDX-listingCard a,
+.IDX-mapSearch .IDX-showcaseCell a,
+.IDX-mapWrapper .IDX-listingCard a,
+.IDX-mapWrapper .IDX-showcaseCell a,
+[class*="mapSearch"] [class*="listingCard"] a,
+[class*="mapSearch"] [class*="showcaseCell"] a,
+[class*="mapWrapper"] [class*="listingCard"] a,
+[class*="mapWrapper"] [class*="showcaseCell"] a,
+.leaflet-popup-content a {
+  color: #38e0c3 !important;
+}
+
+.IDX-mapSearch .IDX-listingCard a:hover,
+.IDX-mapSearch .IDX-showcaseCell a:hover,
+.IDX-mapWrapper .IDX-listingCard a:hover,
+.IDX-mapWrapper .IDX-showcaseCell a:hover,
+[class*="mapSearch"] [class*="listingCard"] a:hover,
+[class*="mapSearch"] [class*="showcaseCell"] a:hover,
+[class*="mapWrapper"] [class*="listingCard"] a:hover,
+[class*="mapWrapper"] [class*="showcaseCell"] a:hover,
+.leaflet-popup-content a:hover {
+  color: #2bc9b0 !important;
+}
+
+/* Map in results (split view) – same teal overrides */
+.IDX-resultsPage .leaflet-popup-content [class*="price"],
+.IDX-resultsPage .leaflet-popup-content [class*="Price"],
+.IDX-mainContent .leaflet-popup-content [class*="price"],
+.IDX-mainContent .leaflet-popup-content [class*="Price"] {
+  color: #38e0c3 !important;
+}
+
+.IDX-resultsPage .leaflet-popup-content [class*="reduction"],
+.IDX-resultsPage .leaflet-popup-content [class*="badge"],
+.IDX-mainContent .leaflet-popup-content [class*="reduction"],
+.IDX-mainContent .leaflet-popup-content [class*="badge"] {
+  background-color: #38e0c3 !important;
+  color: #fff !important;
+  border-color: #38e0c3 !important;
+}
+
+.IDX-mapSearch .IDX-btn-primary,
+.IDX-mapSearch input[type="submit"],
+[class*="mapSearch"] .IDX-btn-primary {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+/**
+ * IDX Broker – ROSTER & REPORTS
+ * Paste into: Roster, Reports page CSS
+ */
+
+.IDX-roster,
+.IDX-reports,
+[class*="roster"],
+[class*="reports"] {
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 1.5rem !important;
+}
+
+.IDX-roster a,
+.IDX-reports a,
+[class*="roster"] a,
+[class*="reports"] a {
+  color: #38e0c3 !important;
+}
+
+.IDX-roster a:hover,
+.IDX-reports a:hover {
+  color: #2bc9b0 !important;
+}
+
+.IDX-roster .IDX-btn-primary,
+.IDX-reports .IDX-btn-primary,
+[class*="roster"] input[type="submit"],
+[class*="reports"] input[type="submit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+/**
+ * IDX Broker – MARKET REPORTS
+ * Market Reports Landing, Market Report - Dynamic
+ * Paste into: Market Reports page CSS
+ */
+
+.IDX-marketReports,
+.IDX-marketReportLanding,
+.IDX-marketReportDynamic,
+[class*="marketReports"],
+[class*="marketReport"],
+[class*="market-reports"] {
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 1.5rem !important;
+}
+
+.IDX-marketReports a,
+.IDX-marketReportLanding a,
+[class*="marketReports"] a,
+[class*="marketReport"] a {
+  color: #38e0c3 !important;
+}
+
+.IDX-marketReports a:hover,
+[class*="marketReports"] a:hover {
+  color: #2bc9b0 !important;
+}
+
+.IDX-marketReports input[type="submit"],
+.IDX-marketReportLanding input[type="submit"],
+[class*="marketReports"] input[type="submit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+/**
+ * IDX Broker – OTHER PAGES
+ * Facebook, Homes For Sale, Browse by City, Sitemap, XML Sitemap
+ * Agent Bio & Listings, Link Showcase, Mortgage Calculator, Photo Gallery
+ * Featured Open Houses, Featured Virtual Tours
+ * Paste into: Global or each page's CSS if IDX offers page-specific
+ */
+
+.IDX-sitemap,
+.IDX-browseByCity,
+.IDX-homesForSale,
+.IDX-agentBio,
+.IDX-linkShowcase,
+.IDX-mortgageCalculator,
+.IDX-photoGallery,
+.IDX-featuredOpenHouses,
+.IDX-featuredVirtualTours,
+[class*="sitemap"],
+[class*="browseByCity"],
+[class*="homesForSale"],
+[class*="agentBio"],
+[class*="linkShowcase"],
+[class*="mortgageCalculator"],
+[class*="photoGallery"],
+[class*="featuredOpenHouses"],
+[class*="featuredVirtualTours"] {
+  max-width: 1280px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding: 1.5rem !important;
+}
+
+.IDX-sitemap a,
+.IDX-browseByCity a,
+.IDX-agentBio a,
+.IDX-linkShowcase a,
+[class*="sitemap"] a,
+[class*="browseByCity"] a,
+[class*="agentBio"] a,
+[class*="linkShowcase"] a {
+  color: #38e0c3 !important;
+}
+
+.IDX-sitemap a:hover,
+.IDX-browseByCity a:hover,
+[class*="sitemap"] a:hover,
+[class*="browseByCity"] a:hover {
+  color: #2bc9b0 !important;
+}
+
+.IDX-mortgageCalculator input,
+.IDX-mortgageCalculator select,
+[class*="mortgageCalculator"] input,
+[class*="mortgageCalculator"] select {
+  border-color: rgba(0, 0, 0, 0.12) !important;
+  border-radius: 0.5rem !important;
+}
+
+.IDX-mortgageCalculator input:focus,
+[class*="mortgageCalculator"] input:focus {
+  border-color: #38e0c3 !important;
+  box-shadow: 0 0 0 3px rgba(56, 224, 195, 0.15) !important;
+}
+/**
+ * IDX Broker – MAP, TYPOGRAPHY, BADGES
+ * Paste into: Global | Desktop
+ */
+
+/* Map wrapper */
+.IDX-mapWrapper,
+[class*="mapWrapper"],
+[class*="map-wrapper"] {
+  border-radius: 0.5rem !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Typography */
+.IDX-wrapper h1,
+.IDX-wrapper h2,
+.IDX-wrapper h3,
+[class*="IDX-"] h1,
+[class*="IDX-"] h2,
+[class*="IDX-"] h3 {
+  color: #1a2332 !important;
+  font-weight: 600 !important;
+}
+
+.IDX-wrapper p,
+[class*="IDX-"] p {
+  color: #5a6a7d !important;
+}
+
+/* Badges / status */
+.IDX-statusBadge,
+.IDX-soldBadge,
+[class*="statusBadge"],
+[class*="soldBadge"] {
+  background-color: rgba(56, 224, 195, 0.12) !important;
+  color: #2bc9b0 !important;
+  border-radius: 0.375rem !important;
+}

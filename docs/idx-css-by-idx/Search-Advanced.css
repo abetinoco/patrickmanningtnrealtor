@@ -1,0 +1,77 @@
+/* PASTE INTO: Advanced Search (only) */
+
+/* ADVANCED SEARCH bar – direct target (override #1a2332 background) */
+.IDX-searchNavItem.IDX-nav-advanced,.IDX-searchNavItem.IDX-nav-advanced.IDX-active,.IDX-searchNavItem.IDX-nav-advanced .IDX-searchNavLink,.IDX-searchNavItem.IDX-nav-advanced a,.IDX-searchNavItem.IDX-nav-advanced .IDX-navLinkTitle{background-color:#fff!important;color:#38e0c3!important;border:none!important;box-shadow:none!important;outline:none!important}
+
+/* ADVANCED SEARCH bar – white bg, teal text to blend with page */
+.IDX-wrapper-standard-top .IDX-searchNavItem,
+.IDX-wrapper-standard-top .IDX-searchNavItem a,
+.IDX-wrapper-standard-top [class*="searchNavItem"],
+.IDX-wrapper-standard-top [class*="searchType"],
+.IDX-filterBar .IDX-searchNavItem,
+.IDX-filterBar .IDX-searchNavItem a,
+.IDX-filterBar [class*="searchNavItem"],
+[class*="wrapper-standard-top"] .IDX-searchNavItem,
+[class*="wrapper-standard-top"] .IDX-searchNavItem a,
+[class*="wrapper-standard-top"] [class*="searchNavItem"],
+[class*="wrapper-standard-top"] [class*="searchType"],
+[class*="filterBar"] .IDX-searchNavItem,
+[class*="filterBar"] [class*="searchNavItem"],
+.IDX-navLinkTitle,
+[class*="navLinkTitle"],
+a:has(.IDX-navLinkTitle),
+a:has([class*="navLinkTitle"]) {
+  background-color: #fff !important;
+  color: #38e0c3 !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+.IDX-wrapper-standard-top .IDX-active .IDX-searchNavItem,
+.IDX-wrapper-standard-top .IDX-active a,
+.IDX-wrapper-standard-top .IDX-searchNavItem.IDX-active,
+.IDX-wrapper-standard-top [class*="searchNavItem"].IDX-active,
+.IDX-filterBar .IDX-active .IDX-searchNavItem,
+.IDX-filterBar .IDX-searchNavItem.IDX-active,
+[class*="wrapper-standard-top"] .IDX-active [class*="searchNavItem"],
+[class*="wrapper-standard-top"] [class*="searchNavItem"].IDX-active,
+[class*="filterBar"] .IDX-active [class*="searchNavItem"],
+[class*="filterBar"] [class*="searchNavItem"].IDX-active,
+.IDX-active .IDX-navLinkTitle,
+.IDX-active [class*="navLinkTitle"],
+a.IDX-active:has(.IDX-navLinkTitle),
+a.IDX-active:has([class*="navLinkTitle"]) {
+  background-color: #fff !important;
+  color: #38e0c3 !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+[class*="advancedSearch"] [class*="card-header"],
+[class*="advancedSearch"] [class*="panel-heading"],
+[class*="advancedSearch"] [class*="collapse"],
+[class*="searchForm"] [class*="card-header"],
+[class*="searchForm"] [class*="panel-heading"] {
+  background-color: #fff !important;
+  color: #38e0c3 !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  border-radius: .5rem .5rem 0 0 !important;
+}
+/* Remove black borders from parent containers */
+.IDX-wrapper-standard-top,.IDX-filterBar,.IDX-searchNav:not(.IDX-navbar-nav),[class*="wrapper-standard-top"],[class*="filterBar"],[class*="searchNav"]:not(.IDX-navbar-nav),[class*="advancedSearch"] .card,[class*="advancedSearch"] .panel,[class*="searchForm"] .card,[class*="searchForm"] .panel{border:none!important;border-top:none!important;border-bottom:none!important;box-shadow:none!important}
+/* Bootstrap nav-tabs – strip black borders */
+.IDX-wrapper-standard-top .nav,.IDX-wrapper-standard-top .nav-tabs,.IDX-wrapper-standard-top .tab-content,.IDX-filterBar .nav,.IDX-filterBar .nav-tabs,.IDX-filterBar .tab-content,[class*="wrapper-standard-top"] .nav,[class*="wrapper-standard-top"] .nav-tabs,[class*="filterBar"] .nav,[class*="filterBar"] .nav-tabs,[class*="filterBar"] .tab-content{border:none!important;border-top:none!important;border-bottom:none!important;box-shadow:none!important}
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-advancedSearch,.IDX-searchForm,[class*="advancedSearch"],[class*="advSearch"],[class*="searchForm"]{max-width:900px!important;margin-left:auto!important;margin-right:auto!important;padding:1.5rem!important;background-color:#fff!important;border-radius:.5rem!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 2px 8px rgba(0,0,0,.06)!important;overflow-x:hidden!important}
+[class*="advancedSearch"] [class*="card-header"],[class*="advancedSearch"] [class*="panel-heading"],[class*="searchForm"] [class*="card-header"]{border:none!important}
+.IDX-advancedSearch .IDX-form-group,.IDX-advancedSearch form>div,.IDX-searchForm .IDX-form-group,[class*="advancedSearch"] [class*="form-group"],[class*="advSearch"] [class*="form-group"]{display:inline-block!important;vertical-align:top!important;margin-right:1rem!important;margin-bottom:1rem!important;min-width:160px!important}
+.IDX-advancedSearch input,.IDX-advancedSearch select,.IDX-searchForm input,.IDX-searchForm select,[class*="advancedSearch"] input,[class*="advancedSearch"] select{width:100%!important;min-width:140px!important;max-width:280px!important;padding:.5rem .75rem!important;border:1px solid rgba(0,0,0,.12)!important;border-radius:.5rem!important;background-color:#fff!important;color:#1a2332!important}
+.IDX-advancedSearch input:focus,.IDX-advancedSearch select:focus,.IDX-searchForm input:focus,.IDX-searchForm select:focus{border-color:#38e0c3!important;box-shadow:0 0 0 3px rgba(56,224,195,.15)!important}
+.IDX-advancedSearch input[type="submit"],.IDX-advancedSearch button[type="submit"],.IDX-searchForm input[type="submit"],.IDX-searchForm button[type="submit"]{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important;padding:.625rem 1.25rem!important;border-radius:.5rem!important;font-weight:600!important;min-width:120px!important}
+.IDX-advancedSearch input[type="submit"]:hover,.IDX-searchForm input[type="submit"]:hover{background-color:#2bc9b0!important;border-color:#2bc9b0!important}

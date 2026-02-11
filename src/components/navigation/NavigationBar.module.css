@@ -106,13 +106,14 @@
 
 .utilityButton {
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-medium);
   padding: 0.5rem 1.25rem;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   font-size: 0.75rem;
   color: var(--text-primary);
+  background: var(--surface-tertiary);
   transition: all var(--transition-fast);
 }
 
@@ -142,7 +143,7 @@
 .menuToggle:hover,
 .menuToggle:focus-visible {
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(31, 163, 149, 0.25);
+  box-shadow: 0 8px 24px rgba(56, 224, 195, 0.25);
 }
 
 .menuBars {

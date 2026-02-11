@@ -1,6 +1,5 @@
 import { agentProfile } from '../../data/agent'
-import { IDXWidget } from '../idx/IDXWidget'
-import { IDX_CONFIG } from '../../data/idxConfig'
+import { PropertySearchForm } from '../search/PropertySearchForm'
 import styles from './HeroBanner.module.css'
 
 export const HeroBanner = () => {
@@ -32,7 +31,7 @@ export const HeroBanner = () => {
 
       {/* Mobile-only search bar - absolutely positioned */}
       <div className={styles.mobileSearchBar}>
-        <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} minHeight="60px" />
+        <PropertySearchForm variant="compact" />
       </div>
 
       <div className={styles.content}>
@@ -45,7 +44,7 @@ export const HeroBanner = () => {
 
           {/* Desktop-only search bar - in content flow */}
           <div className={styles.desktopSearchBar}>
-            <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} minHeight="60px" />
+            <PropertySearchForm variant="hero" />
           </div>
 
           <div className={styles.actions}>
@@ -97,7 +96,7 @@ export const HeroBanner = () => {
           className={styles.mobileTitle}
           style={{ color: '#ffffff', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
         >
-          Find Your <span style={{ color: '#4FE0D0' }}>Perfect</span> Home
+          Find Your <span style={{ color: 'var(--accent-primary)' }}>Perfect</span> Home
         </h1>
         <p
           className={styles.mobileSubtitle}
@@ -110,7 +109,7 @@ export const HeroBanner = () => {
             className={styles.mobilePrimaryCta}
             href={hero.primaryCta.href}
             style={{
-              backgroundColor: '#4FE0D0',
+              backgroundColor: 'var(--accent-primary)',
               color: '#ffffff',
               fontWeight: 700
             }}
@@ -136,7 +135,7 @@ export const HeroBanner = () => {
               <div key={metric.label} className={styles.mobileStatItem}>
                 <span
                   className={styles.mobileStatValue}
-                  style={{ color: '#4FE0D0' }}
+                  style={{ color: 'var(--accent-primary)' }}
                 >
                   {metric.value}
                 </span>
@@ -152,7 +151,7 @@ export const HeroBanner = () => {
               <div key={`dup-${metric.label}`} className={styles.mobileStatItem} aria-hidden="true">
                 <span
                   className={styles.mobileStatValue}
-                  style={{ color: '#4FE0D0' }}
+                  style={{ color: 'var(--accent-primary)' }}
                 >
                   {metric.value}
                 </span>

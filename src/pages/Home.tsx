@@ -4,7 +4,7 @@ import { buildAgentSchema } from '../utils/schema'
 import { HeroBanner } from '../components/hero/HeroBanner'
 import { QuickLinksGrid } from '../components/quick-links/QuickLinksGrid'
 import { ServiceTierSection } from '../components/services/ServiceTierSection'
-import { IDXFeaturedShowcase, IDXSoldListings } from '../components/idx'
+import { IDXFeaturedShowcase } from '../components/idx'
 import { GoogleReviews } from '../components/testimonials/GoogleReviews'
 import { AdvisoryProcess } from '../components/process/AdvisoryProcess'
 import { SocialFeed } from '../components/social/SocialFeed'
@@ -32,11 +32,6 @@ const Home = () => (
     />
     <AdvisoryProcess />
     <ServiceTierSection />
-    <IDXSoldListings 
-      title="Recently Sold"
-      subtitle="Track Record"
-      description="Explore Patrick's recent sales across Middle Tennessee's most sought-after communities."
-    />
     <GoogleReviews />
     <SocialFeed />
     <section className={styles.homeCtaSection} aria-labelledby="home-cta-heading">

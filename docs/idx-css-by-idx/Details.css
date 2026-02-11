@@ -1,0 +1,26 @@
+/* PASTE INTO: Details */
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,#IDX-leadToolsBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar.bg-dark,#IDX-main .navbar.bg-primary,#IDX-main .navbar-inverse,#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,#IDX-memberBar a,[class*="accountBar"] a,[class*="memberBar"] a{color:#38e0c3!important}
+
+/* Modify Search / Next Listing bar – white. Override GLOBAL’s .IDX-navbar #1a2332 */
+.IDX-detailsPage .IDX-navbar-header,.IDX-detailsPage #IDX-navbar-collapse,.IDX-detailsPage .IDX-navbar,.IDX-detailsPage [class*="navbar-header"],.IDX-detailsPage [class*="idx-navbar"],
+.IDX-navbar-header,#IDX-navbar-collapse,.IDX-navbar,[class*="idx-navbar"],
+.IDX-detailNav,.IDX-listingNav,.IDX-propertyNav,.IDX-detailsNav,.IDX-detailsPage .IDX-navbar-default,.IDX-detailsPage .IDX-navigation,[class*="detailNav"],[class*="listingNav"],[class*="propertyNav"],[class*="detailsNav"],
+.navbar.navbar-inverse,.navbar.navbar-dark,.navbar.bg-dark,.navbar-inverse,.navbar-dark,
+#IDX-detailsLinks,#IDX-detailsLinks-list,[id*="detailsLinks"],
+body .navbar+.navbar,body .navbar:nth-of-type(2),#IDX-main .navbar+.navbar,#IDX-main .navbar:nth-of-type(2),
+nav.navbar-inverse,nav.navbar-dark,nav.bg-dark
+{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+.IDX-detailNav a,.IDX-listingNav a,[class*="detailNav"] a,[class*="listingNav"] a,[class*="propertyNav"] a,
+.navbar-inverse a,.navbar-dark a,.navbar.bg-dark a,#IDX-detailsLinks a,#IDX-detailsLinks-list a,[id*="detailsLinks"] a,
+body .navbar+.navbar a,#IDX-main .navbar+.navbar a
+{color:#38e0c3!important}
+.IDX-detailNav a:hover,.IDX-listingNav a:hover,[class*="detailNav"] a:hover,[class*="listingNav"] a:hover{color:#2bc9b0!important}
+.IDX-backToResults,[class*="backToResults"],[class*="back-to-results"],.IDX-detailsPage a[href*="/idx/results"],.IDX-detailsPage a[href*="listings"]:first-of-type,[class*="detailNav"] a[href*="results"],[class*="detailNav"] a[href*="listings"]{display:none!important}
+.IDX-detailsPage .IDX-btn-primary,.IDX-detailsPage .IDX-btn.IDX-btn-primary,[class*="detailsPage"] .IDX-btn-primary,[class*="detailsPage"] input[type="submit"],[class*="detailsPage"] button[type="submit"]{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important}
+.IDX-detailsPage a,[class*="detailsPage"] a{color:#38e0c3!important}
+.IDX-detailsPage a:hover,[class*="detailsPage"] a:hover{color:#2bc9b0!important}
+.IDX-mortgageCalculator input,.IDX-mortgageCalculator select,[class*="mortgageCalculator"] input,[class*="mortgageCalculator"] select{border-color:rgba(0,0,0,.12)!important;border-radius:.5rem!important}
+.IDX-mortgageCalculator input:focus,[class*="mortgageCalculator"] input:focus{border-color:#38e0c3!important;box-shadow:0 0 0 3px rgba(56,224,195,.15)!important}

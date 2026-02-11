@@ -1,0 +1,10 @@
+/* PASTE INTO: Market Reports Landing | Market Report - Dynamic */
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-marketReports,.IDX-marketReportLanding,.IDX-marketReportDynamic,[class*="marketReports"],[class*="marketReport"],[class*="market-reports"]{max-width:1280px!important;margin-left:auto!important;margin-right:auto!important;padding:1.5rem!important}
+.IDX-marketReports a,.IDX-marketReportLanding a,[class*="marketReports"] a,[class*="marketReport"] a{color:#38e0c3!important}
+.IDX-marketReports a:hover,[class*="marketReports"] a:hover{color:#2bc9b0!important}
+.IDX-marketReports input[type="submit"],.IDX-marketReportLanding input[type="submit"],[class*="marketReports"] input[type="submit"]{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important}

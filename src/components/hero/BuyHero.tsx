@@ -1,5 +1,4 @@
-import { IDXWidget } from '../idx/IDXWidget'
-import { IDX_CONFIG } from '../../data/idxConfig'
+import { PropertySearchForm } from '../search/PropertySearchForm'
 import styles from './BuyHero.module.css'
 
 interface BuyHeroProps {
@@ -27,7 +26,7 @@ export const BuyHero = ({
                     {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
 
                     <div className={styles.searchBar}>
-                        <IDXWidget widgetId={IDX_CONFIG.widgets.basicSearch.id} minHeight="60px" />
+                        <PropertySearchForm variant="page" />
                     </div>
 
                     {stats && stats.length > 0 && (

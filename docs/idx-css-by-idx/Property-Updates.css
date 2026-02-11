@@ -1,0 +1,12 @@
+/* PASTE INTO: Property Updates */
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-emailSignup,.IDX-propertyUpdates,[class*="emailSignup"],[class*="propertyUpdates"],[class*="email-signup"],[class*="savedSearch"]{max-width:720px!important;margin-left:auto!important;margin-right:auto!important;padding:1.5rem!important;background-color:#fff!important;border-radius:.5rem!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 2px 8px rgba(0,0,0,.06)!important}
+.IDX-emailSignup input,.IDX-emailSignup select,.IDX-propertyUpdates input,[class*="emailSignup"] input,[class*="propertyUpdates"] input{border-color:rgba(0,0,0,.12)!important;border-radius:.5rem!important}
+.IDX-emailSignup input:focus,.IDX-propertyUpdates input:focus,[class*="emailSignup"] input:focus{border-color:#38e0c3!important;box-shadow:0 0 0 3px rgba(56,224,195,.15)!important}
+.IDX-emailSignup input[type="submit"],.IDX-propertyUpdates input[type="submit"],[class*="emailSignup"] input[type="submit"]{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important}
+.IDX-emailSignup a,.IDX-propertyUpdates a,[class*="emailSignup"] a,[class*="propertyUpdates"] a{color:#38e0c3!important}
+.IDX-emailSignup a:hover,.IDX-propertyUpdates a:hover{color:#2bc9b0!important}

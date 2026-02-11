@@ -1,0 +1,10 @@
+/* PASTE INTO: Search */
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-addressSearch,.IDX-listingIdSearch,.IDX-basicSearch,.IDX-aiSearch,.IDX-emailSignup,[class*="addressSearch"],[class*="listingIdSearch"],[class*="basicSearch"],[class*="aiSearch"],[class*="emailSignup"],[class*="address-search"],[class*="listing-id"],[class*="basic-search"]{max-width:900px!important;margin-left:auto!important;margin-right:auto!important;padding:1.5rem!important;background-color:#fff!important;border-radius:.5rem!important;border:1px solid rgba(0,0,0,.08)!important;box-shadow:0 2px 8px rgba(0,0,0,.06)!important;overflow-x:hidden!important}
+.IDX-addressSearch input,.IDX-listingIdSearch input,.IDX-basicSearch input,.IDX-basicSearch select,[class*="addressSearch"] input,[class*="basicSearch"] input,[class*="basicSearch"] select{border-color:rgba(0,0,0,.12)!important;border-radius:.5rem!important}
+.IDX-addressSearch input:focus,.IDX-listingIdSearch input:focus,.IDX-basicSearch input:focus,.IDX-basicSearch select:focus{border-color:#38e0c3!important;box-shadow:0 0 0 3px rgba(56,224,195,.15)!important}
+.IDX-addressSearch input[type="submit"],.IDX-listingIdSearch input[type="submit"],.IDX-basicSearch input[type="submit"],.IDX-emailSignup input[type="submit"],[class*="addressSearch"] input[type="submit"],[class*="basicSearch"] input[type="submit"]{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important}

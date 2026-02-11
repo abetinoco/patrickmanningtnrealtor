@@ -56,7 +56,7 @@
   background: linear-gradient(90deg,
       transparent 0%,
       rgba(79, 224, 208, 0.4) 10%,
-      rgba(31, 163, 149, 0.6) 50%,
+      rgba(56, 224, 195, 0.6) 50%,
       rgba(79, 224, 208, 0.4) 90%,
       transparent 100%);
   border-radius: 2px;
@@ -89,7 +89,7 @@
   box-shadow:
     0 0 0 5px var(--color-section-background),
     0 0 0 7px rgba(79, 224, 208, 0.25),
-    0 4px 16px rgba(31, 163, 149, 0.4);
+    0 4px 16px rgba(56, 224, 195, 0.4);
   transition: transform var(--transition-normal), box-shadow var(--transition-normal);
   margin-bottom: 1.5rem;
 }
@@ -99,7 +99,7 @@
   box-shadow:
     0 0 0 5px var(--color-section-background),
     0 0 0 9px rgba(79, 224, 208, 0.35),
-    0 8px 24px rgba(31, 163, 149, 0.5);
+    0 8px 24px rgba(56, 224, 195, 0.5);
 }
 
 .stepNumber {
@@ -126,7 +126,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(31, 163, 149, 0.05), transparent 50%);
+  background: linear-gradient(135deg, rgba(56, 224, 195, 0.05), transparent 50%);
   pointer-events: none;
 }
 

@@ -67,10 +67,10 @@
 
 /* Desktop search bar - in content flow */
 .desktopSearchBar {
-  margin-top: 0.5rem;
-  margin-left: -12px;
+  margin-top: 1rem;
+  margin-left: 0;
   width: 100%;
-  max-width: 560px;
+  max-width: 720px;
 }
 
 /* Mobile search bar - hidden on desktop */
@@ -122,16 +122,17 @@
   display: flex;
   gap: 2.5rem;
   width: max-content;
-  animation: ticker 25s linear infinite;
+  animation: ticker 35s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 @keyframes ticker {
   0% {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
-
   100% {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
@@ -326,16 +327,17 @@
     display: flex;
     gap: 2.5rem;
     width: max-content;
-    animation: ticker 20s linear infinite;
+    animation: ticker 30s linear infinite;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   @keyframes ticker {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
-
     100% {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 
@@ -521,17 +523,18 @@
     display: flex;
     gap: 2rem;
     width: max-content;
-    animation: mobileTicker 18s linear infinite;
+    animation: mobileTicker 28s linear infinite;
     padding: 0 1rem;
+    will-change: transform;
+    backface-visibility: hidden;
   }
 
   @keyframes mobileTicker {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
-
     100% {
-      transform: translateX(-50%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 
@@ -547,7 +550,7 @@
     font-family: var(--font-serif);
     font-size: 1.25rem;
     font-weight: 700;
-    color: #4FE0D0;
+    color: var(--accent-primary);
   }
 
   .mobileStatLabel {

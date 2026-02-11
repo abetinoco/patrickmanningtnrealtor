@@ -20,11 +20,11 @@
   --text-tertiary: #8b97ab;
   --text-inverse: #ffffff;
 
-  /* Brand Colors - Luxe Teal (unchanged) */
-  --accent-primary: #1fa395;
-  --accent-secondary: #178a7e;
-  --accent-tertiary: #24b5a5;
-  --accent-light: rgba(31, 163, 149, 0.12);
+  /* Brand Colors - Teal (matches homepage search widget) */
+  --accent-primary: #38e0c3;
+  --accent-secondary: #2bc9b0;
+  --accent-tertiary: #4ee8d0;
+  --accent-light: rgba(56, 224, 195, 0.12);
 
   /* Functional Colors */
   --success: #2fd39f;
@@ -38,10 +38,10 @@
   --surface-elevated: #ffffff;
 
   /* Gradients - Light Theme */
-  --gradient-primary: linear-gradient(135deg, #1fa395 0%, #178a7e 100%);
+  --gradient-primary: linear-gradient(135deg, #38e0c3 0%, #2bc9b0 100%);
   --gradient-subtle: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.01) 100%);
   --gradient-overlay: linear-gradient(120deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.7) 100%);
-  --gradient-text: linear-gradient(135deg, #1a2332 0%, #1fa395 100%);
+  --gradient-text: linear-gradient(135deg, #1a2332 0%, #38e0c3 100%);
 
   /* Glassmorphism - Light Theme */
   --glass-bg: rgba(255, 255, 255, 0.85);

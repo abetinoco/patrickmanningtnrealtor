@@ -1,0 +1,10 @@
+/* PASTE INTO: Roster */
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-roster,.IDX-reports,[class*="roster"],[class*="reports"]{max-width:1280px!important;margin-left:auto!important;margin-right:auto!important;padding:1.5rem!important}
+.IDX-roster a,.IDX-reports a,[class*="roster"] a,[class*="reports"] a{color:#38e0c3!important}
+.IDX-roster a:hover,.IDX-reports a:hover{color:#2bc9b0!important}
+.IDX-roster .IDX-btn-primary,.IDX-reports .IDX-btn-primary,[class*="roster"] input[type="submit"],[class*="reports"] input[type="submit"]{background-color:#38e0c3!important;border-color:#38e0c3!important;color:#fff!important}

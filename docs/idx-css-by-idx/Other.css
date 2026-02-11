@@ -1,0 +1,9 @@
+/* PASTE INTO: Other */
+
+/* Welcome/Account bar – white */
+#IDX-accountBar,#IDX-memberBar,[class*="accountBar"],[class*="memberBar"],[class*="welcomeBar"],#IDX-main .navbar:first-of-type{background-color:#fff!important;color:#1a2332!important;border-bottom:1px solid rgba(0,0,0,.08)!important}
+#IDX-accountBar a,[class*="accountBar"] a{color:#38e0c3!important}
+
+.IDX-sitemap,.IDX-browseByCity,.IDX-homesForSale,[class*="sitemap"],[class*="browseByCity"],[class*="homesForSale"]{max-width:1280px!important;margin-left:auto!important;margin-right:auto!important;padding:1.5rem!important}
+.IDX-sitemap a,.IDX-browseByCity a,[class*="sitemap"] a,[class*="browseByCity"] a{color:#38e0c3!important}
+.IDX-sitemap a:hover,.IDX-browseByCity a:hover,[class*="sitemap"] a:hover,[class*="browseByCity"] a:hover{color:#2bc9b0!important}

@@ -241,7 +241,7 @@
     background: var(--accent-primary);
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0 2px 8px rgba(31, 163, 149, 0.4);
+    box-shadow: 0 2px 8px rgba(56, 224, 195, 0.4);
 }
 
 .sliderValue {
