@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { neighborhoods } from '../../data/neighborhoods'
 import styles from './PropertySearchForm.module.css'
 
 interface PropertySearchFormProps {
