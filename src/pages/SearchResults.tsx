@@ -1,5 +1,5 @@
 import { useSearchParams } from 'react-router-dom'
-import { useMemo } from 'react'
+import { useMemo, useEffect } from 'react'
 import { IDX_CONFIG } from '../data/idxConfig'
 import { getCityNameForIdX } from '../data/idxCityMap'
 import styles from './SearchResults.module.css'
@@ -60,6 +60,14 @@ const SearchResults = () => {
         return parts.length > 0 ? parts.join(' • ') : 'All Properties'
     }, [searchParams])
 
+    /* IDX forum #1646: smooth scrolling in theme breaks clicks/scrolling – disable on this page */
+    useEffect(() => {
+        const html = document.documentElement
+        const prev = html.style.scrollBehavior
+        html.style.scrollBehavior = 'auto'
+        return () => { html.style.scrollBehavior = prev }
+    }, [])
+
     return (
         <div className={styles.page}>
             <header className={styles.header}>
@@ -72,12 +80,13 @@ const SearchResults = () => {
             </header>
 
             <main className={styles.resultsContainer}>
+                {/* No sandbox: IDX pagination and map require full iframe capabilities.
+                    Sandbox was blocking clicks/navigation in some environments. */}
                 <iframe
                     key={idxUrl}
                     src={idxUrl}
                     className={styles.resultsFrame}
                     title="Property Search Results"
-                    sandbox="allow-scripts allow-forms allow-same-origin allow-popups allow-top-navigation"
                 />
             </main>
         </div>

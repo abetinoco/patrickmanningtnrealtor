@@ -1,14 +1,18 @@
 /**
  * IDX Broker – ALL-IN-ONE Custom CSS (Patrick Manning theme)
- * Paste into: IDX Dashboard → Design → Custom CSS → Global → Desktop
+ * Paste into: IDX Dashboard → Designs → Custom CSS → Global (or Results page CSS)
  *
  * OPTION A: Paste this entire file into Global (one paste, covers everything).
  *
- * OPTION B: Use docs/idx-css-by-idx/ for simpler category-based setup:
- *   - Paste this file into Global for base, or use category files in page-specific slots
- *   See docs/idx-css-by-idx/README.md for the full mapping.
+ * OPTION B: Use docs/idx-css-by-idx/ for simpler category-based setup.
  *
  * Brand: Teal #38e0c3, #2bc9b0 | Dark #1a2332 | Surfaces #f8fafb
+ *
+ * TROUBLESHOOTING (per IDX Developer docs):
+ * - Pagination/results not clickable: .ui-widget-overlay and .ui-dialog hide stuck loading overlay.
+ * - If contact/lead modals break: remove the .ui-dialog { display: none } rule.
+ * - JS errors in console can break pagination: check wrapper scripts, use static wrapper.
+ * - Results Page CSS: if Global doesn't apply, paste into Designs → Custom CSS → Results.
  */
 
 /* ---------- 00-base ---------- */
@@ -438,15 +442,16 @@ a.IDX-btn[href*="modify"],
 }
 
 /* ========== LINKS ========== */
-.IDX-wrapper a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch),
-.IDX-mainContent a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch),
-[class*="IDX-"] a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch) {
+/* Exclude pagination: .IDX-wrapper/.IDX-mainContent wrap the whole page; pagination has its own styles */
+.IDX-wrapper a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch):not([class*="pagination"]):not([class*="page-link"]),
+.IDX-mainContent a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch):not([class*="pagination"]):not([class*="page-link"]),
+[class*="IDX-"] a:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch):not([class*="pagination"]):not([class*="page-link"]) {
   color: #38e0c3 !important;
 }
 
-.IDX-wrapper a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch),
-.IDX-mainContent a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch),
-[class*="IDX-"] a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch) {
+.IDX-wrapper a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch):not([class*="pagination"]):not([class*="page-link"]),
+.IDX-mainContent a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch):not([class*="pagination"]):not([class*="page-link"]),
+[class*="IDX-"] a:hover:not(.leaflet-control-zoom-in):not(.leaflet-control-zoom-out):not(.IDX-btn-primary):not(#IDX-saveSearch):not([class*="pagination"]):not([class*="page-link"]) {
   color: #2bc9b0 !important;
 }
 
@@ -660,11 +665,131 @@ div:has(> [class*="wrapper-standard-top"]) > *:last-child,
   color: #1a2332 !important;
 }
 
+/* Teal bar under filter card – override to grey (idx-results-refinement__overlay) */
+.idx-results-refinement__overlay,
+.idx-results-refinement__toggle,
+div.idx-results-refinement__overlay.idx-results-refinement__toggle {
+  background: #f8fafb !important;
+  background-color: #f8fafb !important;
+}
+
+/* Filter bar – SAVE SEARCH: allow wrap so last button isn’t cut off */
+/* REFINEMENT FORM (white box with filter buttons) – widen so SAVE SEARCH is not clipped */
+#IDX-refinementSearch,
+form#IDX-refinementSearch,
+.IDX-searchForm:has(.idx-results-refinement),
+.IDX-searchForm:has([class*="idx-results-refinement"]),
+form:has(.idx-results-refinement),
+form:has([class*="idx-results-refinement"]) {
+  max-width: 100% !important;
+  width: 100% !important;
+  overflow: visible !important;
+  overflow-x: visible !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+  box-sizing: border-box !important;
+}
+
+/* Refinement bar only – avoid [class*="idx-results-refinement"] matching parent wrappers that contain pagination */
+.idx-results-refinement {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+  flex-wrap: wrap !important;
+  padding-right: 1rem !important;
+  box-sizing: border-box !important;
+}
+/* Parents of refinement – must not clip the buttons */
+.IDX-resultsPage,
+.IDX-resultsFilterBar,
+.IDX-resultsWrapper,
+[class*="resultsPage"],
+[class*="resultsFilterBar"],
+[class*="resultsWrapper"] {
+  overflow-x: visible !important;
+}
+/* Buttons row – wrap when needed */
+.idx-results-refinement [class*="button"],
+.idx-results-refinement [class*="btn"],
+.idx-results-refinement > div:not([class*="overlay"]):not([class*="toggle"]) {
+  flex-wrap: wrap !important;
+}
+
+/* Refinement bar – teal buttons. Use button#id (never matches <a> pagination links) */
+button#idx-refinement-price,
+button#idx-refinement-bd,
+button#idx-refinement-tb,
+button#idx-refinement-more,
+button#IDX-refineSubmit {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #fff !important;
+}
+button#idx-refinement-price:hover,
+button#idx-refinement-bd:hover,
+button#idx-refinement-tb:hover,
+button#idx-refinement-more:hover,
+button#IDX-refineSubmit:hover {
+  background-color: #2bc9b0 !important;
+  border-color: #2bc9b0 !important;
+  color: #fff !important;
+}
+
+/* SAVE SEARCH – button-sized, not full-width bar */
+#IDX-saveSearch,
+a#IDX-saveSearch,
+.idx-results-refinement__actions#IDX-saveSearch,
+a.idx-results-refinement__actions.IDX-btn-primary {
+  width: auto !important;
+  max-width: none !important;
+  min-width: 140px !important;
+  flex: 0 0 auto !important;
+  flex-shrink: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+  padding: 12px 20px !important;
+  overflow: visible !important;
+  line-height: 1 !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+}
+/* SAVE SEARCH inner text – ensure centering (IDX may wrap label in span) */
+#IDX-saveSearch *,
+a#IDX-saveSearch *,
+.idx-results-refinement__actions#IDX-saveSearch * {
+  line-height: inherit !important;
+  vertical-align: middle !important;
+}
+.idx-results-refinement [class*="saveSearch"],
+.idx-results-refinement [class*="save-search"] {
+  width: auto !important;
+  flex: 0 0 auto !important;
+  min-width: 165px !important;
+}
+
 .IDX-resultsPage,
 .IDX-resultsWrapper,
 [class*="resultsPage"],
 [class*="resultsWrapper"] {
   background-color: #f8fafb !important;
+}
+
+/* Results list – ensure visible and clickable (override any stuck overlay) */
+.IDX-resultsList,
+.IDX-resultsPage [class*="resultsList"],
+.IDX-resultsPage [class*="listing"],
+[class*="resultsList"],
+[class*="listing-grid"],
+[class*="listingGrid"] {
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 1 !important;
 }
 
 /* Search results – sign up / submit buttons: white text on teal (fix invisible text) */
@@ -718,6 +843,126 @@ a.IDX-btn.IDX-btn-primary {
 [class*="showcaseCell"]:hover {
   border-color: rgba(56, 224, 195, 0.3) !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* IDX loading overlay: pointer-events:none so clicks pass through; visibility:hidden (display:none can break AJAX) */
+.ui-widget-overlay,
+.ui-widget-overlay.ui-front {
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* Results page – ensure form and containers never clip or block pagination */
+.IDX-resultsPage form,
+.IDX-resultsPage .IDX-searchForm,
+.IDX-resultsPage [class*="searchForm"],
+.IDX-resultsPage > form,
+form#IDX-refinementSearch {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+/* Pagination – ensure clickable, numbers visible (IDX + Bootstrap)
+ * IDX may use var(--idx-button-color); undo clip/overflow that can hide text */
+ul.pagination,
+.idx-pagination,
+.IDX-pagination,
+[class*="pagination"],
+nav[aria-label*="agination"] ul,
+[class*="pagination"] li,
+[class*="pagination"] li a,
+[class*="pagination"] a {
+  clip: unset !important;
+  clip-path: unset !important;
+  overflow: visible !important;
+  text-indent: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#idx-results-pagination,
+.idx-results__pagination,
+ul.pagination,
+.idx-pagination,
+.IDX-pagination,
+[class*="pagination"],
+nav[aria-label*="agination"] ul {
+  position: relative !important;
+  z-index: 999 !important;
+  pointer-events: auto !important;
+  list-style: none !important;
+}
+#idx-results-pagination a,
+.idx-results__pagination a,
+#idx-results-pagination li a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* All pagination links – force visible numbers */
+ul.pagination a,
+ul.pagination .page-link,
+ul.pagination li a,
+.idx-pagination a,
+.idx-pagination li a,
+.IDX-pagination a,
+.IDX-pagination li a,
+[class*="pagination"] a,
+[class*="pagination"] .page-link,
+[class*="pagination"] li a,
+nav[aria-label*="agination"] a {
+  font-size: 1rem !important;
+  line-height: 1.5 !important;
+  font-weight: 500 !important;
+  color: #1a2332 !important;
+  background-color: #fff !important;
+  border: 1px solid rgba(0, 0, 0, 0.15) !important;
+  padding: 0.5rem 0.75rem !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+[class*="pagination"] a *,
+[class*="pagination"] .page-link * {
+  color: inherit !important;
+  font-size: inherit !important;
+}
+
+/* Pagination – active page: teal border + teal number */
+ul.pagination li.active a,
+ul.pagination li.active .page-link,
+ul.pagination li.IDX-active a,
+.idx-pagination li.IDX-active,
+.idx-pagination li.IDX-active a,
+.IDX-pagination li.IDX-active,
+.IDX-pagination li.IDX-active a,
+[class*="pagination"] li.IDX-active,
+[class*="pagination"] li.IDX-active a,
+[class*="pagination"] li.active a,
+[class*="pagination"] li[class*="active"] a,
+[class*="pagination"] .page-item.active .page-link {
+  background-color: #fff !important;
+  color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  --idx-button-color: #38e0c3 !important;
+}
+[class*="pagination"] li.IDX-active a *,
+[class*="pagination"] li[class*="active"] a * {
+  color: #38e0c3 !important;
+}
+
+/* Pagination – hover */
+[class*="pagination"] a:hover,
+[class*="pagination"] .page-link:hover {
+  background-color: rgba(56, 224, 195, 0.08) !important;
+  color: #2bc9b0 !important;
+  border-color: #38e0c3 !important;
 }
 
 .IDX-listingPrice,
@@ -849,16 +1094,27 @@ a[href*="results"]:not([href*="search"]),
   min-width: 160px !important;
 }
 
-/* Search nav / filter bar – prevent horizontal scroll, allow wrap */
-.IDX-resultsPage > div:first-child,
-.IDX-mainContent > div:first-child,
+/* Search nav / filter bar – allow wrap; refinement needs visible so SAVE SEARCH isn’t cut off */
 .IDX-searchNav,
 .IDX-filterBar,
-.IDX-wrapper-standard-top,
 [class*="searchNav"]:not(.IDX-navbar-nav),
-[class*="filterBar"],
-[class*="wrapper-standard-top"] {
+[class*="filterBar"] {
   overflow-x: hidden !important;
+}
+/* Results filter bar (contains refinement buttons) – must not clip SAVE SEARCH */
+.IDX-filterBar:has(.idx-results-refinement),
+.IDX-filterBar:has([class*="idx-results-refinement"]),
+[class*="filterBar"]:has(.idx-results-refinement),
+[class*="filterBar"]:has([class*="idx-results-refinement"]) {
+  overflow-x: visible !important;
+  overflow: visible !important;
+}
+.IDX-resultsPage > div:first-child,
+.IDX-mainContent > div:first-child,
+.IDX-wrapper-standard-top,
+[class*="wrapper-standard-top"] {
+  overflow-x: visible !important;
+  flex-wrap: wrap !important;
 }
 
 .IDX-advancedSearch label,
@@ -1377,4 +1633,87 @@ a[href*="results"]:not([href*="search"]),
   background-color: rgba(56, 224, 195, 0.12) !important;
   color: #2bc9b0 !important;
   border-radius: 0.375rem !important;
+}
+
+/**
+ * IDX Broker – MOBILE RESULTS ACTION BAR
+ * Moves FILTER / SAVE / NEW SEARCH / MODIFY / HIDE MAP bar from bottom to top; teal brand color
+ */
+#idx-results-mobile-control,
+.idx-results__mobile-menu,
+section#idx-results-mobile-control.idx-results__mobile-menu,
+[id*="idx-results-mobile"],
+[class*="idx-results__mobile-menu"] {
+  position: fixed !important;
+  top: 0 !important;
+  bottom: auto !important;
+  left: 0 !important;
+  right: 0 !important;
+  background-color: #f8fafb !important;
+  background: #f8fafb !important;
+  z-index: 9999 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+}
+#idx-results-mobile-control a,
+#idx-results-mobile-control button,
+.idx-results__mobile-menu a,
+.idx-results__mobile-menu button,
+[id*="idx-results-mobile"] a,
+[id*="idx-results-mobile"] button,
+[class*="idx-results__mobile-menu"] a,
+[class*="idx-results__mobile-menu"] button {
+  color: #1a2332 !important;
+  border-color: rgba(26, 35, 50, 0.3) !important;
+  background-color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Parent overflow – common cause of broken pagination clicks in widgets */
+#IDX-main,
+.IDX-resultsPage,
+.IDX-resultsWrapper,
+.IDX-wrapper,
+[class*="IDX-wrapper"] {
+  overflow: visible !important;
+}
+
+/* ========== PAGINATION FORTRESS – keep at end; max specificity so nothing overrides ========== */
+body #idx-results-pagination,
+body nav#idx-results-pagination,
+body .idx-results__pagination,
+body ul.pagination,
+body nav[aria-label*="agination"] {
+  overflow: visible !important;
+  clip: unset !important;
+  clip-path: unset !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  position: relative !important;
+  z-index: 999 !important;
+}
+body #idx-results-pagination a,
+body #idx-results-pagination li a,
+body nav#idx-results-pagination a,
+body .idx-results__pagination a,
+body ul.pagination a,
+body ul.pagination .page-link,
+body nav[aria-label*="agination"] a {
+  clip: unset !important;
+  text-indent: 0 !important;
+  overflow: visible !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  font-size: 1rem !important;
+  color: #1a2332 !important;
+  background-color: #fff !important;
+  display: inline-flex !important;
+  min-width: 2.5rem !important;
+  min-height: 2.5rem !important;
+}
+body #idx-results-pagination a *,
+body ul.pagination a * {
+  color: inherit !important;
+  visibility: visible !important;
 }

@@ -29,11 +29,6 @@ export const HeroBanner = () => {
       )}
       <div className={styles.overlay} />
 
-      {/* Mobile-only search bar - absolutely positioned */}
-      <div className={styles.mobileSearchBar}>
-        <PropertySearchForm variant="compact" />
-      </div>
-
       <div className={styles.content}>
         <div className={styles.copy}>
 
@@ -90,8 +85,11 @@ export const HeroBanner = () => {
         </aside>
       </div>
 
-      {/* MOBILE HERO - Visual-first with background image */}
+      {/* MOBILE HERO - Search first, then tagline below */}
       <div className={styles.mobileHero}>
+        <div className={styles.mobileSearch}>
+          <PropertySearchForm variant="compact" />
+        </div>
         <h1
           className={styles.mobileTitle}
           style={{ color: '#ffffff', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}

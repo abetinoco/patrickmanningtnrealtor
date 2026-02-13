@@ -2,6 +2,8 @@
 
 **Recommended:** Paste `docs/idx-css/all-in-one.css` into **Global** – one paste, covers everything.
 
+**If Global doesn't apply to Results:** Paste `Results.css` into **Designs → Custom CSS → Results**. Required when pagination, overlay, or results fixes only work with Results-specific CSS.
+
 **OPTION B:** Paste `all-in-one.css` into Global for base, then optionally add category files below into page-specific slots for extra overrides (e.g. if IDX’s Global doesn’t apply on certain pages).
 
 ## Paste Order

@@ -1,0 +1,55 @@
+/**
+ * MINIMAL PAGINATION CSS – diagnostic test
+ *
+ * Use this to isolate pagination issues:
+ * 1. Clear all IDX Custom CSS (Global + Results)
+ * 2. Paste ONLY this file into Global
+ * 3. Test pagination – does it work?
+ * 4. If yes, add other CSS (e.g. refinement button styling) incrementally to find the conflict
+ */
+
+/* Loading overlay – must not block clicks */
+.ui-widget-overlay,
+.ui-widget-overlay.ui-front {
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+/* Results page form – never clip pagination */
+.IDX-resultsPage form,
+.IDX-resultsPage .IDX-searchForm,
+form#IDX-refinementSearch {
+  overflow: visible !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
+
+/* Pagination – visible and clickable */
+ul.pagination,
+.idx-pagination,
+.IDX-pagination,
+[class*="pagination"],
+nav[aria-label*="agination"] ul,
+[class*="pagination"] li,
+[class*="pagination"] li a,
+[class*="pagination"] a {
+  clip: unset !important;
+  clip-path: unset !important;
+  overflow: visible !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+#idx-results-pagination,
+.idx-results__pagination,
+ul.pagination,
+nav[aria-label*="agination"] ul {
+  position: relative !important;
+  z-index: 999 !important;
+  pointer-events: auto !important;
+}
+#idx-results-pagination a,
+.idx-results__pagination a,
+[class*="pagination"] a {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}

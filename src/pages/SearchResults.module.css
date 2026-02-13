@@ -7,6 +7,9 @@
     display: flex;
     flex-direction: column;
     gap: 0;
+    overflow-x: hidden;
+    max-width: 100vw;
+    pointer-events: auto;
 }
 
 .header {
@@ -47,7 +50,7 @@
     font-weight: 500;
 }
 
-/* NEW SEARCH / MODIFY SEARCH buttons live inside the IDX iframe; alignment is controlled by IDX Dashboard → Custom CSS (docs/idx-global-css.css) */
+/* NEW SEARCH / MODIFY SEARCH buttons live inside the IDX iframe; alignment is controlled by IDX Dashboard → Custom CSS */
 .resultsContainer {
     flex: 1;
     min-height: 1600px;
@@ -56,10 +59,14 @@
     position: relative;
     margin-top: 0;
     padding-top: 0;
+    overflow-x: hidden;
+    max-width: 100%;
+    pointer-events: auto;
 }
 
 .resultsFrame {
-    width: 100%;
+    width: 100% !important;
+    max-width: 100vw !important;
     height: 1600px;
     min-height: 1600px;
     border: none;
@@ -68,6 +75,8 @@
     margin: 0;
     padding: 0;
     vertical-align: top;
+    overflow-x: hidden;
+    pointer-events: auto;
 }
 
 .footer {

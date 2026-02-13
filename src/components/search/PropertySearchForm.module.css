@@ -185,8 +185,22 @@
     }
 
     .containerCompact {
-        padding: 0.75rem;
-        gap: 0.5rem;
+        padding: 0.6rem 0.85rem;
+        gap: 0.4rem;
+        max-width: 280px;
+    }
+
+    .containerCompact .inputGroup {
+        min-width: 100px;
+    }
+
+    .containerCompact .label {
+        font-size: 0.6rem;
+    }
+
+    .containerCompact .select {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.8125rem;
     }
 
     .inputGroup {
