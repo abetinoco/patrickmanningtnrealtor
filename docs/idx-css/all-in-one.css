@@ -1667,6 +1667,12 @@ section#idx-results-mobile-control.idx-results__mobile-menu,
   background-color: rgba(255, 255, 255, 0.9) !important;
 }
 
+/* Hide duplicate Show Map – keep the one by listing count; hide the mobile map toggle in top bar */
+#idx-mobile-map-toggle,
+button#idx-mobile-map-toggle {
+  display: none !important;
+}
+
 /* Parent overflow – common cause of broken pagination clicks in widgets */
 #IDX-main,
 .IDX-resultsPage,
