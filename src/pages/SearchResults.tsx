@@ -1,8 +1,9 @@
 import { useSearchParams } from 'react-router-dom'
 import { useMemo, useEffect } from 'react'
 import { IDX_CONFIG } from '../data/idxConfig'
-import { getCityNameForIdX } from '../data/idxCityMap'
 import styles from './SearchResults.module.css'
+
+const STATE_LABELS: Record<string, string> = { TN: 'Tennessee', KY: 'Kentucky' }
 
 const SearchResults = () => {
     const [searchParams] = useSearchParams()
@@ -12,12 +13,14 @@ const SearchResults = () => {
         const baseUrl = `https://${IDX_CONFIG.subdomain}/idx/results/listings`
         const params = new URLSearchParams()
 
-        // Location: pass city name for IDX a_cityName
-        const city = searchParams.get('city')
-        if (city) {
-            const cityName = getCityNameForIdX(city)
-            if (cityName) params.set('a_cityName', cityName)
+        // TN = default (RealTracs). KY = WKRMLS via idxID (no-commingle: a_state filters
+        // RealTracs only, which has 0 KY listings; must switch feed with idxID=a463)
+        const state = searchParams.get('state')
+        if (state === 'KY') {
+            params.set('idxID', IDX_CONFIG.wkrmlsIdxId)
+            params.set('commingle', '')
         }
+        // TN: no params = default to RealTracs
 
         // Numeric filters - IDX shortcodes: lp, hp, bd, tb
         const minPrice = searchParams.get('lp')
@@ -40,13 +43,13 @@ const SearchResults = () => {
     // Get readable search summary
     const searchSummary = useMemo(() => {
         const parts: string[] = []
-        const city = searchParams.get('city')
+        const state = searchParams.get('state')
         const minPrice = searchParams.get('lp')
         const maxPrice = searchParams.get('hp')
         const beds = searchParams.get('bd')
         const baths = searchParams.get('ba')
 
-        if (city) parts.push(city)
+        if (state) parts.push(STATE_LABELS[state] ?? state)
         if (minPrice || maxPrice) {
             const min = minPrice ? `$${(parseInt(minPrice) / 1000)}K` : ''
             const max = maxPrice ? `$${(parseInt(maxPrice) / 1000)}K` : ''

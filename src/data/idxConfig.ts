@@ -11,6 +11,9 @@ export const IDX_CONFIG = {
   subdomain: 'patrickmanningrealtor.idxbroker.com',
   apiKey: 'RedJwFThH8eZLsSUzLg5QY',
   
+  /** idxID for Western Kentucky Regional MLS (no-commingle; use idxID+commingle for KY searches) */
+  wkrmlsIdxId: 'a463',
+
   widgets: {
     featuredShowcase: {
       id: '137093',

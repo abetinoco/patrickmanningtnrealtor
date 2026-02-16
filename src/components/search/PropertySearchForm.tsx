@@ -6,22 +6,10 @@ interface PropertySearchFormProps {
     variant?: 'hero' | 'page' | 'compact'
 }
 
-// Common cities from neighborhoods data plus individual cities
-const CITIES = [
-    // Major areas from neighborhoods
-    'Franklin, TN',
-    'Brentwood, TN',
-    'Spring Hill, TN',
-    'Columbia, TN',
-    'Nashville, TN',
-    'Bowling Green, KY',
-    // Additional popular cities
-    'Thompson\'s Station, TN',
-    'Nolensville, TN',
-    'Arrington, TN',
-    'Belle Meade, TN',
-    'Green Hills, TN',
-    'Franklin, KY',
+// States - filters results by MLS feed (RealTracs = TN, WKRMLS = KY)
+const STATES = [
+    { label: 'Tennessee', value: 'TN' },
+    { label: 'Kentucky', value: 'KY' },
 ]
 
 const PRICE_OPTIONS = [
@@ -57,7 +45,7 @@ const BATH_OPTIONS = [
 
 export const PropertySearchForm = ({ variant = 'hero' }: PropertySearchFormProps) => {
     const navigate = useNavigate()
-    const [city, setCity] = useState('')
+    const [state, setState] = useState('TN') // Tennessee default; no "All Areas" (shows TN only anyway)
     const [minPrice, setMinPrice] = useState('')
     const [maxPrice, setMaxPrice] = useState('')
     const [beds, setBeds] = useState('')
@@ -68,7 +56,7 @@ export const PropertySearchForm = ({ variant = 'hero' }: PropertySearchFormProps
 
         // Build query params for the search results page
         const params = new URLSearchParams()
-        if (city) params.set('city', city)
+        if (state) params.set('state', state)
         if (minPrice) params.set('lp', minPrice)
         if (maxPrice) params.set('hp', maxPrice)
         if (beds) params.set('bd', beds)
@@ -86,16 +74,15 @@ export const PropertySearchForm = ({ variant = 'hero' }: PropertySearchFormProps
     return (
         <form className={containerClass} onSubmit={handleSubmit}>
             <div className={styles.inputGroup}>
-                <label className={styles.label} htmlFor="search-city">Location</label>
+                <label className={styles.label} htmlFor="search-state">Location</label>
                 <select
-                    id="search-city"
+                    id="search-state"
                     className={styles.select}
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
+                    value={state}
+                    onChange={(e) => setState(e.target.value)}
                 >
-                    <option value="">All Areas</option>
-                    {CITIES.map((c) => (
-                        <option key={c} value={c}>{c}</option>
+                    {STATES.map((s) => (
+                        <option key={s.value} value={s.value}>{s.label}</option>
                     ))}
                 </select>
             </div>
