@@ -5,6 +5,16 @@ import styles from './SearchResults.module.css'
 
 const STATE_LABELS: Record<string, string> = { TN: 'Tennessee', KY: 'Kentucky' }
 
+/** Infer state from zip for correct MLS feed. TN: 37xxx,38xxx. KY: 40xxx,41xxx,42xxx */
+function inferStateFromZip(zip: string): 'TN' | 'KY' | null {
+    const digits = zip.trim().replace(/\D/g, '')
+    if (digits.length < 2) return null
+    const prefix = parseInt(digits.slice(0, 2), 10)
+    if (prefix === 37 || prefix === 38) return 'TN'
+    if (prefix >= 40 && prefix <= 42) return 'KY'
+    return null
+}
+
 const SearchResults = () => {
     const [searchParams] = useSearchParams()
 
@@ -13,10 +23,13 @@ const SearchResults = () => {
         const baseUrl = `https://${IDX_CONFIG.subdomain}/idx/results/listings`
         const params = new URLSearchParams()
 
-        // TN = default (RealTracs). KY = WKRMLS via idxID (no-commingle: a_state filters
-        // RealTracs only, which has 0 KY listings; must switch feed with idxID=a463)
-        const state = searchParams.get('state')
-        if (state === 'KY') {
+        // TN = default (RealTracs). KY = WKRMLS via idxID. Use zip to infer state when it
+        // conflicts with Location (e.g. KY zip + TN dropdown → use WKRMLS).
+        const urlState = searchParams.get('state')
+        const zip = searchParams.get('zip')
+        const inferredState = zip ? inferStateFromZip(zip) : null
+        const effectiveState = inferredState ?? urlState ?? 'TN'
+        if (effectiveState === 'KY') {
             params.set('idxID', IDX_CONFIG.wkrmlsIdxId)
             params.set('commingle', '')
         }
@@ -24,7 +37,6 @@ const SearchResults = () => {
 
         // Address and zip - IDX Broker accepts address/zip params (varies by MLS)
         const address = searchParams.get('address')
-        const zip = searchParams.get('zip')
         if (address) params.set('address', address)
         if (zip) params.set('zip', zip)
 
@@ -51,7 +63,9 @@ const SearchResults = () => {
         const parts: string[] = []
         const address = searchParams.get('address')
         const zip = searchParams.get('zip')
-        const state = searchParams.get('state')
+        const urlState = searchParams.get('state')
+        const inferredState = zip ? inferStateFromZip(zip) : null
+        const state = inferredState ?? urlState
         const minPrice = searchParams.get('lp')
         const maxPrice = searchParams.get('hp')
         const beds = searchParams.get('bd')
@@ -59,7 +73,7 @@ const SearchResults = () => {
 
         if (address) parts.push(address)
         if (zip) parts.push(`Zip ${zip}`)
-        if (state) parts.push(STATE_LABELS[state] ?? state)
+        if (state) parts.push(STATE_LABELS[state as string] ?? state)
         if (minPrice || maxPrice) {
             const min = minPrice ? `$${(parseInt(minPrice) / 1000)}K` : ''
             const max = maxPrice ? `$${(parseInt(maxPrice) / 1000)}K` : ''

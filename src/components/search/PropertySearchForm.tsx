@@ -12,6 +12,16 @@ const STATES = [
     { label: 'Kentucky', value: 'KY' },
 ]
 
+/** Infer state from zip to pick correct MLS feed. TN: 37xxx,38xxx. KY: 40xxx,41xxx,42xxx */
+function inferStateFromZip(zip: string): 'TN' | 'KY' | null {
+    const digits = zip.trim().replace(/\D/g, '')
+    if (digits.length < 2) return null
+    const prefix = parseInt(digits.slice(0, 2), 10)
+    if (prefix === 37 || prefix === 38) return 'TN'
+    if (prefix >= 40 && prefix <= 42) return 'KY'
+    return null
+}
+
 const PRICE_OPTIONS = [
     { label: 'No Min', value: '' },
     { label: '$200K', value: '200000' },
@@ -56,11 +66,15 @@ export const PropertySearchForm = ({ variant = 'hero' }: PropertySearchFormProps
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
 
+        // Use zip to infer state when possible (TN vs KY = different MLS feeds)
+        const inferredState = zip.trim() ? inferStateFromZip(zip) : null
+        const effectiveState = inferredState ?? state
+
         // Build query params for the search results page
         const params = new URLSearchParams()
         if (address.trim()) params.set('address', address.trim())
         if (zip.trim()) params.set('zip', zip.trim())
-        if (state) params.set('state', state)
+        params.set('state', effectiveState)
         if (minPrice) params.set('lp', minPrice)
         if (maxPrice) params.set('hp', maxPrice)
         if (beds) params.set('bd', beds)
