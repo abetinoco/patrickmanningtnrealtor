@@ -22,6 +22,12 @@ const SearchResults = () => {
         }
         // TN: no params = default to RealTracs
 
+        // Address and zip - IDX Broker accepts address/zip params (varies by MLS)
+        const address = searchParams.get('address')
+        const zip = searchParams.get('zip')
+        if (address) params.set('address', address)
+        if (zip) params.set('zip', zip)
+
         // Numeric filters - IDX shortcodes: lp, hp, bd, tb
         const minPrice = searchParams.get('lp')
         const maxPrice = searchParams.get('hp')
@@ -43,12 +49,16 @@ const SearchResults = () => {
     // Get readable search summary
     const searchSummary = useMemo(() => {
         const parts: string[] = []
+        const address = searchParams.get('address')
+        const zip = searchParams.get('zip')
         const state = searchParams.get('state')
         const minPrice = searchParams.get('lp')
         const maxPrice = searchParams.get('hp')
         const beds = searchParams.get('bd')
         const baths = searchParams.get('ba')
 
+        if (address) parts.push(address)
+        if (zip) parts.push(`Zip ${zip}`)
         if (state) parts.push(STATE_LABELS[state] ?? state)
         if (minPrice || maxPrice) {
             const min = minPrice ? `$${(parseInt(minPrice) / 1000)}K` : ''

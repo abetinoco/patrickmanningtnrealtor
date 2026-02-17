@@ -3,7 +3,6 @@ import { defaultMeta } from '../seo/metaDefaults'
 import { Link } from 'react-router-dom'
 import { SellHero } from '../components/hero/SellHero'
 import { AdvisoryProcess } from '../components/process/AdvisoryProcess'
-import { HomeValuationTool } from '../components/valuation/HomeValuationTool'
 import { agentProfile } from '../data/agent'
 import { CameraIcon, ChartIcon, TargetIcon, BriefcaseIcon } from '../components/icons/Icons'
 import homeStyles from './Home.module.css'
@@ -130,7 +129,25 @@ const Sell = () => (
 
     <AdvisoryProcess />
 
-    <HomeValuationTool />
+    <section id="home-valuation" className={styles.getStartedSection} aria-labelledby="get-started-heading">
+      <div className={styles.getStartedInner}>
+        <div className="section-subtitle">Get Started</div>
+        <h2 id="get-started-heading" className="section-title">
+          Tell Us About Your Home
+        </h2>
+        <p className={styles.getStartedCopy}>
+          Complete this questionnaire and Patrick will prepare personalized recommendations for your home sale.
+        </p>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdIKMhCGY10fJqKytzmPD9Q2E2Zy9asrkst2gOXNd6XGt_35A/viewform?usp=pp_url"
+          target="_blank"
+          rel="noreferrer"
+          className={styles.getStartedButton}
+        >
+          Complete Seller Questionnaire
+        </a>
+      </div>
+    </section>
 
     <section className={homeStyles.homeCtaSection} aria-labelledby="sell-cta-heading">
       <div className={homeStyles.homeCtaInner}>

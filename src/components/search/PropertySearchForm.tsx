@@ -45,6 +45,8 @@ const BATH_OPTIONS = [
 
 export const PropertySearchForm = ({ variant = 'hero' }: PropertySearchFormProps) => {
     const navigate = useNavigate()
+    const [address, setAddress] = useState('')
+    const [zip, setZip] = useState('')
     const [state, setState] = useState('TN') // Tennessee default; no "All Areas" (shows TN only anyway)
     const [minPrice, setMinPrice] = useState('')
     const [maxPrice, setMaxPrice] = useState('')
@@ -56,6 +58,8 @@ export const PropertySearchForm = ({ variant = 'hero' }: PropertySearchFormProps
 
         // Build query params for the search results page
         const params = new URLSearchParams()
+        if (address.trim()) params.set('address', address.trim())
+        if (zip.trim()) params.set('zip', zip.trim())
         if (state) params.set('state', state)
         if (minPrice) params.set('lp', minPrice)
         if (maxPrice) params.set('hp', maxPrice)
@@ -73,6 +77,31 @@ export const PropertySearchForm = ({ variant = 'hero' }: PropertySearchFormProps
 
     return (
         <form className={containerClass} onSubmit={handleSubmit}>
+            <div className={styles.inputGroup}>
+                <label className={styles.label} htmlFor="search-address">Address</label>
+                <input
+                    id="search-address"
+                    type="text"
+                    className={styles.input}
+                    placeholder="Street address"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    autoComplete="street-address"
+                />
+            </div>
+            <div className={styles.inputGroup}>
+                <label className={styles.label} htmlFor="search-zip">Zip Code</label>
+                <input
+                    id="search-zip"
+                    type="text"
+                    className={styles.input}
+                    placeholder="Zip"
+                    value={zip}
+                    onChange={(e) => setZip(e.target.value)}
+                    autoComplete="postal-code"
+                    inputMode="numeric"
+                />
+            </div>
             <div className={styles.inputGroup}>
                 <label className={styles.label} htmlFor="search-state">Location</label>
                 <select

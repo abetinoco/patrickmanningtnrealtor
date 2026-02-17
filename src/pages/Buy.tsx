@@ -2,7 +2,6 @@ import { Seo } from '../components/seo/Seo'
 import { defaultMeta } from '../seo/metaDefaults'
 import { Link } from 'react-router-dom'
 import { BuyHero } from '../components/hero/BuyHero'
-import { BuyerQuestionnaireForm } from '../components/forms/BuyerQuestionnaireForm'
 import { MortgageCalculator } from '../components/calculator/MortgageCalculator'
 import { IDXFeaturedShowcase } from '../components/idx'
 import { agentProfile } from '../data/agent'
@@ -92,7 +91,25 @@ const Buy = () => (
 
     <MortgageCalculator />
 
-    <BuyerQuestionnaireForm />
+    <section className={buyStyles.getStartedSection} aria-labelledby="get-started-heading">
+      <div className={buyStyles.getStartedInner}>
+        <div className="section-subtitle">Get Started</div>
+        <h2 id="get-started-heading" className="section-title">
+          Tell Us About Your Home Search
+        </h2>
+        <p className={buyStyles.getStartedCopy}>
+          Complete this questionnaire and Patrick will prepare personalized recommendations for your home search.
+        </p>
+        <a
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfo5CToatY-U8AViEnhNETb1wlZxy6W46xOtlg8anCGY-8RxA/viewform?usp=pp_url"
+          target="_blank"
+          rel="noreferrer"
+          className={buyStyles.getStartedButton}
+        >
+          Complete Buyer Questionnaire
+        </a>
+      </div>
+    </section>
 
     <section className={styles.homeCtaSection} aria-labelledby="buy-cta-heading">
       <div className={styles.homeCtaInner}>

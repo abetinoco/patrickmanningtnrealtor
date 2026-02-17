@@ -101,6 +101,50 @@
   margin-bottom: 0;
 }
 
+/* Get Started Section */
+.getStartedSection {
+  padding: 5rem 0;
+  background: var(--surface-primary);
+  border-top: 1px solid var(--border-light);
+}
+
+.getStartedInner {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  text-align: center;
+}
+
+.getStartedCopy {
+  max-width: 520px;
+  margin: 0 auto 2rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+.getStartedButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2rem;
+  background: var(--gradient-primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+  box-shadow: 0 4px 16px rgba(79, 224, 208, 0.3);
+}
+
+.getStartedButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(79, 224, 208, 0.4);
+}
+
 /* Marketing Section */
 .marketingSection {
   padding: 4rem 0;
@@ -244,6 +288,14 @@
   .benefitsSection,
   .marketingSection {
     padding: 3rem 0;
+  }
+
+  .getStartedSection {
+    padding: 3rem 0;
+  }
+
+  .getStartedCopy {
+    margin-bottom: 1.5rem;
   }
 
   .marketingGrid {
