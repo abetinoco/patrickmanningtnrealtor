@@ -3,7 +3,7 @@ export const agentProfile = {
   designation: 'Realtor & Home Lifestyle Expert',
   tagline: 'Realtor & Home Lifestyle Expert',
   phone: '+1 615-302-8000',
-  email: 'pmanningtnrealtor@gmail.com',
+  email: 'patrick@patrickmanningrealtor.com',
   brokerage: {
     name: 'Real Broker, LLC',
     officeTennessee: '1 Music Cir North, Suite 318, Nashville, TN 37203',

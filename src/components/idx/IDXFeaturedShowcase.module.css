@@ -23,8 +23,37 @@
   line-height: 1.7;
 }
 
+.twoColumnGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.stateColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stateLabel {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+}
+
 .widgetWrapper {
   /* Additional styling for the widget container */
+}
+
+@media (max-width: 900px) {
+  .twoColumnGrid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* =====================================================

@@ -4,6 +4,8 @@ import styles from './IDXWidget.module.css'
 
 interface IDXWidgetProps {
   widgetId: string
+  /** Optional URL params (e.g. idxID for KY/WKRMLS feed) */
+  queryParams?: Record<string, string>
   className?: string
   minHeight?: string
 }
@@ -14,11 +16,12 @@ interface IDXWidgetProps {
  */
 export const IDXWidget = ({
   widgetId,
+  queryParams,
   className = '',
   minHeight = '400px',
 }: IDXWidgetProps) => {
-  const scriptUrl = getWidgetScriptUrl(widgetId)
-  const scriptId = `idxwidgetsrc-${widgetId}`
+  const scriptUrl = getWidgetScriptUrl(widgetId, queryParams)
+  const scriptId = `idxwidgetsrc-${widgetId}${queryParams?.idxID ? '-ky' : ''}`
   
   // Create iframe srcdoc with the widget script
   const iframeSrc = useMemo(() => {

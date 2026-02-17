@@ -35,9 +35,14 @@ export const IDX_CONFIG = {
 
 /**
  * Generate the widget script URL
+ * @param widgetId - IDX widget ID
+ * @param params - optional query params (e.g. { idxID: 'a463', commingle: '' } for WKRMLS/KY)
  */
-export const getWidgetScriptUrl = (widgetId: string): string => {
-  return `https://patrickmanningrealtor.idxbroker.com/idx/widgets/${widgetId}`
+export const getWidgetScriptUrl = (widgetId: string, params?: Record<string, string>): string => {
+  const base = `https://patrickmanningrealtor.idxbroker.com/idx/widgets/${widgetId}`
+  if (!params || Object.keys(params).length === 0) return base
+  const search = new URLSearchParams(params).toString()
+  return `${base}?${search}`
 }
 
 /**

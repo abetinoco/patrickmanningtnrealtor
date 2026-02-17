@@ -2,6 +2,9 @@ import { agentProfile } from '../../data/agent'
 import { PropertySearchForm } from '../search/PropertySearchForm'
 import styles from './HeroBanner.module.css'
 
+const BUYER_QUESTIONNAIRE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfo5CToatY-U8AViEnhNETb1wlZxy6W46xOtlg8anCGY-8RxA/viewform?usp=pp_url'
+const SELLER_QUESTIONNAIRE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdIKMhCGY10fJqKytzmPD9Q2E2Zy9asrkst2gOXNd6XGt_35A/viewform?usp=pp_url'
+
 export const HeroBanner = () => {
   const { hero, valueMetrics } = agentProfile
   const backgroundImage = hero.backgroundImage || ''
@@ -37,9 +40,32 @@ export const HeroBanner = () => {
           </h1>
           <p className={styles.subtitle}>{hero.subheadline}</p>
 
-          {/* Desktop-only search bar - in content flow */}
+          {/* Search bar – browse listings */}
           <div className={styles.desktopSearchBar}>
             <PropertySearchForm variant="hero" />
+          </div>
+
+          {/* Get started – Buyer & Seller questionnaires */}
+          <div className={styles.questionnaireSection}>
+            <p className={styles.questionnaireLabel}>Get started with Patrick</p>
+            <div className={styles.questionnaireButtons}>
+              <a
+                href={BUYER_QUESTIONNAIRE_URL}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.questionnaireButton}
+              >
+                I&apos;m Buying
+              </a>
+              <a
+                href={SELLER_QUESTIONNAIRE_URL}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.questionnaireButton}
+              >
+                I&apos;m Selling
+              </a>
+            </div>
           </div>
 
           <div className={styles.actions}>
@@ -78,9 +104,14 @@ export const HeroBanner = () => {
             <p className={styles.profileTag}>Real Broker, LLC</p>
             <div className={styles.profileName}>{agentProfile.name}</div>
             <p className={styles.profileRole}>{agentProfile.designation}</p>
-            <a className={styles.profileContact} href={`tel:${phoneHref}`}>
-              Call/Text {agentProfile.phone}
-            </a>
+            <div className={styles.profileButtons}>
+              <a className={styles.profileButton} href={`tel:${phoneHref}`}>
+                Call/Text {agentProfile.phone}
+              </a>
+              <a className={styles.profileButtonSecondary} href={`mailto:${agentProfile.email}`}>
+                {agentProfile.email}
+              </a>
+            </div>
           </div>
         </aside>
       </div>
@@ -102,6 +133,24 @@ export const HeroBanner = () => {
         >
           Realtor & Home Lifestyle Expert
         </p>
+        <div className={styles.mobileQuestionnaires}>
+          <a
+            href={BUYER_QUESTIONNAIRE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.mobileQuestionnaireBtn}
+          >
+            I&apos;m Buying
+          </a>
+          <a
+            href={SELLER_QUESTIONNAIRE_URL}
+            target="_blank"
+            rel="noreferrer"
+            className={styles.mobileQuestionnaireBtn}
+          >
+            I&apos;m Selling
+          </a>
+        </div>
         <div className={styles.mobileActions}>
           <a
             className={styles.mobilePrimaryCta}

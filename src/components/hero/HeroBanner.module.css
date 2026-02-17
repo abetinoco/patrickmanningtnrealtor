@@ -80,6 +80,48 @@
   max-width: 720px;
 }
 
+/* Questionnaire section – Get started with Patrick */
+.questionnaireSection {
+  margin-top: 1rem;
+}
+
+.questionnaireLabel {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0 0 0.5rem;
+}
+
+.questionnaireButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.questionnaireButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+  color: #050708;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(79, 224, 208, 0.35);
+}
+
+.questionnaireButton:hover,
+.questionnaireButton:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(79, 224, 208, 0.45);
+}
+
+.questionnaireButton:nth-child(2) {
+  background: linear-gradient(135deg, rgba(79, 224, 208, 0.9), rgba(79, 224, 208, 0.6));
+  border: 1px solid rgba(79, 224, 208, 0.5);
+}
+
 /* Mobile search - in flow within mobileHero (no longer a separate absolute bar) */
 .mobileSearch {
   display: none;
@@ -212,17 +254,53 @@
   color: var(--text-secondary);
 }
 
-.profileContact {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  margin-top: 0.5rem;
-  color: var(--accent-primary);
-  font-weight: 600;
+.profileButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
 }
 
-.profileContact:hover {
+.profileButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+  color: #050708;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(79, 224, 208, 0.35);
+}
+
+.profileButton:hover,
+.profileButton:focus {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 224, 208, 0.45);
+}
+
+.profileButtonSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  font-weight: 600;
+  text-decoration: none;
+  background: transparent;
+  transition: all var(--transition-fast);
+}
+
+.profileButtonSecondary:hover,
+.profileButtonSecondary:focus {
+  background: rgba(79, 224, 208, 0.12);
+  border-color: var(--accent-tertiary);
   color: var(--accent-tertiary);
+  transform: translateY(-1px);
 }
 
 .statValue {
@@ -454,6 +532,35 @@
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.6);
     max-width: 300px;
     line-height: 1.4;
+  }
+
+  .mobileQuestionnaires {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 340px;
+    margin: 0 0 0.75rem;
+  }
+
+  .mobileQuestionnaireBtn {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.55rem 0.85rem;
+    border-radius: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-decoration: none;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-tertiary));
+    color: #050708;
+    transition: all var(--transition-fast);
+  }
+
+  .mobileQuestionnaireBtn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 224, 208, 0.4);
   }
 
   .mobileActions {

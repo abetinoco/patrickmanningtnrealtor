@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/property-listings/sitemap",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/property-listings/:path*",
+      "destination": "/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

@@ -10,7 +10,7 @@ interface IDXFeaturedShowcaseProps {
 }
 
 /**
- * Featured Showcase widget displaying MLS listings.
+ * Featured Showcase: 2 widgets – 1 Tennessee (RealTracs), 1 Kentucky (WKRMLS).
  * Configured in IDX Broker control panel.
  */
 export const IDXFeaturedShowcase = ({
@@ -19,7 +19,8 @@ export const IDXFeaturedShowcase = ({
   description = 'Explore our curated selection of homes across Middle Tennessee and Western Kentucky.',
   showHeader = true,
 }: IDXFeaturedShowcaseProps) => {
-  const widgetId = IDX_CONFIG.widgets.featuredShowcase.id
+  const { id: widgetId } = IDX_CONFIG.widgets.featuredShowcase
+  const { wkrmlsIdxId } = IDX_CONFIG
 
   return (
     <section className={styles.section} aria-labelledby="featured-listings-heading">
@@ -33,10 +34,25 @@ export const IDXFeaturedShowcase = ({
             <p className={styles.description}>{description}</p>
           </div>
         )}
-        <IDXWidget
-          widgetId={widgetId}
-          className={styles.widgetWrapper}
-        />
+        <div className={styles.twoColumnGrid}>
+          <div className={styles.stateColumn}>
+            <h3 className={styles.stateLabel}>Tennessee</h3>
+            <IDXWidget
+              widgetId={widgetId}
+              className={styles.widgetWrapper}
+              minHeight="480px"
+            />
+          </div>
+          <div className={styles.stateColumn}>
+            <h3 className={styles.stateLabel}>Kentucky</h3>
+            <IDXWidget
+              widgetId={widgetId}
+              queryParams={{ idxID: wkrmlsIdxId, commingle: '' }}
+              className={styles.widgetWrapper}
+              minHeight="480px"
+            />
+          </div>
+        </div>
       </div>
     </section>
   )

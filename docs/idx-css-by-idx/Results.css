@@ -280,7 +280,7 @@ div.idx-results-refinement__overlay.idx-results-refinement__toggle {
   font-weight: 700 !important;
 }
 
-/* Refinement bar – teal buttons. Use button#id (never matches <a> pagination links) */
+/* Refinement bar – teal buttons, dark grey text. Use button#id (never matches <a> pagination links) */
 button#idx-refinement-price,
 button#idx-refinement-bd,
 button#idx-refinement-tb,
@@ -288,7 +288,7 @@ button#idx-refinement-more,
 button#IDX-refineSubmit {
   background-color: #38e0c3 !important;
   border-color: #38e0c3 !important;
-  color: #fff !important;
+  color: #1a2332 !important;
 }
 button#idx-refinement-price:hover,
 button#idx-refinement-bd:hover,
@@ -297,10 +297,10 @@ button#idx-refinement-more:hover,
 button#IDX-refineSubmit:hover {
   background-color: #2bc9b0 !important;
   border-color: #2bc9b0 !important;
-  color: #fff !important;
+  color: #1a2332 !important;
 }
 
-/* ========== SUBMIT / SAVE BUTTONS – white text on teal ========== */
+/* ========== SUBMIT / SAVE BUTTONS – dark grey text on teal ========== */
 .IDX-resultsPage input[type="submit"],
 .IDX-resultsPage button[type="submit"],
 .IDX-resultsPage .IDX-btn-primary,
@@ -314,7 +314,14 @@ a.IDX-btn-primary,
 a.IDX-btn.IDX-btn-primary {
   background-color: #38e0c3 !important;
   border-color: #38e0c3 !important;
-  color: #fff !important;
+  color: #1a2332 !important;
+}
+.IDX-resultsPage input[type="submit"] *,
+.IDX-resultsPage button[type="submit"] *,
+#IDX-saveSearch *,
+a#IDX-saveSearch *,
+a.IDX-btn-primary * {
+  color: #1a2332 !important;
 }
 
 /* ========== MOBILE RESULTS BAR (FILTER / SAVE / etc) – top, light bg ========== */
