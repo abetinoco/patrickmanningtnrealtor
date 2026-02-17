@@ -116,6 +116,28 @@
   line-height: 1.6;
 }
 
+.officeItem > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.officeAddress {
+  color: var(--text-secondary);
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.officeAddress:hover {
+  color: var(--accent-primary);
+}
+
+.officeBroker {
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+  display: block;
+}
+
 
 .compliancePanel {
   grid-column: 1 / -1;

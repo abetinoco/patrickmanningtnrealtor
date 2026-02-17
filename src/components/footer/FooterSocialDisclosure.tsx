@@ -106,6 +106,8 @@ const LocationIcon = () => (
 export const FooterSocialDisclosure = () => {
   const primaryLinks = navigation.slice(0, 4)
   const secondaryLinks = navigation.slice(4)
+  const tennesseeBroker = agentProfile.brokerage.managingBrokers.find((b) => b.region === 'Tennessee')
+  const kentuckyBroker = agentProfile.brokerage.managingBrokers.find((b) => b.region === 'Kentucky')
 
   const navIcons: Record<string, React.ReactElement> = {
     'Home': <HomeIcon />,
@@ -180,28 +182,34 @@ export const FooterSocialDisclosure = () => {
 
         <div className={styles.linkColumn}>
           <div className={styles.linkHeading}>Brokerage Offices</div>
-          <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(agentProfile.brokerage.officeTennessee)}`}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.officeItem}
-          >
+          <div className={styles.officeItem}>
             <LocationIcon />
-            <p>
-              {agentProfile.brokerage.officeTennessee}
-            </p>
-          </a>
-          <a
-            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(agentProfile.brokerage.officeKentucky)}`}
-            target="_blank"
-            rel="noreferrer"
-            className={styles.officeItem}
-          >
+            <div>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(agentProfile.brokerage.officeTennessee)}`}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.officeAddress}
+              >
+                {agentProfile.brokerage.officeTennessee}
+              </a>
+              <span className={styles.officeBroker}>{tennesseeBroker?.name} {tennesseeBroker?.phone}</span>
+            </div>
+          </div>
+          <div className={styles.officeItem}>
             <LocationIcon />
-            <p>
-              {agentProfile.brokerage.officeKentucky}
-            </p>
-          </a>
+            <div>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(agentProfile.brokerage.officeKentucky)}`}
+                target="_blank"
+                rel="noreferrer"
+                className={styles.officeAddress}
+              >
+                {agentProfile.brokerage.officeKentucky}
+              </a>
+              <span className={styles.officeBroker}>{kentuckyBroker?.name} {kentuckyBroker?.phone}</span>
+            </div>
+          </div>
         </div>
 
         <div className={styles.compliancePanel}>

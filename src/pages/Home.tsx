@@ -61,9 +61,14 @@ const Home = () => (
               <span className={styles.homeCtaProfileTag}>Real Broker, LLC</span>
               <span className={styles.homeCtaProfileName}>Patrick Manning</span>
               <span className={styles.homeCtaProfileRole}>Real Estate Advisor</span>
-              <a className={styles.homeCtaProfileLink} href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`}>
-                Call or Text {agentProfile.phone}
-              </a>
+              <div className={styles.homeCtaProfileActions}>
+                <a className={styles.homeCtaProfileButton} href={`tel:${agentProfile.phone.replace(/[^\d+]/g, '')}`}>
+                  Call or Text {agentProfile.phone}
+                </a>
+                <a className={styles.homeCtaProfileButton} href={`mailto:${agentProfile.email}`}>
+                  Email Patrick
+                </a>
+              </div>
             </div>
           </div>
         </div>

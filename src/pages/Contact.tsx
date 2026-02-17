@@ -1,7 +1,5 @@
 import { Seo } from '../components/seo/Seo'
 import { defaultMeta } from '../seo/metaDefaults'
-import { ContactHero } from '../components/hero/ContactHero'
-import { LeadCaptureForm } from '../components/forms/LeadCaptureForm'
 import { agentProfile } from '../data/agent'
 import styles from './Contact.module.css'
 
@@ -35,19 +33,7 @@ const Contact = () => {
         openGraph={defaultMeta.openGraph}
         canonical="https://patrickmanningrealtor.com/contact"
       />
-      <ContactHero
-        kicker="Contact"
-        title="Let's Talk About Your Move"
-        subtitle="Call, text, or message any time to talk daily routines, commutes, schools, or next steps—Patrick tailors every plan to the way you actually live."
-        ctaButton={{ label: "Schedule a Consultation", href: "#calendly" }}
-        stats={[
-          { value: "7 Days", label: "Availability" },
-          { value: "1 Hour", label: "Avg. Response" },
-          { value: "TN & KY", label: "Licensed" },
-        ]}
-      />
-
-      {/* Calendly Booking Widget – top under hero */}
+      {/* Calendly Booking Widget */}
       <section id="calendly" className={styles.calendlySection}>
         <div className={styles.calendlyHeader}>
           <div className="section-subtitle">Schedule a Consultation</div>
@@ -70,29 +56,56 @@ const Contact = () => {
 
       <section className={styles.wrapper}>
         <div className={styles.grid}>
-          <LeadCaptureForm />
+          <article className={styles.panel}>
+            <h2 className="section-title">Get Started</h2>
+            <p className={styles.panelIntro}>
+              Complete a questionnaire so Patrick can prepare personalized recommendations for your move.
+            </p>
+            <div className={styles.formLinks}>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSfo5CToatY-U8AViEnhNETb1wlZxy6W46xOtlg8anCGY-8RxA/viewform?usp=pp_url"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.formLinkButton}
+              >
+                Buyer Questionnaire
+              </a>
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdIKMhCGY10fJqKytzmPD9Q2E2Zy9asrkst2gOXNd6XGt_35A/viewform?usp=pp_url"
+                target="_blank"
+                rel="noreferrer"
+                className={styles.formLinkButton}
+              >
+                Seller Questionnaire
+              </a>
+            </div>
+          </article>
 
           <article className={styles.panel}>
             <h2 className="section-title">Direct Lines</h2>
             <ul className={styles.detailList}>
-              <li>
-                Phone: <a href={`tel:${agentPhoneSanitized}`}>{agentProfile.phone}</a>
+              <li className={styles.detailItem}>
+                <a href={`tel:${agentPhoneSanitized}`} className={styles.contactButton}>
+                  Call or Text {agentProfile.phone}
+                </a>
               </li>
-              <li>
-                Email: <a href={`mailto:${agentProfile.email}`}>{agentProfile.email}</a>
+              <li className={styles.detailItem}>
+                <a href={`mailto:${agentProfile.email}`} className={styles.contactButton}>
+                  Email Patrick
+                </a>
               </li>
-              <li>
+              <li className={styles.detailItem}>
                 Broker Team Email:{' '}
                 <a href={`mailto:${agentProfile.brokerage.teamEmail}`}>{agentProfile.brokerage.teamEmail}</a>
               </li>
               {agentProfile.brokerage.teamPhone && teamPhoneSanitized && (
-                <li>
+                <li className={styles.detailItem}>
                   Broker Team Phone: <a href={`tel:${teamPhoneSanitized}`}>{agentProfile.brokerage.teamPhone}</a>
                 </li>
               )}
-              <li>{agentProfile.brokerage.name}</li>
-              <li>{agentProfile.brokerage.officeTennessee}</li>
-              <li>{agentProfile.brokerage.officeKentucky}</li>
+              <li className={styles.detailItem}>{agentProfile.brokerage.name}</li>
+              <li className={styles.detailItem}>{agentProfile.brokerage.officeTennessee}</li>
+              <li className={styles.detailItem}>{agentProfile.brokerage.officeKentucky}</li>
             </ul>
           </article>
         </div>
