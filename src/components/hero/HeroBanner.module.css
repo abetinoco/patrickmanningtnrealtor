@@ -288,7 +288,7 @@
   padding: 0.65rem 1rem;
   border-radius: var(--radius-md);
   border: 1px solid var(--accent-primary);
-  color: var(--accent-primary);
+  color: #050708;
   font-weight: 600;
   text-decoration: none;
   background: transparent;
@@ -299,7 +299,7 @@
 .profileButtonSecondary:focus {
   background: rgba(79, 224, 208, 0.12);
   border-color: var(--accent-tertiary);
-  color: var(--accent-tertiary);
+  color: #050708;
   transform: translateY(-1px);
 }
 
