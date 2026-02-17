@@ -47,6 +47,27 @@ const Contact = () => {
         ]}
       />
 
+      {/* Calendly Booking Widget – top under hero */}
+      <section id="calendly" className={styles.calendlySection}>
+        <div className={styles.calendlyHeader}>
+          <div className="section-subtitle">Schedule a Consultation</div>
+          <h2 className="section-title">Book Time with Patrick</h2>
+          <p className={styles.calendlyIntro}>
+            Select a convenient time for your real estate consultation. Patrick will discuss your goals, answer questions, and help you plan your next move.
+          </p>
+        </div>
+        <div className={styles.calendlyWidget}>
+          <iframe
+            src="https://calendly.com/pmanningtnrealtor/realestateconsultation?hide_gdpr_banner=1&background_color=0a0f16&text_color=f5f7fa&primary_color=4fe0d0"
+            width="100%"
+            height="700"
+            frameBorder="0"
+            title="Schedule a consultation with Patrick Manning"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
       <section className={styles.wrapper}>
         <div className={styles.grid}>
           <LeadCaptureForm />
@@ -75,27 +96,6 @@ const Contact = () => {
             </ul>
           </article>
         </div>
-
-        {/* Calendly Booking Widget */}
-        <section className={styles.calendlySection}>
-          <div className={styles.calendlyHeader}>
-            <div className="section-subtitle">Schedule a Consultation</div>
-            <h2 className="section-title">Book Time with Patrick</h2>
-            <p className={styles.calendlyIntro}>
-              Select a convenient time for your real estate consultation. Patrick will discuss your goals, answer questions, and help you plan your next move.
-            </p>
-          </div>
-          <div className={styles.calendlyWidget}>
-            <iframe
-              src="https://calendly.com/pmanningtnrealtor/realestateconsultation?hide_gdpr_banner=1&background_color=0a0f16&text_color=f5f7fa&primary_color=4fe0d0"
-              width="100%"
-              height="700"
-              frameBorder="0"
-              title="Schedule a consultation with Patrick Manning"
-              loading="lazy"
-            />
-          </div>
-        </section>
 
         <div className={styles.officeGrid}>
           <article className={styles.officeCard}>

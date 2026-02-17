@@ -23,6 +23,7 @@ export const ContactHero = ({
     stats,
 }: ContactHeroProps) => {
     const isExternal = ctaButton?.href.startsWith('http')
+    const isHashAnchor = ctaButton?.href.startsWith('#')
 
     return (
         <section className={styles.hero}>
@@ -35,6 +36,10 @@ export const ContactHero = ({
                     {ctaButton && (
                         isExternal ? (
                             <a href={ctaButton.href} className={styles.ctaButton} target="_blank" rel="noreferrer">
+                                {ctaButton.label}
+                            </a>
+                        ) : isHashAnchor ? (
+                            <a href={ctaButton.href} className={styles.ctaButton}>
                                 {ctaButton.label}
                             </a>
                         ) : (

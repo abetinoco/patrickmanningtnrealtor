@@ -90,67 +90,6 @@ const Buy = () => (
       </div>
     </section>
 
-    {/* Neighborhood Spotlight */}
-    <section className={buyStyles.neighborhoodSection}>
-      <div className={buyStyles.container}>
-        <div className="section-subtitle">Market Expertise</div>
-        <h2 className="section-title">Middle Tennessee's Premier Communities</h2>
-        <p className={buyStyles.intro}>
-          Patrick works across the Greater Nashville corridor, curating neighborhoods that match lifestyle, commute, and long-term goals.
-        </p>
-        <div className={buyStyles.neighborhoodGrid}>
-          <article className={buyStyles.neighborhoodCard}>
-            <h3 className={buyStyles.neighborhoodName}>Williamson County</h3>
-            <p className={buyStyles.neighborhoodDescription}>
-              Brentwood, Franklin, and Arrington offer top-rated schools, gated communities, and beautiful
-              estates on sprawling acreage. A highly sought-after area in the Nashville region.
-            </p>
-            <div className={buyStyles.neighborhoodStats}>
-              <span>Median: $950K+</span>
-              <span>•</span>
-              <span>A-Rated Schools</span>
-            </div>
-          </article>
-          <article className={buyStyles.neighborhoodCard}>
-            <h3 className={buyStyles.neighborhoodName}>Maury County</h3>
-            <p className={buyStyles.neighborhoodDescription}>
-              Spring Hill and Columbia deliver modern new construction, master-planned communities,
-              and exceptional value for growing families seeking suburban tranquility.
-            </p>
-            <div className={buyStyles.neighborhoodStats}>
-              <span>Median: $475K+</span>
-              <span>•</span>
-              <span>New Construction Hub</span>
-            </div>
-          </article>
-          <article className={buyStyles.neighborhoodCard}>
-            <h3 className={buyStyles.neighborhoodName}>Greater Nashville</h3>
-            <p className={buyStyles.neighborhoodDescription}>
-              Belle Meade, Green Hills, and Forest Hills blend historic charm with urban convenience—
-              walkable neighborhoods minutes from downtown Nashville's cultural core.
-            </p>
-            <div className={buyStyles.neighborhoodStats}>
-              <span>Median: $1.2M+</span>
-              <span>•</span>
-              <span>Urban Living</span>
-            </div>
-          </article>
-          <article className={buyStyles.neighborhoodCard}>
-            <h3 className={buyStyles.neighborhoodName}>Western Kentucky</h3>
-            <p className={buyStyles.neighborhoodDescription}>
-              Bowling Green and surrounding counties provide great value, low property taxes,
-              and easy access to Nashville—ideal for buyers seeking affordability.
-            </p>
-            <div className={buyStyles.neighborhoodStats}>
-              <span>Median: $385K+</span>
-              <span>•</span>
-              <span>Tax Advantage</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <MortgageCalculator />
 
     <BuyerQuestionnaireForm />
