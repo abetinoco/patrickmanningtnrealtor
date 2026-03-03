@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import styles from './PropertySearchForm.module.css'
 
 interface PropertySearchFormProps {
-    variant?: 'hero' | 'page' | 'compact'
+    variant?: 'hero' | 'page' | 'compact' | 'mobile'
 }
 
 // States - filters results by MLS feed (RealTracs = TN, WKRMLS = KY)
@@ -87,7 +87,42 @@ export const PropertySearchForm = ({ variant = 'hero' }: PropertySearchFormProps
         ? styles.containerCompact
         : variant === 'page'
             ? styles.containerPage
-            : styles.container
+            : variant === 'mobile'
+                ? styles.containerMobile
+                : styles.container
+
+    if (variant === 'mobile') {
+        return (
+            <form className={containerClass} onSubmit={handleSubmit}>
+                <div className={styles.inputGroup}>
+                    <label className={styles.label} htmlFor="mobile-search-state">Location</label>
+                    <select
+                        id="mobile-search-state"
+                        className={styles.select}
+                        value={state}
+                        onChange={(e) => setState(e.target.value)}
+                    >
+                        {STATES.map((s) => (
+                            <option key={s.value} value={s.value}>{s.label}</option>
+                        ))}
+                    </select>
+                </div>
+                <button type="submit" className={styles.searchButton}>
+                    <svg
+                        className={styles.searchIcon}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                    >
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                    <span className={styles.searchText}>Search</span>
+                </button>
+            </form>
+        )
+    }
 
     return (
         <form className={containerClass} onSubmit={handleSubmit}>

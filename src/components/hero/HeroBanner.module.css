@@ -493,10 +493,9 @@
   /* Mobile search - centered, first in flow; "Find Your Perfect Home" sits below */
   .mobileSearch {
     display: flex;
-    justify-content: center;
+    justify-content: stretch;
     width: 100%;
-    max-width: 340px;
-    margin: 0 auto 1rem;
+    margin: 0 0 1rem;
     flex-shrink: 0;
   }
 
@@ -587,16 +586,17 @@
 
   .mobilePrimaryCta {
     background: var(--gradient-primary);
-    color: #ffffff;
+    color: #050708;
     font-weight: 700;
+    box-shadow: var(--shadow-md);
   }
 
   .mobileSecondaryCta {
-    background-color: rgba(255, 255, 255, 0.15);
-    color: #ffffff;
+    background: var(--surface-secondary);
+    color: var(--text-primary);
     font-weight: 600;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-medium);
   }
 
   /* Stats ticker - minimal space below to avoid excess white */

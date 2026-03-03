@@ -155,23 +155,12 @@ export const HeroBanner = () => {
           <a
             className={styles.mobilePrimaryCta}
             href={hero.primaryCta.href}
-            style={{
-              backgroundColor: 'var(--accent-primary)',
-              color: '#ffffff',
-              fontWeight: 700
-            }}
           >
             {hero.primaryCta.label}
           </a>
           <a
             className={styles.mobileSecondaryCta}
             href={hero.secondaryCta.href}
-            style={{
-              backgroundColor: 'rgba(255,255,255,0.15)',
-              color: '#ffffff',
-              backdropFilter: 'blur(10px)',
-              fontWeight: 600
-            }}
           >
             {hero.secondaryCta.label}
           </a>
