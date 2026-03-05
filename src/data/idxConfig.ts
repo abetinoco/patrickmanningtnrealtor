@@ -17,8 +17,18 @@ export const IDX_CONFIG = {
   widgets: {
     featuredShowcase: {
       id: '137093',
-      name: 'Featured Showcase',
+      name: 'Featured Showcase – Tennessee (RealTracs)',
       description: 'Displays featured MLS listings with property details',
+    },
+    /**
+     * Set this ID once a dedicated KY featured widget is created in the
+     * IDX Broker dashboard (copy featuredShowcase, configure for WKRMLS).
+     * Leave empty to fall back to the commingle-param approach on widget 137093.
+     */
+    kyFeaturedShowcase: {
+      id: '',
+      name: 'Featured Showcase – Kentucky (WKRMLS)',
+      description: 'Displays featured KY MLS listings — set id once created in IDX Broker',
     },
     basicSearch: {
       id: '139650',

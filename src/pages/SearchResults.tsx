@@ -1,5 +1,5 @@
-import { useSearchParams } from 'react-router-dom'
-import { useMemo, useEffect } from 'react'
+import { useSearchParams, useNavigate } from 'react-router-dom'
+import { useMemo, useEffect, useState } from 'react'
 import { IDX_CONFIG } from '../data/idxConfig'
 import styles from './SearchResults.module.css'
 
@@ -17,14 +17,16 @@ function inferStateFromZip(zip: string): 'TN' | 'KY' | null {
 
 const SearchResults = () => {
     const [searchParams] = useSearchParams()
+    const [isLoading, setIsLoading] = useState(true)
+    const navigate = useNavigate()
 
     // Build IDX Broker results URL from query params
     const idxUrl = useMemo(() => {
         const baseUrl = `https://${IDX_CONFIG.subdomain}/idx/results/listings`
         const params = new URLSearchParams()
 
-        // TN = default (RealTracs). KY = WKRMLS via idxID. Use zip to infer state when it
-        // conflicts with Location (e.g. KY zip + TN dropdown → use WKRMLS).
+        // TN = default (RealTracs). KY = WKRMLS via idxID.
+        // Use zip to infer state when it conflicts with Location dropdown.
         const urlState = searchParams.get('state')
         const zip = searchParams.get('zip')
         const inferredState = zip ? inferStateFromZip(zip) : null
@@ -33,14 +35,11 @@ const SearchResults = () => {
             params.set('idxID', IDX_CONFIG.wkrmlsIdxId)
             params.set('commingle', '')
         }
-        // TN: no params = default to RealTracs
 
-        // Address and zip - IDX Broker accepts address/zip params (varies by MLS)
         const address = searchParams.get('address')
         if (address) params.set('address', address)
         if (zip) params.set('zip', zip)
 
-        // Numeric filters - IDX shortcodes: lp, hp, bd, tb
         const minPrice = searchParams.get('lp')
         const maxPrice = searchParams.get('hp')
         const beds = searchParams.get('bd')
@@ -49,16 +48,15 @@ const SearchResults = () => {
         if (minPrice) params.set('lp', minPrice)
         if (maxPrice) params.set('hp', maxPrice)
         if (beds) params.set('bd', beds)
-        if (baths) params.set('tb', baths) // IDX uses "tb" for minimum total bathrooms
+        if (baths) params.set('tb', baths) // IDX uses "tb" for total baths minimum
 
-        // Default to residential property type
-        params.set('pt', '1')
+        params.set('pt', '1') // residential
 
         const queryString = params.toString()
         return queryString ? `${baseUrl}?${queryString}` : baseUrl
     }, [searchParams])
 
-    // Get readable search summary
+    // Human-readable summary of applied filters
     const searchSummary = useMemo(() => {
         const parts: string[] = []
         const address = searchParams.get('address')
@@ -77,17 +75,17 @@ const SearchResults = () => {
         if (minPrice || maxPrice) {
             const min = minPrice ? `$${(parseInt(minPrice) / 1000)}K` : ''
             const max = maxPrice ? `$${(parseInt(maxPrice) / 1000)}K` : ''
-            if (min && max) parts.push(`${min} - ${max}`)
+            if (min && max) parts.push(`${min}–${max}`)
             else if (min) parts.push(`${min}+`)
-            else if (max) parts.push(`Up to ${max}`)
+            else parts.push(`Up to ${max}`)
         }
         if (beds) parts.push(`${beds}+ beds`)
         if (baths) parts.push(`${baths}+ baths`)
 
-        return parts.length > 0 ? parts.join(' • ') : 'All Properties'
+        return parts.length > 0 ? parts.join(' · ') : 'All Properties'
     }, [searchParams])
 
-    /* IDX forum #1646: smooth scrolling in theme breaks clicks/scrolling – disable on this page */
+    // IDX iframe breaks with smooth-scroll enabled — disable it only on this route
     useEffect(() => {
         const html = document.documentElement
         const prev = html.style.scrollBehavior
@@ -99,23 +97,41 @@ const SearchResults = () => {
         <div className={styles.page}>
             <header className={styles.header}>
                 <div className={styles.headerContent}>
+                    <button
+                        className={styles.backButton}
+                        onClick={() => navigate('/buy')}
+                        aria-label="Back to search"
+                    >
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M19 12H5M12 5l-7 7 7 7" />
+                        </svg>
+                        <span>Refine Search</span>
+                    </button>
+
                     <div className={styles.headerTitle}>
                         <h1 className={styles.title}>Search Results</h1>
                         <span className={styles.summary}>{searchSummary}</span>
                     </div>
+
+                    <div className={styles.headerSpacer} />
                 </div>
             </header>
 
-            <main className={styles.resultsContainer}>
-                {/* No sandbox: IDX pagination and map require full iframe capabilities.
-                    Sandbox was blocking clicks/navigation in some environments. */}
+            <div className={styles.resultsContainer}>
+                {isLoading && (
+                    <div className={styles.loadingOverlay}>
+                        <div className={styles.spinner} />
+                        <p className={styles.loadingText}>Loading listings…</p>
+                    </div>
+                )}
                 <iframe
                     key={idxUrl}
                     src={idxUrl}
-                    className={styles.resultsFrame}
+                    className={`${styles.resultsFrame} ${isLoading ? styles.resultsFrameHidden : ''}`}
                     title="Property Search Results"
+                    onLoad={() => setIsLoading(false)}
                 />
-            </main>
+            </div>
         </div>
     )
 }

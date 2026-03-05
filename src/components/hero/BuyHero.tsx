@@ -1,5 +1,8 @@
+import { agentProfile } from '../../data/agent'
 import { PropertySearchForm } from '../search/PropertySearchForm'
 import styles from './BuyHero.module.css'
+
+const BUYER_QUESTIONNAIRE_URL = agentProfile.forms.buyerQuestionnaire
 
 interface BuyHeroProps {
     kicker?: string
@@ -26,8 +29,21 @@ export const BuyHero = ({
                     {subtitle && <p className={styles.subtitle}>{subtitle}</p>}
 
                     <div className={styles.searchBar}>
-                        <PropertySearchForm variant="page" />
+                        <PropertySearchForm variant="hero" />
                     </div>
+
+                    <div className={styles.orDivider}>
+                        <span>or</span>
+                    </div>
+
+                    <a
+                        href={BUYER_QUESTIONNAIRE_URL}
+                        target="_blank"
+                        rel="noreferrer"
+                        className={styles.questionnaireLink}
+                    >
+                        Tell Patrick what you're looking for →
+                    </a>
 
                     {stats && stats.length > 0 && (
                         <div className={styles.stats}>
@@ -41,17 +57,6 @@ export const BuyHero = ({
                     )}
                 </div>
 
-                <div className={styles.visual}>
-                    <div className={styles.visualCard}>
-                        <div className={styles.visualImage}>
-                            <img src="/media/buy.jpg" alt="Beautiful home in Middle Tennessee" loading="eager" />
-                        </div>
-                        <div className={styles.visualOverlay}>
-                            <span className={styles.visualBadge}>New Listings Daily</span>
-                        </div>
-                    </div>
-                    <div className={styles.visualAccent} aria-hidden="true" />
-                </div>
             </div>
         </section>
     )

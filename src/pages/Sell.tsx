@@ -20,9 +20,8 @@ const Sell = () => (
       kicker="For Sellers"
       title="Sell with Confidence"
       subtitle="Strategic marketing and expert negotiation to maximize your home's value. Patrick's content-driven approach shows buyers how your home fits their lifestyle."
-      ctaButton={{ label: "Get a Home Valuation", href: "#home-valuation" }}
       stats={[
-        { value: "$65M+", label: "Homes Sold" },
+        { value: "$60M+", label: "In Transactions" },
         { value: "98%", label: "List to Sale" },
         { value: "14 Days", label: "Avg. on Market" },
       ]}
@@ -139,7 +138,7 @@ const Sell = () => (
           Complete this questionnaire and Patrick will prepare personalized recommendations for your home sale.
         </p>
         <a
-          href="https://docs.google.com/forms/d/e/1FAIpQLSdIKMhCGY10fJqKytzmPD9Q2E2Zy9asrkst2gOXNd6XGt_35A/viewform?usp=pp_url"
+          href={agentProfile.forms.sellerQuestionnaire}
           target="_blank"
           rel="noreferrer"
           className={styles.getStartedButton}

@@ -105,11 +105,33 @@ export const NavigationBar = () => {
           </Link>
 
           <nav className={styles.primaryNav} aria-label="Primary">
-            {navigation.map((item) => (
-              <NavLink key={item.label} to={item.path} className={navLinkClass}>
-                {item.label}
-              </NavLink>
-            ))}
+            {navigation.map((item) =>
+              item.children && item.children.length > 0 ? (
+                <div key={item.label} className={styles.navItem}>
+                  <NavLink to={item.path} className={navLinkClass}>
+                    {item.label}
+                  </NavLink>
+                  <div className={styles.dropdown} role="menu">
+                    {item.children.map((child) => (
+                      <NavLink
+                        key={child.label}
+                        to={child.path}
+                        role="menuitem"
+                        className={({ isActive }) =>
+                          `${styles.dropdownLink} ${isActive ? styles.dropdownLinkActive : ''}`.trim()
+                        }
+                      >
+                        {child.label}
+                      </NavLink>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <NavLink key={item.label} to={item.path} className={navLinkClass}>
+                  {item.label}
+                </NavLink>
+              )
+            )}
           </nav>
 
           <div className={styles.utilityRow}>
@@ -149,19 +171,34 @@ export const NavigationBar = () => {
             <div className={styles.overlayGrid}>
               <div className={styles.overlayPrimary}>
                 {navigation.map((item) => (
-                  <NavLink
-                    key={item.label}
-                    to={item.path}
-                    className={({ isActive }) =>
-                      `${styles.overlayLink} ${isActive ? styles.overlayLinkActive : ''}`.trim()
-                    }
-                    onClick={closeMenu}
-                  >
-                    <span>{item.label}</span>
-                    <span className={styles.overlayArrow} aria-hidden="true">
-                      ↗
-                    </span>
-                  </NavLink>
+                  <div key={item.label}>
+                    <NavLink
+                      to={item.path}
+                      className={({ isActive }) =>
+                        `${styles.overlayLink} ${isActive ? styles.overlayLinkActive : ''}`.trim()
+                      }
+                      onClick={closeMenu}
+                    >
+                      <span>{item.label}</span>
+                      <span className={styles.overlayArrow} aria-hidden="true">
+                        ↗
+                      </span>
+                    </NavLink>
+                    {item.children && item.children.length > 0 && (
+                      <div className={styles.overlaySublinkGroup}>
+                        {item.children.map((child) => (
+                          <NavLink
+                            key={child.label}
+                            to={child.path}
+                            className={styles.overlaySublink}
+                            onClick={closeMenu}
+                          >
+                            {child.label}
+                          </NavLink>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
 
@@ -207,7 +244,7 @@ export const NavigationBar = () => {
                         target="_blank"
                         rel="noreferrer"
                         className={styles.socialLink}
-                        aria-label={network}
+                        aria-label={`Visit Patrick Manning on ${network.charAt(0).toUpperCase() + network.slice(1)}`}
                       >
                         <span className={styles.socialIcon}>{socialIcons[network] ?? '•'}</span>
                         <span className={styles.socialLabel}>{network}</span>

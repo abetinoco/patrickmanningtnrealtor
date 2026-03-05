@@ -20,22 +20,33 @@ export const LeadCaptureForm = ({ layout = 'inline' }: LeadCaptureFormProps) => 
     const payload = Object.fromEntries(formData)
 
     const crmEndpoint = import.meta.env.VITE_CRM_ENDPOINT
+    const web3FormsKey = import.meta.env.VITE_WEB3FORMS_KEY
 
     try {
-      if (!crmEndpoint) {
-        console.warn('CRM endpoint is not configured. Define VITE_CRM_ENDPOINT to enable submissions.')
-        setStatus('success')
-        return
-      }
-
-      const response = await fetch(crmEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      })
-
-      if (!response.ok) {
-        throw new Error('Submission failed')
+      if (crmEndpoint) {
+        const response = await fetch(crmEndpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        })
+        if (!response.ok) throw new Error('CRM submission failed')
+      } else if (web3FormsKey) {
+        // Fall back to Web3Forms when no CRM endpoint is configured
+        const response = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            access_key: web3FormsKey,
+            subject: 'New Lead — Tell Us About Your Move',
+            from_name: 'Patrick Manning Website',
+            ...payload,
+          }),
+        })
+        const result = await response.json()
+        if (!result.success) throw new Error(result.message ?? 'Web3Forms submission failed')
+      } else {
+        // No submission endpoint configured — show error so no lead is silently lost
+        throw new Error('No form endpoint configured')
       }
 
       setStatus('success')

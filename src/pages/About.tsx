@@ -99,7 +99,7 @@ const About = () => (
     <section className={styles.milestonesSection}>
       <div className={styles.container}>
         <div className="section-subtitle">Track Record</div>
-        <h2 className="section-title">Since 2017: Excellence in Real Estate</h2>
+        <h2 className="section-title">Since 2018: Excellence in Real Estate</h2>
         <p className={styles.intro}>
           Since 2018, Patrick has built a reputation for delivering exceptional results across Middle Tennessee and
           Western Kentucky. His client-first approach and market knowledge have helped buyers, sellers, and

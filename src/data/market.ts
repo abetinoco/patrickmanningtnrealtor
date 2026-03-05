@@ -7,6 +7,8 @@ export interface MarketMetric {
   description: string
 }
 
+export const marketLastUpdated = 'Q3 2025'
+
 export const marketMetrics: MarketMetric[] = [
   {
     id: 'lcp',

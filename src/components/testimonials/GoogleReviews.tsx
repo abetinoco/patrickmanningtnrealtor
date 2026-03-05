@@ -1,3 +1,4 @@
+import { agentProfile } from '../../data/agent'
 import styles from './GoogleReviews.module.css'
 
 interface Review {
@@ -60,12 +61,26 @@ export const GoogleReviews = () => {
           <h2 id="google-reviews-heading" className={styles.reviewsTitle}>
             What Clients Say
           </h2>
+          {agentProfile.socialLinks.googleBusiness && (
+            <a
+              href={agentProfile.socialLinks.googleBusiness}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.googleLink}
+            >
+              Read all reviews on Google ↗
+            </a>
+          )}
         </div>
         <div className={styles.reviewsCarousel}>
           <div className={styles.reviewsTrack}>
             {reviews.map((review, index) => (
               <div key={index} className={styles.reviewCard}>
-                <div className={styles.reviewStars}>
+                <div
+                  className={styles.reviewStars}
+                  role="img"
+                  aria-label={`${review.rating} out of 5 stars`}
+                >
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
@@ -74,6 +89,7 @@ export const GoogleReviews = () => {
                       viewBox="0 0 24 24"
                       fill="currentColor"
                       className={styles.star}
+                      aria-hidden="true"
                     >
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>

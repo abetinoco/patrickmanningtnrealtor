@@ -1729,3 +1729,201 @@ body ul.pagination a * {
   color: inherit !important;
   visibility: visible !important;
 }
+
+/**
+ * IDX Broker – MAP CONTAINER (Results page)
+ * Hide the empty map column that causes white space above the filter bar.
+ * Show it only when the user has actively toggled map view.
+ */
+#IDX-map,
+div#IDX-map {
+  display: none !important;
+}
+
+/* Restore map when IDX adds one of these active-state classes */
+#IDX-map.idx-map--visible,
+#IDX-map[class*="visible"],
+#IDX-map[style*="display: block"],
+#IDX-map[style*="display:block"],
+#IDX-map[style*="height"]:not([style*="height: 0"]):not([style*="height:0"]) {
+  display: block !important;
+}
+
+/**
+ * IDX Broker – LISTING CARD IMAGE OVERLAY (hover)
+ * IDX injects a navy/blue semi-transparent overlay on card image hover.
+ * Override to brand teal and center the caption details inside the overlay.
+ */
+.idx-listing-card__image-overlay,
+span.idx-listing-card__image-overlay,
+[class*="idx-listing-card__image-overlay"],
+.IDX-listingCard [class*="overlay"],
+[class*="listingCard"] [class*="image-overlay"] {
+  background-color: rgba(56, 224, 195, 0.25) !important;
+  transition: background-color 0.2s ease !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  text-align: center !important;
+}
+
+/* Center all text nodes and child elements inside the overlay */
+.idx-listing-card__image-overlay *,
+span.idx-listing-card__image-overlay *,
+[class*="idx-listing-card__image-overlay"] * {
+  text-align: center !important;
+  width: 100% !important;
+}
+
+.idx-listing-card:hover .idx-listing-card__image-overlay,
+.idx-listing-card:focus-within .idx-listing-card__image-overlay,
+[class*="idx-listing-card"]:hover [class*="image-overlay"],
+[class*="listingCard"]:hover [class*="image-overlay"] {
+  background-color: rgba(43, 201, 176, 0.40) !important;
+}
+
+/**
+ * IDX Broker – MY LISTINGS MANAGER (MLM) / ACCOUNT DASHBOARD
+ * The MLM section (/account or /my-listings) ships with hardcoded IDX blue/navy.
+ * These rules re-theme it to match the Patrick Manning brand.
+ *
+ * Sections covered:
+ *   - MLM top navbar (brand + links)
+ *   - "VERIFY NOW" / alert banner
+ *   - Dashboard card headers (.panel-primary, .panel-info)
+ *   - Sidebar nav active state
+ *   - Primary buttons
+ *   - General links
+ */
+
+/* ── MLM top navbar ── */
+.mlm-navbar,
+.mlm-nav,
+.IDX-mlmNavbar,
+nav.navbar.IDX-mlm,
+#IDX-mlm-navbar,
+[class*="mlm-navbar"],
+[class*="mlm-nav"],
+[id*="mlm-navbar"],
+[id*="IDX-mlm"] {
+  background-color: #1a2332 !important;
+  border-color: #1a2332 !important;
+}
+
+.mlm-navbar .navbar-brand,
+.mlm-navbar .brand,
+#IDX-mlm-navbar .navbar-brand,
+[class*="mlm-navbar"] .navbar-brand,
+[class*="mlm-navbar"] .brand {
+  color: #38e0c3 !important;
+  font-weight: 700 !important;
+}
+
+.mlm-navbar .navbar-nav > li > a,
+.mlm-navbar .nav > li > a,
+#IDX-mlm-navbar .navbar-nav > li > a,
+[class*="mlm-navbar"] .navbar-nav > li > a,
+[class*="mlm-nav"] .nav > li > a {
+  color: #e4eaf2 !important;
+}
+
+.mlm-navbar .navbar-nav > li > a:hover,
+.mlm-navbar .nav > li > a:hover,
+[class*="mlm-navbar"] .navbar-nav > li > a:hover,
+[class*="mlm-nav"] .nav > li > a:hover {
+  color: #38e0c3 !important;
+  background-color: rgba(56, 224, 195, 0.08) !important;
+}
+
+.mlm-navbar .navbar-nav > .active > a,
+.mlm-navbar .navbar-nav > .active > a:hover,
+[class*="mlm-navbar"] .navbar-nav > .active > a {
+  color: #38e0c3 !important;
+  background-color: rgba(56, 224, 195, 0.12) !important;
+}
+
+/* ── MLM "VERIFY NOW" / alert banner ── */
+.IDX-alert-verify,
+.IDX-verifyBanner,
+.mlm-verify-banner,
+[class*="verifyBanner"],
+[class*="verify-banner"],
+[class*="IDX-alert"],
+.alert.alert-warning.IDX-verify,
+#IDX-verify-banner,
+[id*="verify-banner"],
+[id*="verifyBanner"] {
+  background-color: rgba(56, 224, 195, 0.12) !important;
+  border-color: rgba(56, 224, 195, 0.35) !important;
+  color: #1a2332 !important;
+}
+
+.IDX-alert-verify a,
+.IDX-verifyBanner a,
+[class*="verifyBanner"] a,
+[class*="verify-banner"] a,
+[class*="IDX-alert"] a {
+  color: #38e0c3 !important;
+  font-weight: 600 !important;
+}
+
+/* ── MLM dashboard card headers (Bootstrap panel-primary, panel-info) ── */
+.panel-primary > .panel-heading,
+.panel-info > .panel-heading,
+[class*="panel-primary"] > .panel-heading,
+[class*="panel-info"] > .panel-heading,
+.IDX-panel-primary > .panel-heading,
+.IDX-panel-info > .panel-heading {
+  background-color: #1a2332 !important;
+  border-color: #1a2332 !important;
+  color: #ffffff !important;
+}
+
+.panel-primary,
+.panel-info,
+[class*="panel-primary"],
+[class*="panel-info"],
+.IDX-panel-primary,
+.IDX-panel-info {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+/* ── MLM sidebar / sub-nav active state ── */
+.mlm-sidebar .active > a,
+.mlm-sidenav .active > a,
+[class*="mlm-sidebar"] .active > a,
+[class*="mlm-sidenav"] .active > a,
+.IDX-mlm-sidebar .active > a {
+  color: #38e0c3 !important;
+  background-color: rgba(56, 224, 195, 0.1) !important;
+  border-left: 3px solid #38e0c3 !important;
+}
+
+/* ── MLM primary buttons ── */
+.mlm-navbar .btn-primary,
+.mlm-nav .btn-primary,
+#IDX-mlm-navbar .btn-primary,
+[class*="mlm"] .btn-primary,
+[class*="mlm"] input[type="submit"],
+[class*="mlm"] button[type="submit"] {
+  background-color: #38e0c3 !important;
+  border-color: #38e0c3 !important;
+  color: #050708 !important;
+}
+
+.mlm-navbar .btn-primary:hover,
+[class*="mlm"] .btn-primary:hover,
+[class*="mlm"] input[type="submit"]:hover {
+  background-color: #2bc9b0 !important;
+  border-color: #2bc9b0 !important;
+}
+
+/* ── MLM general links ── */
+[class*="mlm"] a:not(.btn):not([class*="navbar-brand"]) {
+  color: #38e0c3 !important;
+}
+
+[class*="mlm"] a:not(.btn):not([class*="navbar-brand"]):hover {
+  color: #2bc9b0 !important;
+}

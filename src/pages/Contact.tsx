@@ -44,12 +44,11 @@ const Contact = () => {
         </div>
         <div className={styles.calendlyWidget}>
           <iframe
-            src="https://calendly.com/pmanningtnrealtor/realestateconsultation?hide_gdpr_banner=1&background_color=0a0f16&text_color=f5f7fa&primary_color=4fe0d0"
+            src="https://calendly.com/pmanningtnrealtor/realestateconsultation?hide_gdpr_banner=1&primary_color=4fe0d0"
             width="100%"
-            height="700"
-            frameBorder="0"
+            style={{ border: 0, width: '100%' }}
             title="Schedule a consultation with Patrick Manning"
-            loading="lazy"
+            loading="eager"
           />
         </div>
       </section>
@@ -63,7 +62,7 @@ const Contact = () => {
             </p>
             <div className={styles.formLinks}>
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSfo5CToatY-U8AViEnhNETb1wlZxy6W46xOtlg8anCGY-8RxA/viewform?usp=pp_url"
+                href={agentProfile.forms.buyerQuestionnaire}
                 target="_blank"
                 rel="noreferrer"
                 className={styles.formLinkButton}
@@ -71,7 +70,7 @@ const Contact = () => {
                 Buyer Questionnaire
               </a>
               <a
-                href="https://docs.google.com/forms/d/e/1FAIpQLSdIKMhCGY10fJqKytzmPD9Q2E2Zy9asrkst2gOXNd6XGt_35A/viewform?usp=pp_url"
+                href={agentProfile.forms.sellerQuestionnaire}
                 target="_blank"
                 rel="noreferrer"
                 className={styles.formLinkButton}

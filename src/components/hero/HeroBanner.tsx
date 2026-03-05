@@ -2,8 +2,7 @@ import { agentProfile } from '../../data/agent'
 import { PropertySearchForm } from '../search/PropertySearchForm'
 import styles from './HeroBanner.module.css'
 
-const BUYER_QUESTIONNAIRE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfo5CToatY-U8AViEnhNETb1wlZxy6W46xOtlg8anCGY-8RxA/viewform?usp=pp_url'
-const SELLER_QUESTIONNAIRE_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSdIKMhCGY10fJqKytzmPD9Q2E2Zy9asrkst2gOXNd6XGt_35A/viewform?usp=pp_url'
+const { buyerQuestionnaire: BUYER_QUESTIONNAIRE_URL, sellerQuestionnaire: SELLER_QUESTIONNAIRE_URL } = agentProfile.forms
 
 export const HeroBanner = () => {
   const { hero, valueMetrics } = agentProfile
@@ -121,12 +120,12 @@ export const HeroBanner = () => {
         <div className={styles.mobileSearch}>
           <PropertySearchForm variant="compact" />
         </div>
-        <h1
+        <p
           className={styles.mobileTitle}
           style={{ color: '#ffffff', textShadow: '0 2px 20px rgba(0,0,0,0.8)' }}
         >
           Find Your <span style={{ color: 'var(--accent-primary)' }}>Perfect</span> Home
-        </h1>
+        </p>
         <p
           className={styles.mobileSubtitle}
           style={{ color: '#ffffff', textShadow: '0 1px 10px rgba(0,0,0,0.6)' }}

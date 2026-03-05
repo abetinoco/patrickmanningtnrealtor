@@ -3,7 +3,7 @@ import { defaultMeta } from '../seo/metaDefaults'
 import { PageHeader } from '../components/shared/PageHeader'
 import { testimonials } from '../data/testimonials'
 import { agentProfile } from '../data/agent'
-import styles from './Contact.module.css'
+import styles from './Reviews.module.css'
 
 const Reviews = () => (
   <div>

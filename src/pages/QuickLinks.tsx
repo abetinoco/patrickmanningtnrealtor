@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Seo } from '../components/seo/Seo'
 import { agentProfile } from '../data/agent'
 import { type IconName, iconMap } from '../components/icons/Icons'
 import styles from './QuickLinks.module.css'
@@ -36,7 +37,7 @@ export const QuickLinks = () => {
       },
       {
         title: 'Book a Time',
-        href: 'https://calendly.com/pmanningtnrealtor/realestateconsultation?month=2025-11',
+        href: 'https://calendly.com/pmanningtnrealtor/realestateconsultation',
         description: 'Book your private strategy session',
         icon: 'calendar',
         external: true,
@@ -95,6 +96,12 @@ export const QuickLinks = () => {
 
   return (
     <div className={styles.page}>
+      <Seo
+        title="Quick Links | Patrick Manning Realtor"
+        description="Browse homes, get a home valuation, book a call, or connect with Patrick Manning on social media."
+        canonical="https://patrickmanningrealtor.com/quicklinks"
+        openGraph={{ type: 'website', image: 'https://patrickmanningrealtor.com/media/patrick.png' }}
+      />
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.avatar}>

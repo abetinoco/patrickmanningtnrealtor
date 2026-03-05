@@ -287,6 +287,18 @@
 }
 
 @media (max-width: 768px) {
+  .calendlyWidget iframe {
+    min-height: 1000px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendlyWidget iframe {
+    min-height: 1100px;
+  }
+}
+
+@media (max-width: 768px) {
   .wrapper {
     padding: 3rem 0;
   }

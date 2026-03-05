@@ -50,6 +50,8 @@ export const agentProfile = {
     linkedin: 'https://www.linkedin.com/in/pmanningtnrealtor/',
     tiktok: 'https://www.tiktok.com/@pmanningtnrealtor',
     youtube: 'https://www.youtube.com/@pmanningtnrealtor',
+    // Search "Patrick Manning Real Broker" on Google Maps, copy the share URL, paste here
+    googleBusiness: '',
   },
   hero: {
     headline: 'Realtor & Home Lifestyle Expert',
@@ -76,6 +78,10 @@ export const agentProfile = {
     'Proven negotiation record with $60M+ closed since 2018 and 125 relocations',
     'Personal experience relocating across major markets, so every step feels clear and supported',
   ],
+  forms: {
+    buyerQuestionnaire: 'https://docs.google.com/forms/d/e/1FAIpQLSfo5CToatY-U8AViEnhNETb1wlZxy6W46xOtlg8anCGY-8RxA/viewform?usp=pp_url',
+    sellerQuestionnaire: 'https://docs.google.com/forms/d/e/1FAIpQLSdIKMhCGY10fJqKytzmPD9Q2E2Zy9asrkst2gOXNd6XGt_35A/viewform?usp=pp_url',
+  },
 }
 
 export type AgentProfile = typeof agentProfile

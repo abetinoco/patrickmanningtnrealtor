@@ -4,6 +4,7 @@ interface SeoProps {
   title: string
   description: string
   canonical?: string
+  noindex?: boolean
   openGraph?: {
     type?: string
     image?: string
@@ -31,10 +32,11 @@ const setPropertyMeta = (property: string, content: string) => {
   element.setAttribute('content', content)
 }
 
-export const Seo = ({ title, description, canonical, openGraph, schema }: SeoProps) => {
+export const Seo = ({ title, description, canonical, noindex, openGraph, schema }: SeoProps) => {
   useEffect(() => {
     document.title = title
     setMetaTag('description', description)
+    setMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow')
     setMetaTag('twitter:card', 'summary_large_image')
     setMetaTag('twitter:title', title)
     setMetaTag('twitter:description', description)
@@ -66,7 +68,7 @@ export const Seo = ({ title, description, canonical, openGraph, schema }: SeoPro
       }
       script.text = JSON.stringify(schema)
     }
-  }, [title, description, canonical, openGraph?.type, openGraph?.image, schema])
+  }, [title, description, canonical, noindex, openGraph?.type, openGraph?.image, schema])
 
   return null
 }

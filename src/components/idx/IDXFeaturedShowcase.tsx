@@ -20,6 +20,7 @@ export const IDXFeaturedShowcase = ({
   showHeader = true,
 }: IDXFeaturedShowcaseProps) => {
   const { id: widgetId } = IDX_CONFIG.widgets.featuredShowcase
+  const { id: kyWidgetId } = IDX_CONFIG.widgets.kyFeaturedShowcase
   const { wkrmlsIdxId } = IDX_CONFIG
 
   return (
@@ -45,12 +46,20 @@ export const IDXFeaturedShowcase = ({
           </div>
           <div className={styles.stateColumn}>
             <h3 className={styles.stateLabel}>Kentucky</h3>
-            <IDXWidget
-              widgetId={widgetId}
-              queryParams={{ idxID: wkrmlsIdxId, commingle: '' }}
-              className={styles.widgetWrapper}
-              minHeight="480px"
-            />
+            {kyWidgetId ? (
+              <IDXWidget
+                widgetId={kyWidgetId}
+                className={styles.widgetWrapper}
+                minHeight="480px"
+              />
+            ) : (
+              <IDXWidget
+                widgetId={widgetId}
+                queryParams={{ idxID: wkrmlsIdxId, commingle: '' }}
+                className={styles.widgetWrapper}
+                minHeight="480px"
+              />
+            )}
           </div>
         </div>
       </div>

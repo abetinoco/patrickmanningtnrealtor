@@ -15,8 +15,10 @@ export const AdvisoryProcess = () => {
         <ul className={styles.processList}>
           {advisoryProcess.map((step) => (
             <li key={step.id} className={styles.processItem}>
-              <strong>{step.title}:</strong>{' '}
-              {step.description.join('; ')}
+              <span className={styles.processItemText}>
+                <strong>{step.title}:</strong>{' '}
+                {step.description.join('; ')}
+              </span>
             </li>
           ))}
         </ul>

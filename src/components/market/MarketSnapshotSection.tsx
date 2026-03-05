@@ -1,4 +1,4 @@
-import { marketMetrics } from '../../data/market'
+import { marketMetrics, marketLastUpdated } from '../../data/market'
 import styles from './MarketSnapshotSection.module.css'
 
 export const MarketSnapshotSection = () => (
@@ -11,6 +11,9 @@ export const MarketSnapshotSection = () => (
       <p>
         Receive live updates on absorption rates, executive relocation trends, and the luxury new construction pipeline across
         Middle Tennessee and Western Kentucky.
+      </p>
+      <p style={{ fontSize: '0.8125rem', color: 'var(--text-tertiary)', marginTop: '0.5rem' }}>
+        Data as of {marketLastUpdated}
       </p>
     </div>
 

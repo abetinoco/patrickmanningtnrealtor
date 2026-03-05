@@ -133,9 +133,41 @@ export const HomeValuationTool = () => {
         setContactData(prev => ({ ...prev, [name]: value }))
     }
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         const result = estimateValue(propertyData)
+
+        // Send lead to Patrick via Web3Forms (set VITE_WEB3FORMS_KEY in Vercel env vars)
+        const accessKey = import.meta.env.VITE_WEB3FORMS_KEY
+        if (accessKey) {
+            try {
+                await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        access_key: accessKey,
+                        subject: `Home Valuation Lead — ${propertyData.address}`,
+                        from_name: contactData.name,
+                        email: contactData.email,
+                        phone: contactData.phone || 'Not provided',
+                        address: propertyData.address,
+                        property_type: propertyData.propertyType,
+                        bedrooms: propertyData.bedrooms,
+                        bathrooms: propertyData.bathrooms,
+                        sqft: propertyData.squareFeet,
+                        year_built: propertyData.yearBuilt,
+                        condition: propertyData.condition,
+                        recent_updates: propertyData.recentUpdates.join(', ') || 'None selected',
+                        estimated_low: `$${result.low.toLocaleString()}`,
+                        estimated_mid: `$${result.mid.toLocaleString()}`,
+                        estimated_high: `$${result.high.toLocaleString()}`,
+                    }),
+                })
+            } catch {
+                // Silently fail — don't block the user from seeing their result
+            }
+        }
+
         setEstimate(result)
         setStep('result')
     }

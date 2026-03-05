@@ -6,31 +6,55 @@
   border-top: 1px solid var(--border-light);
 }
 
-/* Simple bullet list container */
+/* Bullet list container */
 .bulletContainer {
-  max-width: var(--container-width);
-  margin: 2rem auto 0;
+  max-width: 780px;
+  margin: 2.5rem auto 0;
   padding: 0 var(--container-padding);
 }
 
 .processList {
   margin: 0;
-  padding-left: 1.5rem;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  font-size: 1.05rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }
 
 .processItem {
-  margin-bottom: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-light);
 }
 
 .processItem:last-child {
-  margin-bottom: 0;
+  border-bottom: none;
+}
+
+/* Teal bullet dot */
+.processItem::before {
+  content: '';
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  margin-top: 0.45em;
+  box-shadow: 0 0 0 3px rgba(79, 224, 208, 0.2);
 }
 
 .processItem strong {
   color: var(--text-primary);
+  font-weight: 700;
+}
+
+.processItemText {
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-size: 1rem;
 }
 
 /* Legacy timeline styles below - can be removed later */

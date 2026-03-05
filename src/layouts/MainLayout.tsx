@@ -18,7 +18,7 @@ export const MainLayout = () => {
       <main>
         <Outlet />
       </main>
-      <FooterSocialDisclosure />
+      {location.pathname !== '/search-results' && <FooterSocialDisclosure />}
       {location.pathname !== '/search-results' && <FloatingContactBar />}
       {/* Disable Vercel Analytics on search-results: its viewport-coverage script has an
           illegal top-level return that throws and breaks IDX pagination in the iframe. */}

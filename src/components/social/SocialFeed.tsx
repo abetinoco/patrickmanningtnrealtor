@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { agentProfile } from '../../data/agent'
 import {
     InstagramIcon,
@@ -17,8 +17,9 @@ interface SocialPlatform {
     color: string
 }
 
-// YouTube Channel ID for pmanningtnrealtor
-const YOUTUBE_CHANNEL_ID = 'UCrPqvzOmaXeW0W90xkOeXRA'
+// YouTube uploads playlist — formed by replacing 'UC' with 'UU' in the channel ID.
+// This always shows the latest uploads without any CORS proxy.
+const YOUTUBE_UPLOADS_PLAYLIST = 'UUrPqvzOmaXeW0W90xkOeXRA'
 
 const platforms: SocialPlatform[] = [
     {
@@ -59,36 +60,6 @@ const platforms: SocialPlatform[] = [
 ]
 
 export const SocialFeed = () => {
-    const [latestVideoId, setLatestVideoId] = useState<string | null>(null)
-
-    // Fetch latest YouTube video from RSS feed
-    useEffect(() => {
-        const fetchLatestVideo = async () => {
-            try {
-                const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${YOUTUBE_CHANNEL_ID}`
-                const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(rssUrl)}`
-
-                const response = await fetch(proxyUrl)
-                const text = await response.text()
-
-                const parser = new DOMParser()
-                const xml = parser.parseFromString(text, 'text/xml')
-                const entries = xml.getElementsByTagName('entry')
-
-                if (entries.length > 0) {
-                    const firstEntry = entries[0]
-                    const videoIdElement = firstEntry.getElementsByTagName('yt:videoId')[0]
-                    if (videoIdElement?.textContent) {
-                        setLatestVideoId(videoIdElement.textContent)
-                    }
-                }
-            } catch (error) {
-                console.error('Failed to fetch latest YouTube video:', error)
-            }
-        }
-
-        fetchLatestVideo()
-    }, [])
 
     // Load TikTok embed script
     useEffect(() => {
@@ -124,11 +95,8 @@ export const SocialFeed = () => {
                         </div>
                         <div className={styles.youtubeWrapper}>
                             <iframe
-                                src={latestVideoId
-                                    ? `https://www.youtube.com/embed/${latestVideoId}`
-                                    : `https://www.youtube.com/embed/videoseries?list=UU${YOUTUBE_CHANNEL_ID.slice(2)}`
-                                }
-                                title="Patrick Manning Latest YouTube Video"
+                                src={`https://www.youtube.com/embed/videoseries?list=${YOUTUBE_UPLOADS_PLAYLIST}&rel=0`}
+                                title="Patrick Manning Latest YouTube Videos"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
                                 loading="lazy"
@@ -152,12 +120,8 @@ export const SocialFeed = () => {
                         </div>
                         <div className={styles.facebookWrapper}>
                             <iframe
-                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpmanningtnrealtor&tabs=timeline&width=340&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
-                                width="340"
-                                height="400"
-                                style={{ border: 'none', overflow: 'hidden' }}
-                                scrolling="no"
-                                frameBorder="0"
+                                src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fpmanningtnrealtor&tabs=timeline&width=500&height=400&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false"
+                                style={{ border: 'none', overflow: 'hidden', width: '100%', height: '400px', display: 'block' }}
                                 allowFullScreen
                                 allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                                 loading="lazy"

@@ -1,5 +1,5 @@
 .hero {
-    padding: calc(var(--header-height) + 2rem) 0 2rem;
+    padding: 2.5rem 0 2rem;
     background: var(--bg-primary);
     display: flex;
     align-items: center;
@@ -57,9 +57,41 @@
 
 .searchBar {
     margin-top: 0.5rem;
-    margin-left: -12px;
     width: 100%;
-    max-width: 500px;
+    max-width: 680px;
+}
+
+.orDivider {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    max-width: 680px;
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+}
+
+.orDivider::before,
+.orDivider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+}
+
+.questionnaireLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--accent-primary);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.questionnaireLink:hover {
+    color: var(--accent-tertiary);
+    gap: 0.75rem;
 }
 
 .ctaButton {
@@ -216,7 +248,7 @@
 
 @media (max-width: 640px) {
     .hero {
-        padding: calc(var(--header-height) + 2rem) 0 3rem;
+        padding: 2rem 0 3rem;
         min-height: auto;
     }
 
